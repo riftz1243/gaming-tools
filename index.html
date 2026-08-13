@@ -1,744 +1,783 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Gaming Tools - Free Tools for Gamers</title>
+<title>GameTools - PC Graphics Settings Finder</title>
 
-  <meta name="description"
-        content="Free gaming tools including a game picker, download time calculator, playtime calculator and graphics settings helper.">
+<meta name="description" content="Find recommended PC graphics settings for popular games based on your GPU, resolution and FPS goal.">
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
 
-    :root {
-      --bg: #08090d;
-      --card: #11131a;
-      --card-hover: #151824;
-      --border: #242836;
-      --text: #ffffff;
-      --muted: #979dac;
-      --accent: #7c5cff;
-      --accent2: #5c8dff;
-    }
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top, #151328 0%, #08090d 35%);
-      color: var(--text);
-      min-height: 100vh;
-    }
+:root{
+--bg:#07080c;
+--card:#11131a;
+--border:#252938;
+--text:#fff;
+--muted:#989eae;
+--purple:#765cff;
+--blue:#5597ff;
+}
 
-    nav {
-      height: 70px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 6%;
-      background: rgba(8, 9, 13, 0.8);
-    }
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:
+radial-gradient(circle at top,#17132d 0%,#07080c 35%);
+color:var(--text);
+min-height:100vh;
+}
 
-    .logo {
-      font-size: 22px;
-      font-weight: 800;
-    }
+nav{
+height:70px;
+border-bottom:1px solid var(--border);
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 6%;
+background:rgba(7,8,12,.85);
+}
 
-    .logo span {
-      color: var(--accent);
-    }
+.logo{
+font-size:23px;
+font-weight:800;
+}
 
-    .nav-text {
-      color: var(--muted);
-      font-size: 14px;
-    }
+.logo span{
+color:var(--purple);
+}
 
-    .hero {
-      text-align: center;
-      padding: 90px 20px 55px;
-    }
+nav p{
+color:var(--muted);
+font-size:14px;
+}
 
-    .hero-badge {
-      display: inline-block;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
-      padding: 8px 14px;
-      border-radius: 100px;
-      color: #c2c6d2;
-      font-size: 13px;
-      margin-bottom: 22px;
-    }
+.hero{
+text-align:center;
+padding:85px 20px 50px;
+}
 
-    .hero h1 {
-      font-size: clamp(42px, 7vw, 72px);
-      line-height: 1;
-      max-width: 850px;
-      margin: auto;
-      letter-spacing: -3px;
-    }
+.badge{
+display:inline-block;
+padding:8px 15px;
+border:1px solid var(--border);
+border-radius:100px;
+color:#c8cad4;
+font-size:13px;
+margin-bottom:22px;
+}
 
-    .gradient {
-      background: linear-gradient(
-        90deg,
-        var(--accent),
-        var(--accent2)
-      );
-      -webkit-background-clip: text;
-      color: transparent;
-    }
+.hero h1{
+font-size:clamp(42px,7vw,72px);
+line-height:1;
+letter-spacing:-3px;
+max-width:900px;
+margin:auto;
+}
 
-    .hero p {
-      max-width: 620px;
-      margin: 24px auto 0;
-      color: var(--muted);
-      font-size: 18px;
-      line-height: 1.6;
-    }
+.gradient{
+background:linear-gradient(90deg,var(--purple),var(--blue));
+-webkit-background-clip:text;
+color:transparent;
+}
 
-    main {
-      max-width: 1180px;
-      margin: auto;
-      padding: 20px 20px 90px;
-    }
+.hero p{
+max-width:650px;
+margin:24px auto 0;
+color:var(--muted);
+font-size:18px;
+line-height:1.6;
+}
 
-    .section-title {
-      margin-bottom: 25px;
-    }
+main{
+max-width:1100px;
+margin:auto;
+padding:20px 20px 100px;
+}
 
-    .section-title h2 {
-      font-size: 30px;
-      margin-bottom: 7px;
-    }
+.tool{
+background:rgba(17,19,26,.94);
+border:1px solid var(--border);
+border-radius:24px;
+padding:35px;
+}
 
-    .section-title p {
-      color: var(--muted);
-    }
+.tool h2{
+font-size:30px;
+margin-bottom:8px;
+}
 
-    .tools {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
+.subtitle{
+color:var(--muted);
+margin-bottom:30px;
+line-height:1.5;
+}
 
-    .card {
-      background: rgba(17, 19, 26, 0.92);
-      border: 1px solid var(--border);
-      padding: 28px;
-      border-radius: 22px;
-      transition: 0.2s;
-    }
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
+}
 
-    .card:hover {
-      transform: translateY(-3px);
-      border-color: #393f55;
-      background: var(--card-hover);
-    }
+.field{
+margin-bottom:5px;
+}
 
-    .icon {
-      font-size: 28px;
-      margin-bottom: 18px;
-    }
+label{
+display:block;
+color:#c7cad3;
+font-size:13px;
+margin-bottom:8px;
+}
 
-    .card h3 {
-      font-size: 22px;
-      margin-bottom: 8px;
-    }
+select{
+width:100%;
+padding:14px;
+border-radius:11px;
+border:1px solid #303545;
+background:#090b10;
+color:white;
+font-size:15px;
+outline:none;
+}
 
-    .card-description {
-      color: var(--muted);
-      line-height: 1.5;
-      margin-bottom: 22px;
-    }
+select:focus{
+border-color:var(--purple);
+}
 
-    label {
-      display: block;
-      color: #c7cad4;
-      font-size: 13px;
-      margin-bottom: 7px;
-    }
+button{
+width:100%;
+margin-top:25px;
+padding:15px;
+border:none;
+border-radius:12px;
+font-size:15px;
+font-weight:bold;
+cursor:pointer;
+color:#fff;
+background:linear-gradient(90deg,var(--purple),var(--blue));
+transition:.2s;
+}
 
-    input,
-    textarea,
-    select {
-      width: 100%;
-      border: 1px solid #303544;
-      background: #090b10;
-      color: white;
-      padding: 13px;
-      border-radius: 11px;
-      margin-bottom: 13px;
-      outline: none;
-      font-size: 14px;
-    }
+button:hover{
+transform:translateY(-2px);
+opacity:.93;
+}
 
-    textarea {
-      min-height: 115px;
-      resize: vertical;
-    }
+.result{
+display:none;
+margin-top:28px;
+background:#090b10;
+border:1px solid var(--border);
+border-radius:18px;
+padding:25px;
+}
 
-    input:focus,
-    textarea:focus,
-    select:focus {
-      border-color: var(--accent);
-    }
+.result h3{
+font-size:23px;
+margin-bottom:20px;
+}
 
-    button {
-      width: 100%;
-      padding: 13px;
-      border: none;
-      border-radius: 11px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 700;
-      color: white;
-      background:
-        linear-gradient(90deg, var(--accent), var(--accent2));
-      transition: 0.2s;
-    }
+.setting{
+display:flex;
+justify-content:space-between;
+padding:12px 0;
+border-bottom:1px solid #20232d;
+gap:20px;
+}
 
-    button:hover {
-      transform: scale(1.01);
-      opacity: 0.92;
-    }
+.setting:last-child{
+border-bottom:none;
+}
 
-    .result {
-      display: none;
-      margin-top: 17px;
-      padding: 16px;
-      background: #090b10;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      line-height: 1.6;
-    }
+.setting span:first-child{
+color:var(--muted);
+}
 
-    .result strong {
-      color: #b8aaff;
-    }
+.value{
+font-weight:bold;
+text-align:right;
+}
 
-    .small {
-      color: var(--muted);
-      font-size: 12px;
-      margin-top: 10px;
-    }
+.fps{
+font-size:35px;
+font-weight:800;
+margin:15px 0;
+}
 
-    footer {
-      border-top: 1px solid var(--border);
-      text-align: center;
-      padding: 35px 20px;
-      color: var(--muted);
-      font-size: 14px;
-    }
+.note{
+margin-top:20px;
+padding:15px;
+border-radius:10px;
+background:#121520;
+color:#a9afbd;
+font-size:13px;
+line-height:1.5;
+}
 
-    @media(max-width: 750px) {
-      .tools {
-        grid-template-columns: 1fr;
-      }
+.other-tools{
+margin-top:30px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+}
 
-      .hero {
-        padding-top: 60px;
-      }
+.small-card{
+padding:20px;
+border:1px solid var(--border);
+background:#0d0f15;
+border-radius:16px;
+}
 
-      .hero h1 {
-        letter-spacing: -2px;
-      }
+.small-card h3{
+margin-bottom:6px;
+}
 
-      .nav-text {
-        display: none;
-      }
-    }
-  </style>
+.small-card p{
+color:var(--muted);
+font-size:13px;
+line-height:1.5;
+}
+
+footer{
+border-top:1px solid var(--border);
+padding:35px;
+text-align:center;
+color:var(--muted);
+font-size:13px;
+}
+
+@media(max-width:700px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.other-tools{
+grid-template-columns:1fr;
+}
+
+.hero{
+padding-top:55px;
+}
+
+.hero h1{
+letter-spacing:-2px;
+}
+
+nav p{
+display:none;
+}
+
+.tool{
+padding:24px;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
 <nav>
-  <div class="logo">Game<span>Tools</span></div>
-  <div class="nav-text">Free tools for gamers</div>
+
+<div class="logo">
+Game<span>Tools</span>
+</div>
+
+<p>Free PC gaming tools</p>
+
 </nav>
+
 
 <section class="hero">
 
-  <div class="hero-badge">
-    🎮 100% Free Gaming Tools
-  </div>
+<div class="badge">
+⚡ PC Graphics Settings Finder
+</div>
 
-  <h1>
-    Useful tools made
-    <span class="gradient">for gamers.</span>
-  </h1>
+<h1>
+Find the best
+<span class="gradient">gaming settings.</span>
+</h1>
 
-  <p>
-    Simple tools for choosing what to play, estimating
-    download times, tracking gaming time and finding
-    graphics settings.
-  </p>
+<p>
+Choose your graphics card, game, resolution and FPS goal.
+GameTools will recommend a starting point for your graphics settings.
+</p>
 
 </section>
 
+
 <main>
 
-  <div class="section-title">
-    <h2>Gaming Tools</h2>
-    <p>Choose a tool and start using it instantly.</p>
-  </div>
+<div class="tool">
 
-  <div class="tools">
+<h2>🎮 Graphics Settings Finder</h2>
 
+<p class="subtitle">
+Select your setup below to get recommended settings.
+</p>
 
-    <!-- RANDOM GAME PICKER -->
 
-    <div class="card">
+<div class="grid">
 
-      <div class="icon">🎲</div>
 
-      <h3>Random Game Picker</h3>
+<div class="field">
 
-      <p class="card-description">
-        Can't decide what to play? Add your games and
-        let us choose one for you.
-      </p>
+<label>Graphics Card</label>
 
-      <label>Your games</label>
+<select id="gpu">
 
-      <textarea
-        id="games"
-        placeholder="Cyberpunk 2077&#10;Elden Ring&#10;Minecraft&#10;Fortnite"
-      ></textarea>
+<option value="2060">RTX 2060</option>
+<option value="3060">RTX 3060</option>
+<option value="3070">RTX 3070</option>
+<option value="3080">RTX 3080</option>
 
-      <button onclick="pickGame()">
-        Pick My Game
-      </button>
+<option value="4060">RTX 4060</option>
+<option value="4070">RTX 4070</option>
+<option value="4080">RTX 4080</option>
+<option value="4090">RTX 4090</option>
 
-      <div class="result" id="gameResult"></div>
+<option value="5060" selected>RTX 5060</option>
+<option value="5070">RTX 5070</option>
+<option value="5080">RTX 5080</option>
+<option value="5090">RTX 5090</option>
 
-    </div>
+<option value="6600">RX 6600</option>
+<option value="6700">RX 6700 XT</option>
+<option value="7600">RX 7600</option>
+<option value="7800">RX 7800 XT</option>
+<option value="7900">RX 7900 XTX</option>
 
+</select>
 
-    <!-- DOWNLOAD CALCULATOR -->
+</div>
 
-    <div class="card">
 
-      <div class="icon">⚡</div>
+<div class="field">
 
-      <h3>Game Download Calculator</h3>
+<label>Game</label>
 
-      <p class="card-description">
-        Estimate how long your game will take to download.
-      </p>
+<select id="game">
 
-      <label>Game size (GB)</label>
+<option value="cyberpunk">Cyberpunk 2077</option>
+<option value="eldenring">Elden Ring</option>
+<option value="fortnite">Fortnite</option>
+<option value="warzone">Call of Duty: Warzone</option>
+<option value="gta">GTA V</option>
+<option value="rdr2">Red Dead Redemption 2</option>
+<option value="witcher3">The Witcher 3</option>
+<option value="hogwarts">Hogwarts Legacy</option>
+<option value="starfield">Starfield</option>
+<option value="minecraft">Minecraft</option>
 
-      <input
-        id="gameSize"
-        type="number"
-        placeholder="Example: 100"
-      >
+</select>
 
-      <label>Internet speed (Mbps)</label>
+</div>
 
-      <input
-        id="internetSpeed"
-        type="number"
-        placeholder="Example: 250"
-      >
 
-      <button onclick="calculateDownload()">
-        Calculate Download Time
-      </button>
+<div class="field">
 
-      <div class="result" id="downloadResult"></div>
+<label>Resolution</label>
 
-    </div>
+<select id="resolution">
 
+<option value="1080">
+1920 × 1080
+</option>
 
-    <!-- PLAYTIME -->
+<option value="1440" selected>
+2560 × 1440
+</option>
 
-    <div class="card">
+<option value="4k">
+3840 × 2160
+</option>
 
-      <div class="icon">⏱️</div>
+</select>
 
-      <h3>Gaming Time Calculator</h3>
+</div>
 
-      <p class="card-description">
-        See how many hours you spend gaming every week,
-        month and year.
-      </p>
 
-      <label>Average gaming hours per day</label>
+<div class="field">
 
-      <input
-        id="hoursPerDay"
-        type="number"
-        step="0.1"
-        placeholder="Example: 2.5"
-      >
+<label>Your Goal</label>
 
-      <button onclick="calculateGamingTime()">
-        Calculate My Gaming Time
-      </button>
+<select id="goal">
 
-      <div class="result" id="gamingTimeResult"></div>
+<option value="fps">
+Maximum FPS
+</option>
 
-    </div>
+<option value="balanced" selected>
+Balanced
+</option>
 
+<option value="quality">
+Best Graphics
+</option>
 
-    <!-- GRAPHICS SETTINGS -->
+</select>
 
-    <div class="card">
+</div>
 
-      <div class="icon">🖥️</div>
 
-      <h3>Graphics Settings Helper</h3>
+</div>
 
-      <p class="card-description">
-        Get a quick graphics preset recommendation based
-        on your GPU level and resolution.
-      </p>
 
-      <label>GPU performance level</label>
+<button onclick="calculateSettings()">
 
-      <select id="gpuLevel">
+⚡ Find My Settings
 
-        <option value="entry">
-          Entry-level GPU
-        </option>
+</button>
 
-        <option value="mid" selected>
-          Mid-range GPU
-        </option>
 
-        <option value="high">
-          High-end GPU
-        </option>
+<div class="result" id="result">
 
-        <option value="enthusiast">
-          Enthusiast GPU
-        </option>
+<h3>Your Recommended Settings</h3>
 
-      </select>
+<div class="fps" id="fps"></div>
 
-      <label>Resolution</label>
 
-      <select id="resolution">
+<div class="setting">
 
-        <option value="1080">
-          1080p
-        </option>
+<span>Graphics Preset</span>
 
-        <option value="1440">
-          1440p
-        </option>
+<span class="value" id="preset"></span>
 
-        <option value="4k">
-          4K
-        </option>
+</div>
 
-      </select>
 
-      <label>Your goal</label>
+<div class="setting">
 
-      <select id="goal">
+<span>Textures</span>
 
-        <option value="fps">
-          Maximum FPS
-        </option>
+<span class="value" id="textures"></span>
 
-        <option value="balanced" selected>
-          Balanced
-        </option>
+</div>
 
-        <option value="quality">
-          Best Visual Quality
-        </option>
 
-      </select>
+<div class="setting">
 
-      <button onclick="recommendSettings()">
-        Recommend Settings
-      </button>
+<span>Shadows</span>
 
-      <div class="result" id="settingsResult"></div>
+<span class="value" id="shadows"></span>
 
-      <p class="small">
-        This is a general recommendation. Performance
-        varies between games and hardware.
-      </p>
+</div>
 
-    </div>
 
-  </div>
+<div class="setting">
+
+<span>Ray Tracing</span>
+
+<span class="value" id="raytracing"></span>
+
+</div>
+
+
+<div class="setting">
+
+<span>Upscaling</span>
+
+<span class="value" id="upscaling"></span>
+
+</div>
+
+
+<div class="setting">
+
+<span>Recommended Mode</span>
+
+<span class="value" id="mode"></span>
+
+</div>
+
+
+<div class="note">
+
+These are estimated starting recommendations.
+Actual performance depends on your CPU, RAM,
+game version, drivers and other hardware.
+
+</div>
+
+</div>
+
+
+<div class="other-tools">
+
+<div class="small-card">
+
+<h3>🎲 Game Picker</h3>
+
+<p>
+Can't decide what to play?
+Randomly choose a game from your library.
+</p>
+
+</div>
+
+
+<div class="small-card">
+
+<h3>⚡ Download Calculator</h3>
+
+<p>
+Calculate how long a game will take to download
+using your internet speed.
+</p>
+
+</div>
+
+
+<div class="small-card">
+
+<h3>⏱️ Playtime Calculator</h3>
+
+<p>
+See how much time you spend gaming every week,
+month and year.
+</p>
+
+</div>
+
+</div>
+
+</div>
 
 </main>
 
+
 <footer>
-  © 2026 GameTools • Free tools for gamers
+
+© 2026 GameTools — Free PC gaming tools
+
 </footer>
 
 
 <script>
 
-  // RANDOM GAME PICKER
 
-  function pickGame() {
+const gpuPower = {
 
-    const text =
-      document.getElementById("games").value;
+"2060":1.2,
+"3060":1.6,
+"3070":2,
+"3080":2.5,
 
-    const games =
-      text
-      .split("\n")
-      .map(game => game.trim())
-      .filter(game => game !== "");
+"4060":1.8,
+"4070":2.6,
+"4080":3.5,
+"4090":4.5,
 
-    const result =
-      document.getElementById("gameResult");
+"5060":2.3,
+"5070":3,
+"5080":4,
+"5090":5,
 
-    if (games.length === 0) {
+"6600":1.4,
+"6700":1.9,
+"7600":1.7,
+"7800":2.7,
+"7900":3.8
 
-      result.style.display = "block";
+};
 
-      result.innerHTML =
-        "Add at least one game first.";
 
-      return;
-    }
+const gameDemand = {
 
-    const randomGame =
-      games[
-        Math.floor(
-          Math.random() * games.length
-        )
-      ];
+cyberpunk:1.45,
+eldenring:1,
+fortnite:.75,
+warzone:1.05,
+gta:.65,
+rdr2:1.15,
+witcher3:1.1,
+hogwarts:1.25,
+starfield:1.35,
+minecraft:.55
 
-    result.style.display = "block";
+};
 
-    result.innerHTML =
-      "🎮 You should play:<br><strong>" +
-      randomGame +
-      "</strong>";
-  }
 
+function calculateSettings(){
 
+const gpu =
+document.getElementById("gpu").value;
 
-  // DOWNLOAD CALCULATOR
+const game =
+document.getElementById("game").value;
 
-  function calculateDownload() {
+const resolution =
+document.getElementById("resolution").value;
 
-    const size =
-      Number(
-        document.getElementById("gameSize").value
-      );
+const goal =
+document.getElementById("goal").value;
 
-    const speed =
-      Number(
-        document.getElementById("internetSpeed").value
-      );
 
-    const result =
-      document.getElementById("downloadResult");
+let power =
+gpuPower[gpu];
 
-    if (size <= 0 || speed <= 0) {
+let demand =
+gameDemand[game];
 
-      result.style.display = "block";
 
-      result.innerHTML =
-        "Enter a valid game size and internet speed.";
+if(resolution==="1440"){
+demand*=1.35;
+}
 
-      return;
-    }
+if(resolution==="4k"){
+demand*=2;
+}
 
-    const seconds =
-      (size * 8000) / speed;
 
-    const hours =
-      Math.floor(seconds / 3600);
+let performance =
+power/demand;
 
-    const minutes =
-      Math.ceil(
-        (seconds % 3600) / 60
-      );
 
-    result.style.display = "block";
+let preset;
 
-    if (hours > 0) {
+let textures;
 
-      result.innerHTML =
-        "⚡ Estimated download time:<br>" +
-        "<strong>" +
-        hours +
-        " hr " +
-        minutes +
-        " min</strong>";
+let shadows;
 
-    } else {
+let rt;
 
-      result.innerHTML =
-        "⚡ Estimated download time:<br>" +
-        "<strong>" +
-        minutes +
-        " minutes</strong>";
-    }
-  }
+let upscaling;
 
+let mode;
 
+let fps;
 
-  // GAMING TIME
 
-  function calculateGamingTime() {
+if(performance<1){
 
-    const hours =
-      Number(
-        document.getElementById(
-          "hoursPerDay"
-        ).value
-      );
+preset="Low / Medium";
+textures="Medium";
+shadows="Low";
+rt="Off";
+upscaling="Performance";
+fps="40–60 FPS";
 
-    const result =
-      document.getElementById(
-        "gamingTimeResult"
-      );
+}
 
-    if (hours <= 0) {
+else if(performance<1.5){
 
-      result.style.display = "block";
+preset="Medium";
+textures="High";
+shadows="Medium";
+rt="Off";
+upscaling="Balanced";
+fps="55–75 FPS";
 
-      result.innerHTML =
-        "Enter your average gaming hours per day.";
+}
 
-      return;
-    }
+else if(performance<2.2){
 
-    const week =
-      hours * 7;
+preset="High";
+textures="High";
+shadows="High";
+rt="Off / Low";
+upscaling="Quality";
+fps="70–100 FPS";
 
-    const month =
-      hours * 30;
+}
 
-    const year =
-      hours * 365;
+else if(performance<3){
 
-    result.style.display = "block";
+preset="High / Ultra";
+textures="Ultra";
+shadows="High";
+rt="Medium";
+upscaling="Quality";
+fps="90–130 FPS";
 
-    result.innerHTML =
-      "🎮 <strong>" +
-      week.toFixed(1) +
-      " hours</strong> per week<br>" +
+}
 
-      "📅 <strong>" +
-      month.toFixed(1) +
-      " hours</strong> per month<br>" +
+else{
 
-      "🗓️ <strong>" +
-      year.toFixed(0) +
-      " hours</strong> per year";
-  }
+preset="Ultra";
+textures="Ultra";
+shadows="Ultra";
+rt="High";
+upscaling="Native / Quality";
+fps="120+ FPS";
 
+}
 
 
-  // SETTINGS HELPER
+if(goal==="fps"){
 
-  function recommendSettings() {
+shadows="Low / Medium";
 
-    const gpu =
-      document.getElementById(
-        "gpuLevel"
-      ).value;
+rt="Off";
 
-    const resolution =
-      document.getElementById(
-        "resolution"
-      ).value;
+if(resolution==="4k"){
+upscaling="Performance";
+}
+else{
+upscaling="Balanced";
+}
 
-    const goal =
-      document.getElementById(
-        "goal"
-      ).value;
+mode="Performance";
 
-    let score = 0;
+}
 
-    if (gpu === "entry") score = 1;
-    if (gpu === "mid") score = 2;
-    if (gpu === "high") score = 3;
-    if (gpu === "enthusiast") score = 4;
+else if(goal==="quality"){
 
-    if (resolution === "1440") {
-      score -= 0.5;
-    }
+textures="Ultra";
 
-    if (resolution === "4k") {
-      score -= 1;
-    }
+shadows="High / Ultra";
 
-    if (goal === "fps") {
-      score -= 0.5;
-    }
+if(performance>2){
+rt="Medium / High";
+}
 
-    if (goal === "quality") {
-      score += 0.5;
-    }
+mode="Visual Quality";
 
-    let preset;
+}
 
-    if (score <= 1) {
+else{
 
-      preset = "Low";
+mode="Balanced";
 
-    } else if (score <= 2) {
+}
 
-      preset = "Medium";
 
-    } else if (score <= 3) {
+document.getElementById("fps").innerText =
+"Estimated: "+fps;
 
-      preset = "High";
+document.getElementById("preset").innerText =
+preset;
 
-    } else {
+document.getElementById("textures").innerText =
+textures;
 
-      preset = "Ultra";
-    }
+document.getElementById("shadows").innerText =
+shadows;
 
-    let extra;
+document.getElementById("raytracing").innerText =
+rt;
 
-    if (goal === "fps") {
+document.getElementById("upscaling").innerText =
+upscaling;
 
-      extra =
-        "Use upscaling such as DLSS/FSR if available, reduce shadows and disable heavy ray tracing.";
+document.getElementById("mode").innerText =
+mode;
 
-    }
+document.getElementById("result").style.display =
+"block";
 
-    else if (goal === "quality") {
+}
 
-      extra =
-        "Prioritize textures, lighting and effects. Enable ray tracing only if performance remains smooth.";
-
-    }
-
-    else {
-
-      extra =
-        "Start with this preset, use high textures and lower shadows or ray tracing first if FPS is too low.";
-
-    }
-
-    const result =
-      document.getElementById(
-        "settingsResult"
-      );
-
-    result.style.display = "block";
-
-    result.innerHTML =
-      "Recommended starting preset:<br>" +
-      "<strong>" +
-      preset +
-      "</strong><br><br>" +
-      extra;
-  }
 
 </script>
 
