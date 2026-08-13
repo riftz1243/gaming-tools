@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About GameTools | PC Gaming Tools & Guides</title>
+
+<meta name="description"
+content="Learn what GameTools is, how its PC gaming recommendations work, and how to use its free gaming tools and settings guides.">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --bg:#0a0a0b;
+  --surface:#111113;
+  --border:#262629;
+  --text:#f5f5f5;
+  --muted:#96969f;
+  --accent:#8b7cff;
+}
+
+body{
+  font-family:
+    Inter,
+    ui-sans-serif,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  line-height:1.6;
+}
+
+nav{
+  height:68px;
+  max-width:1050px;
+  margin:auto;
+  padding:0 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:19px;
+  font-weight:700;
+  letter-spacing:-.5px;
+}
+
+.logo span{
+  color:var(--accent);
+}
+
+nav a{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:14px;
+}
+
+nav a:hover{
+  color:white;
+}
+
+.line{
+  height:1px;
+  background:var(--border);
+}
+
+.hero{
+  max-width:850px;
+  margin:auto;
+  padding:100px 24px 75px;
+}
+
+.eyebrow{
+  color:var(--muted);
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:22px;
+}
+
+.hero h1{
+  font-size:clamp(44px,7vw,72px);
+  line-height:1.03;
+  letter-spacing:-3px;
+  font-weight:650;
+}
+
+.hero h1 span{
+  color:#777780;
+}
+
+.hero p{
+  max-width:650px;
+  margin-top:25px;
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.75;
+}
+
+main{
+  max-width:850px;
+  margin:auto;
+  padding:0 24px 100px;
+}
+
+.section{
+  padding:42px 0;
+  border-top:1px solid var(--border);
+}
+
+.section-number{
+  color:#66666e;
+  font-size:12px;
+  margin-bottom:16px;
+}
+
+.section h2{
+  font-size:27px;
+  letter-spacing:-.8px;
+  font-weight:600;
+  margin-bottom:16px;
+}
+
+.section p{
+  color:var(--muted);
+  line-height:1.8;
+}
+
+.section p + p{
+  margin-top:15px;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:25px;
+}
+
+.card{
+  padding:20px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:var(--surface);
+}
+
+.card strong{
+  display:block;
+  margin-bottom:8px;
+  font-size:14px;
+}
+
+.card span{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+}
+
+.cta{
+  margin-top:25px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.button{
+  display:inline-block;
+  padding:12px 16px;
+  border-radius:7px;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+}
+
+.primary{
+  background:#f1f1f1;
+  color:#111;
+}
+
+.secondary{
+  border:1px solid var(--border);
+  color:#d5d5da;
+  background:var(--surface);
+}
+
+footer{
+  border-top:1px solid var(--border);
+}
+
+.footer-inner{
+  max-width:850px;
+  margin:auto;
+  padding:30px 24px;
+  display:flex;
+  justify-content:space-between;
+  color:#686870;
+  font-size:12px;
+}
+
+@media(max-width:700px){
+
+  .hero{
+    padding-top:70px;
+  }
+
+  .hero h1{
+    letter-spacing:-2px;
+  }
+
+  .cards{
+    grid-template-columns:1fr;
+  }
+
+  .footer-inner{
+    display:block;
+  }
+
+  .footer-inner span:last-child{
+    display:block;
+    margin-top:8px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+GameTools<span>.</span>
+</div>
+
+<a href="index.html">
+← Home
+</a>
+
+</nav>
+
+<div class="line"></div>
+
+
+<header class="hero">
+
+<div class="eyebrow">
+About GameTools
+</div>
+
+<h1>
+PC gaming information,
+<span>kept simple.</span>
+</h1>
+
+<p>
+GameTools is a small project built around a simple idea:
+common PC gaming questions should not require digging
+through dozens of pages just to find a useful starting point.
+</p>
+
+</header>
+
+
+<main>
+
+<section class="section">
+
+<div class="section-number">01</div>
+
+<h2>What is GameTools?</h2>
+
+<p>
+GameTools is a collection of free browser-based tools and
+guides for PC gamers.
+</p>
+
+<p>
+The site focuses on practical tasks such as choosing
+graphics settings, estimating game download times and
+finding a game to play.
+</p>
+
+<div class="cards">
+
+<div class="card">
+<strong>Settings Finder</strong>
+<span>
+Get a graphics settings starting point based on your
+hardware and preferences.
+</span>
+</div>
+
+<div class="card">
+<strong>Game Guides</strong>
+<span>
+More detailed settings recommendations for specific
+games and GPUs.
+</span>
+</div>
+
+<div class="card">
+<strong>Simple Utilities</strong>
+<span>
+Small gaming tools designed to give you an answer quickly.
+</span>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-number">02</div>
+
+<h2>How settings recommendations work</h2>
+
+<p>
+The Settings Finder compares broad GPU performance,
+CPU capability, game demand, resolution and the type of
+experience you choose.
+</p>
+
+<p>
+It then creates a practical starting point for settings
+such as textures, shadows, reflections, upscaling and
+ray tracing.
+</p>
+
+<p>
+These recommendations are not presented as measured FPS
+benchmarks. There are too many differences between PCs,
+drivers, game versions and individual scenes to guarantee
+a particular frame rate from a general recommendation.
+</p>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-number">03</div>
+
+<h2>Why no fake FPS numbers?</h2>
+
+<p>
+It can be tempting to say that a particular graphics card
+will get an exact frame rate at certain settings, but an
+exact number should come from an actual controlled
+benchmark.
+</p>
+
+<p>
+GameTools instead uses terms such as Limited, Moderate,
+Good and Strong to describe expected graphics headroom.
+Dedicated guides provide more specific settings to try
+without pretending they are laboratory benchmark results.
+</p>
+
+</section>
+
+
+<section class="section">
+
+<div class="section-number">04</div>
+
+<h2>A growing project</h2>
+
+<p>
+GameTools is still growing. More games, hardware options,
+settings guides and useful gaming tools can be added over
+time.
+</p>
+
+<p>
+The goal is to keep the site lightweight and straightforward
+as it expands rather than filling every page with unnecessary
+content.
+</p>
+
+<div class="cta">
+
+<a href="settings.html" class="button primary">
+Try Settings Finder
+</a>
+
+<a href="guides.html" class="button secondary">
+Browse Guides
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<div class="footer-inner">
+
+<span>© 2026 GameTools</span>
+
+<span>PC gaming tools and guides</span>
+
+</div>
+
+</footer>
+
+</body>
+</html>
