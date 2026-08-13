@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://riftz1243.github.io/gaming-tools/sitemap.xml
