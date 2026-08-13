@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Black Myth: Wukong Settings by GPU | GameTools</title>
+
+<meta name="description"
+content="Choose your GPU and get practical Black Myth: Wukong graphics settings for 1080p, 1440p or 4K.">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#0a0a0b;
+  --surface:#111113;
+  --surface2:#161618;
+  --border:#262629;
+  --text:#f5f5f5;
+  --muted:#96969f;
+  --accent:#8b7cff;
+  --good:#75d6a2;
+}
+
+body{
+  font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+}
+
+nav{
+  height:68px;
+  max-width:1100px;
+  margin:auto;
+  padding:0 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:19px;
+  font-weight:700;
+}
+
+.logo span{color:var(--accent)}
+
+nav a{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:14px;
+}
+
+.line{
+  height:1px;
+  background:var(--border);
+}
+
+.hero{
+  max-width:900px;
+  margin:auto;
+  padding:90px 24px 60px;
+}
+
+.eyebrow{
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:12px;
+  font-weight:600;
+  margin-bottom:22px;
+}
+
+.hero h1{
+  font-size:clamp(42px,7vw,70px);
+  line-height:1.03;
+  letter-spacing:-3px;
+  font-weight:650;
+}
+
+.hero h1 span{color:#777780}
+
+.hero p{
+  max-width:680px;
+  margin-top:24px;
+  color:var(--muted);
+  line-height:1.75;
+  font-size:17px;
+}
+
+main{
+  max-width:900px;
+  margin:auto;
+  padding:0 24px 100px;
+}
+
+.tool{
+  border:1px solid var(--border);
+  background:var(--surface);
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.tool-top{
+  padding:28px;
+  border-bottom:1px solid var(--border);
+}
+
+.tool-top h2{
+  font-size:27px;
+}
+
+.tool-top p{
+  color:var(--muted);
+  margin-top:8px;
+  line-height:1.6;
+}
+
+.form{
+  padding:28px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.field label{
+  display:block;
+  margin-bottom:8px;
+  color:#b8b8c0;
+  font-size:13px;
+}
+
+select{
+  width:100%;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:#0c0c0e;
+  color:white;
+}
+
+button{
+  width:100%;
+  margin-top:22px;
+  padding:15px;
+  border:none;
+  border-radius:8px;
+  background:#f1f1f1;
+  color:#111;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.result{
+  display:none;
+  margin-top:26px;
+  padding-top:26px;
+  border-top:1px solid var(--border);
+}
+
+.result-head{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  margin-bottom:20px;
+}
+
+.level{
+  text-align:right;
+}
+
+.level-label{
+  color:var(--muted);
+  font-size:11px;
+}
+
+.level-value{
+  margin-top:5px;
+  font-size:21px;
+  font-weight:700;
+  color:var(--good);
+}
+
+.summary{
+  padding:16px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:#0d0d0f;
+  color:#b8b8c0;
+  line-height:1.6;
+  margin-bottom:20px;
+}
+
+.settings{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:0 26px;
+}
+
+.setting{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:13px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.setting span{color:var(--muted)}
+.setting strong{text-align:right}
+
+.tip{
+  margin-top:22px;
+  padding:18px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:var(--surface2);
+  color:#b8b8c0;
+  line-height:1.7;
+}
+
+.note{
+  margin-top:20px;
+  color:#73737a;
+  font-size:12px;
+  line-height:1.6;
+}
+
+footer{
+  border-top:1px solid var(--border);
+}
+
+.footer-inner{
+  max-width:900px;
+  margin:auto;
+  padding:30px 24px;
+  display:flex;
+  justify-content:space-between;
+  color:#686870;
+  font-size:12px;
+}
+
+@media(max-width:800px){
+  .grid,.settings{grid-template-columns:1fr}
+  .result-head{display:block}
+  .level{text-align:left;margin-top:15px}
+  .hero h1{letter-spacing:-2px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">GameTools<span>.</span></div>
+<a href="guides.html">← Guides</a>
+</nav>
+
+<div class="line"></div>
+
+<header class="hero">
+
+<div class="eyebrow">
+Black Myth: Wukong graphics settings
+</div>
+
+<h1>
+Choose your GPU.
+<span>Build your Wukong setup.</span>
+</h1>
+
+<p>
+Choose your graphics card, resolution and graphics priority
+to get a practical Black Myth: Wukong settings starting point.
+</p>
+
+</header>
+
+<main>
+
+<div class="tool">
+
+<div class="tool-top">
+<h2>Black Myth Settings Finder</h2>
+<p>
+Black Myth: Wukong is demanding, so the recommendations
+focus on keeping expensive effects under control first.
+</p>
+</div>
+
+<div class="form">
+
+<div class="grid">
+
+<div class="field">
+<label>Graphics card</label>
+
+<select id="gpu">
+<option value="3060">RTX 3060</option>
+<option value="3070">RTX 3070</option>
+<option value="4060">RTX 4060</option>
+<option value="4070">RTX 4070</option>
+<option value="5060" selected>RTX 5060</option>
+<option value="5070">RTX 5070</option>
+<option value="6600">RX 6600</option>
+<option value="7600">RX 7600</option>
+<option value="7700xt">RX 7700 XT</option>
+<option value="7800xt">RX 7800 XT</option>
+</select>
+</div>
+
+<div class="field">
+<label>Resolution</label>
+
+<select id="resolution">
+<option value="1080">1080p</option>
+<option value="1440" selected>1440p</option>
+<option value="4k">4K</option>
+</select>
+</div>
+
+<div class="field">
+<label>Priority</label>
+
+<select id="profile">
+<option value="performance">Performance</option>
+<option value="balanced" selected>Balanced</option>
+<option value="quality">Visual Quality</option>
+</select>
+</div>
+
+</div>
+
+<button onclick="generateSettings()">
+Generate Black Myth Settings
+</button>
+
+<div class="result" id="result">
+
+<div class="result-head">
+
+<h3>Recommended starting point</h3>
+
+<div class="level">
+<div class="level-label">GRAPHICS HEADROOM</div>
+<div class="level-value" id="level"></div>
+</div>
+
+</div>
+
+<div class="summary" id="summary"></div>
+
+<div class="settings">
+
+<div class="setting">
+<span>Overall Quality</span>
+<strong id="preset"></strong>
+</div>
+
+<div class="setting">
+<span>Textures</span>
+<strong id="textures"></strong>
+</div>
+
+<div class="setting">
+<span>Shadows</span>
+<strong id="shadows"></strong>
+</div>
+
+<div class="setting">
+<span>Visual Effects</span>
+<strong id="effects"></strong>
+</div>
+
+<div class="setting">
+<span>Hair Quality</span>
+<strong id="hair"></strong>
+</div>
+
+<div class="setting">
+<span>Vegetation Quality</span>
+<strong id="vegetation"></strong>
+</div>
+
+<div class="setting">
+<span>Global Illumination</span>
+<strong id="gi"></strong>
+</div>
+
+<div class="setting">
+<span>Reflections</span>
+<strong id="reflections"></strong>
+</div>
+
+<div class="setting">
+<span>Upscaling</span>
+<strong id="upscaling"></strong>
+</div>
+
+<div class="setting">
+<span>Frame Generation</span>
+<strong id="fg"></strong>
+</div>
+
+</div>
+
+<div class="tip" id="tip"></div>
+
+<div class="note">
+Actual performance can vary depending on CPU, RAM, drivers,
+game updates and the area you're playing in. These are
+starting recommendations, not guaranteed benchmark results.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+<footer>
+<div class="footer-inner">
+<span>© 2026 GameTools</span>
+<span>Black Myth settings for multiple GPUs</span>
+</div>
+</footer>
+
+<script>
+
+const gpuData = {
+
+"3060":{power:1.20,brand:"nvidia",fg:false},
+"3070":{power:1.55,brand:"nvidia",fg:false},
+
+"4060":{power:1.35,brand:"nvidia",fg:true},
+"4070":{power:2.10,brand:"nvidia",fg:true},
+
+"5060":{power:1.85,brand:"nvidia",fg:true},
+"5070":{power:2.65,brand:"nvidia",fg:true},
+
+"6600":{power:1.00,brand:"amd",fg:false},
+"7600":{power:1.20,brand:"amd",fg:false},
+"7700xt":{power:1.75,brand:"amd",fg:false},
+"7800xt":{power:2.20,brand:"amd",fg:false}
+
+};
+
+
+function generateSettings(){
+
+const gpu =
+document.getElementById("gpu").value;
+
+const resolution =
+document.getElementById("resolution").value;
+
+const profile =
+document.getElementById("profile").value;
+
+const card =
+gpuData[gpu];
+
+
+let score =
+card.power / 1.7;
+
+
+if(resolution==="1440"){
+score*=0.76;
+}
+
+if(resolution==="4k"){
+score*=0.50;
+}
+
+
+let level;
+
+if(score<0.65) level="Limited";
+else if(score<0.95) level="Moderate";
+else if(score<1.30) level="Good";
+else if(score<1.75) level="Strong";
+else level="Very Strong";
+
+
+let preset;
+let textures;
+let shadows;
+let effects;
+let hair;
+let vegetation;
+let gi;
+let reflections;
+let upscaling;
+let fg;
+
+
+if(score<0.65){
+
+preset="Low / Medium";
+textures="Medium";
+shadows="Low";
+effects="Medium";
+hair="Low";
+vegetation="Low";
+gi="Low";
+reflections="Low";
+
+}
+
+else if(score<0.95){
+
+preset="Medium";
+textures="High";
+shadows="Medium";
+effects="Medium";
+hair="Medium";
+vegetation="Medium";
+gi="Medium";
+reflections="Medium";
+
+}
+
+else if(score<1.30){
+
+preset="High";
+textures="High";
+shadows="Medium / High";
+effects="High";
+hair="Medium";
+vegetation="Medium / High";
+gi="Medium";
+reflections="Medium";
+
+}
+
+else if(score<1.75){
+
+preset="High / Very High";
+textures="High / Very High";
+shadows="High";
+effects="High";
+hair="High";
+vegetation="High";
+gi="Medium / High";
+reflections="High";
+
+}
+
+else{
+
+preset="Very High";
+textures="Very High";
+shadows="High / Very High";
+effects="Very High";
+hair="High";
+vegetation="High";
+gi="High";
+reflections="High";
+
+}
+
+
+if(profile==="performance"){
+
+preset =
+score>1 ? "Medium / High" : "Low / Medium";
+
+shadows="Low / Medium";
+hair="Low / Medium";
+vegetation="Medium";
+gi="Low / Medium";
+reflections="Low / Medium";
+
+}
+
+
+if(profile==="quality"){
+
+textures="Very High";
+
+if(score>1.2){
+effects="Very High";
+shadows="High";
+vegetation="High";
+}
+
+if(score>1.5){
+gi="High";
+reflections="High";
+}
+
+}
+
+
+if(card.brand==="nvidia"){
+
+if(resolution==="1080"){
+
+upscaling =
+score>1.15
+? "DLSS Quality / Native"
+: "DLSS Quality";
+
+}
+
+else if(resolution==="1440"){
+
+upscaling =
+score>1.2
+? "DLSS Quality"
+: "DLSS Balanced";
+
+}
+
+else{
+
+upscaling =
+score>1.35
+? "DLSS Quality"
+: "DLSS Balanced / Performance";
+
+}
+
+}
+
+else{
+
+if(resolution==="1080"){
+
+upscaling =
+score>1.15
+? "FSR Quality / Native"
+: "FSR Quality";
+
+}
+
+else if(resolution==="1440"){
+
+upscaling =
+score>1.2
+? "FSR Quality"
+: "FSR Balanced";
+
+}
+
+else{
+
+upscaling =
+score>1.35
+? "FSR Quality"
+: "FSR Balanced / Performance";
+
+}
+
+}
+
+
+if(profile==="performance"){
+
+fg =
+card.fg
+? "Optional"
+: "Off / game-supported option";
+
+}
+
+else{
+
+fg =
+card.fg
+? "On if supported"
+: "Use if supported";
+
+}
+
+
+let summary;
+
+if(level==="Limited"){
+
+summary =
+"This combination is demanding for Black Myth: Wukong. Start with lower heavy effects and rely on upscaling.";
+
+}
+
+else if(level==="Moderate"){
+
+summary =
+"This setup should be workable with compromises on global illumination, shadows and reflections.";
+
+}
+
+else if(level==="Good"){
+
+summary =
+"This is a solid match. High textures with medium-to-high supporting settings are a sensible starting point.";
+
+}
+
+else if(level==="Strong"){
+
+summary =
+"You have good graphics headroom. High settings are reasonable, with heavier lighting effects increased carefully.";
+
+}
+
+else{
+
+summary =
+"This is a strong setup for the selected resolution. You can prioritize visual quality while monitoring the heaviest lighting effects.";
+
+}
+
+
+let tip;
+
+if(profile==="performance"){
+
+tip =
+"Performance tip: reduce global illumination first, followed by shadows, reflections and hair quality.";
+
+}
+
+else if(profile==="quality"){
+
+tip =
+"Quality tip: keep textures high and increase global illumination and reflections only after testing demanding scenes.";
+
+}
+
+else{
+
+tip =
+"Balanced tip: keep textures high, use Quality or Balanced upscaling, and lower global illumination before reducing texture quality.";
+
+}
+
+
+document.getElementById("level").innerText=level;
+document.getElementById("summary").innerText=summary;
+
+document.getElementById("preset").innerText=preset;
+document.getElementById("textures").innerText=textures;
+document.getElementById("shadows").innerText=shadows;
+document.getElementById("effects").innerText=effects;
+document.getElementById("hair").innerText=hair;
+document.getElementById("vegetation").innerText=vegetation;
+document.getElementById("gi").innerText=gi;
+document.getElementById("reflections").innerText=reflections;
+document.getElementById("upscaling").innerText=upscaling;
+document.getElementById("fg").innerText=fg;
+
+document.getElementById("tip").innerText=tip;
+
+document.getElementById("result").style.display="block";
+
+document.getElementById("result").scrollIntoView({
+behavior:"smooth",
+block:"nearest"
+});
+
+}
+
+</script>
+
+</body>
+</html>
