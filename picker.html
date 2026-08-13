@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Random Game Picker | GameTools</title>
+
+<meta name="description"
+content="Can't decide what to play? Add your games and let GameTools randomly choose one for you.">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#07080d;
+  --card:#10121a;
+  --border:#242837;
+  --text:#fff;
+  --muted:#969cab;
+  --purple:#765cff;
+  --blue:#4f9cff;
+  --green:#5ee2a0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:radial-gradient(circle at top,#191530 0%,#07080d 38%);
+  color:var(--text);
+  min-height:100vh;
+}
+
+nav{
+  height:72px;
+  padding:0 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--border);
+  background:rgba(7,8,13,.9);
+}
+
+.logo{
+  font-size:23px;
+  font-weight:900;
+}
+
+.logo span{color:var(--purple)}
+
+nav a{
+  color:#b8bdca;
+  text-decoration:none;
+}
+
+nav a:hover{color:white}
+
+.hero{
+  text-align:center;
+  padding:80px 20px 45px;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 15px;
+  border:1px solid var(--border);
+  border-radius:100px;
+  color:#c7cad5;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:clamp(40px,6vw,65px);
+  letter-spacing:-2px;
+  margin-bottom:20px;
+}
+
+.gradient{
+  background:linear-gradient(90deg,var(--purple),var(--blue));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  color:var(--muted);
+  max-width:600px;
+  margin:auto;
+  line-height:1.6;
+  font-size:17px;
+}
+
+main{
+  max-width:720px;
+  margin:auto;
+  padding:20px 20px 100px;
+}
+
+.picker{
+  background:rgba(16,18,26,.95);
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:35px;
+}
+
+label{
+  display:block;
+  margin-bottom:8px;
+  color:#c8ccd5;
+  font-size:14px;
+}
+
+textarea{
+  width:100%;
+  min-height:220px;
+  padding:15px;
+  background:#090b11;
+  border:1px solid #303545;
+  border-radius:11px;
+  color:white;
+  font-size:16px;
+  outline:none;
+  resize:vertical;
+}
+
+textarea:focus{border-color:var(--purple)}
+
+button{
+  width:100%;
+  margin-top:20px;
+  padding:16px;
+  border:none;
+  border-radius:12px;
+  color:white;
+  font-weight:800;
+  font-size:15px;
+  cursor:pointer;
+  background:linear-gradient(90deg,var(--purple),var(--blue));
+}
+
+button:hover{opacity:.92}
+
+.result{
+  display:none;
+  margin-top:25px;
+  padding:30px 20px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:#090b11;
+  text-align:center;
+}
+
+.result-small{
+  color:var(--muted);
+  font-size:12px;
+  margin-bottom:9px;
+}
+
+.game{
+  font-size:34px;
+  font-weight:900;
+  color:var(--green);
+  line-height:1.2;
+}
+
+.counter{
+  margin-top:15px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.example{
+  margin-top:25px;
+  padding:20px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#0d0f16;
+}
+
+.example h3{
+  margin-bottom:10px;
+}
+
+.example p{
+  color:var(--muted);
+  line-height:1.6;
+  font-size:14px;
+}
+
+footer{
+  border-top:1px solid var(--border);
+  text-align:center;
+  padding:35px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+@media(max-width:600px){
+  .picker{padding:23px}
+  .hero{padding-top:55px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">Game<span>Tools</span></div>
+  <a href="index.html">← Settings Finder</a>
+</nav>
+
+<section class="hero">
+
+<div class="badge">🎲 Free Gaming Tool</div>
+
+<h1>
+Can't decide?
+<span class="gradient">Pick a game.</span>
+</h1>
+
+<p>
+Add the games you want to play and GameTools will
+randomly choose one for you.
+</p>
+
+</section>
+
+<main>
+
+<div class="picker">
+
+<label>Enter one game per line</label>
+
+<textarea id="games"
+placeholder="Cyberpunk 2077
+Elden Ring
+Minecraft
+Baldur's Gate 3
+Fortnite"></textarea>
+
+<button onclick="pickGame()">
+🎲 Pick My Game
+</button>
+
+<div class="result" id="result">
+
+<div class="result-small">
+YOU SHOULD PLAY
+</div>
+
+<div class="game" id="gameResult"></div>
+
+<div class="counter" id="counter"></div>
+
+</div>
+
+<div class="example">
+
+<h3>💡 How it works</h3>
+
+<p>
+Enter as many games as you want, one per line.
+Press the button and one game will be selected randomly.
+You can press it again whenever you want another choice.
+</p>
+
+</div>
+
+</div>
+
+</main>
+
+<footer>
+© 2026 GameTools — Free PC gaming tools
+</footer>
+
+<script>
+
+function pickGame(){
+
+const text =
+document.getElementById("games").value;
+
+const games =
+text
+.split("\n")
+.map(game => game.trim())
+.filter(game => game !== "");
+
+if(games.length === 0){
+  alert("Add at least one game first.");
+  return;
+}
+
+const selected =
+games[Math.floor(Math.random() * games.length)];
+
+document.getElementById("gameResult").innerText =
+selected;
+
+document.getElementById("counter").innerText =
+"Chosen from " + games.length +
+(games.length === 1 ? " game" : " games");
+
+document.getElementById("result").style.display =
+"block";
+
+}
+
+</script>
+
+</body>
+</html>
