@@ -1,0 +1,430 @@
+/* ========================================
+   GAMETOOLS GLOBAL THEME
+   Black / White / Orange
+======================================== */
+
+:root{
+  --gt-bg:#090909;
+  --gt-surface:#111111;
+  --gt-surface-2:#181818;
+  --gt-border:#2a2a2a;
+  --gt-border-hover:#484848;
+  --gt-text:#f7f7f5;
+  --gt-muted:#999999;
+  --gt-orange:#ff6a00;
+  --gt-orange-hover:#ff7a1a;
+}
+
+/* PAGE */
+
+html{
+  background:var(--gt-bg);
+}
+
+body{
+  background:var(--gt-bg) !important;
+  color:var(--gt-text) !important;
+}
+
+::selection{
+  background:var(--gt-orange);
+  color:white;
+}
+
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+  width:10px;
+}
+
+::-webkit-scrollbar-track{
+  background:#080808;
+}
+
+::-webkit-scrollbar-thumb{
+  background:#303030;
+  border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background:var(--gt-orange);
+}
+
+
+/* LOGO */
+
+.logo{
+  color:var(--gt-text) !important;
+  font-weight:800 !important;
+}
+
+.logo span,
+.logo-dot{
+  color:var(--gt-orange) !important;
+}
+
+
+/* NAV */
+
+nav{
+  background:var(--gt-bg) !important;
+}
+
+nav a,
+.nav-links a{
+  color:var(--gt-muted) !important;
+  transition:.15s;
+}
+
+nav a:hover,
+.nav-links a:hover{
+  color:white !important;
+}
+
+.line{
+  background:var(--gt-border) !important;
+}
+
+
+/* HERO */
+
+.eyebrow{
+  color:var(--gt-orange) !important;
+  font-weight:800 !important;
+}
+
+.hero h1{
+  color:var(--gt-text) !important;
+}
+
+.hero h1 span{
+  color:#747474 !important;
+}
+
+.hero p,
+.hero-description{
+  color:var(--gt-muted) !important;
+}
+
+
+/* STANDARD TEXT */
+
+p{
+  color:var(--gt-muted);
+}
+
+h1,
+h2,
+h3,
+h4,
+strong{
+  color:var(--gt-text);
+}
+
+
+/* MAIN BUTTONS */
+
+button,
+.btn-primary,
+.btn-main,
+.featured-button,
+.general a,
+.cta a{
+  background:var(--gt-orange) !important;
+  color:white !important;
+  border-color:var(--gt-orange) !important;
+  transition:.15s !important;
+}
+
+button:hover,
+.btn-primary:hover,
+.btn-main:hover,
+.featured-button:hover,
+.general a:hover,
+.cta a:hover{
+  background:var(--gt-orange-hover) !important;
+  transform:translateY(-1px);
+}
+
+
+/* SECONDARY BUTTONS */
+
+.btn-secondary,
+.btn-second,
+.secondary{
+  background:var(--gt-surface) !important;
+  color:white !important;
+  border:1px solid var(--gt-border) !important;
+}
+
+.btn-secondary:hover,
+.btn-second:hover,
+.secondary:hover{
+  background:var(--gt-surface-2) !important;
+  border-color:var(--gt-border-hover) !important;
+}
+
+
+/* INPUTS */
+
+input,
+select,
+textarea{
+  background:#0c0c0c !important;
+  color:white !important;
+
+  border:1px solid var(--gt-border) !important;
+
+  outline:none !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:var(--gt-orange) !important;
+
+  box-shadow:
+    0 0 0 3px rgba(255,106,0,.09) !important;
+}
+
+input::placeholder,
+textarea::placeholder{
+  color:#666 !important;
+}
+
+
+/* CARDS */
+
+.tool,
+.tool-card,
+.guide,
+.card,
+.box{
+  background:var(--gt-surface) !important;
+  border-color:var(--gt-border) !important;
+}
+
+.tool:hover,
+.tool-card:hover,
+.guide:hover,
+.card:hover{
+  background:var(--gt-surface-2) !important;
+  border-color:var(--gt-orange) !important;
+}
+
+
+/* MAIN TOOL */
+
+.featured,
+.featured-settings,
+.general{
+  position:relative;
+
+  background:
+    linear-gradient(
+      110deg,
+      #151515 0%,
+      #111111 68%,
+      #18100b 100%
+    ) !important;
+
+  border-color:#493123 !important;
+}
+
+.featured::before,
+.featured-settings::before,
+.general::before{
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  top:0;
+
+  width:4px;
+  height:100%;
+
+  background:var(--gt-orange);
+}
+
+.featured-label,
+.general-label{
+  color:var(--gt-orange) !important;
+}
+
+
+/* TAGS */
+
+.tag{
+  background:transparent !important;
+
+  border-color:#363636 !important;
+
+  color:#bcbcbc !important;
+}
+
+.orange-tag,
+.multi{
+  color:var(--gt-orange) !important;
+  border-color:#633013 !important;
+}
+
+.new{
+  color:white !important;
+  background:var(--gt-orange) !important;
+  border-color:var(--gt-orange) !important;
+}
+
+
+/* GUIDE LINKS */
+
+.read,
+.tool-link{
+  color:#e7e7e7 !important;
+}
+
+.guide:hover .read,
+.all-guides a,
+.about-link{
+  color:var(--gt-orange) !important;
+}
+
+
+/* NUMBERS */
+
+.number,
+.tool-number,
+.stat strong{
+  color:var(--gt-orange) !important;
+}
+
+
+/* FORMS / SETTINGS */
+
+.tool-top{
+  border-color:var(--gt-border) !important;
+}
+
+.form{
+  background:var(--gt-surface) !important;
+}
+
+.result{
+  border-color:var(--gt-border) !important;
+}
+
+.level-value,
+.performance-value{
+  color:var(--gt-orange) !important;
+}
+
+.summary{
+  background:#0d0d0d !important;
+  border-color:var(--gt-border) !important;
+  color:#b9b9b9 !important;
+}
+
+.setting{
+  border-color:var(--gt-border) !important;
+}
+
+.setting span{
+  color:var(--gt-muted) !important;
+}
+
+.priority,
+.tip{
+  background:#17110d !important;
+  border-color:#4c2a15 !important;
+}
+
+.priority h4,
+.tip strong{
+  color:var(--gt-orange) !important;
+}
+
+
+/* GUIDE BOX */
+
+.game-guide,
+.guide-box{
+  background:#111 !important;
+  border-color:#3b2b20 !important;
+}
+
+.game-guide a,
+.guide-box a{
+  color:var(--gt-orange) !important;
+}
+
+
+/* SEARCH FILTERS */
+
+.filter{
+  background:var(--gt-surface) !important;
+  color:var(--gt-muted) !important;
+  border-color:var(--gt-border) !important;
+}
+
+.filter:hover{
+  color:white !important;
+}
+
+.filter.active{
+  background:var(--gt-orange) !important;
+  color:white !important;
+  border-color:var(--gt-orange) !important;
+}
+
+
+/* TABLE-LIKE AREAS */
+
+.settings,
+.stats{
+  border-color:var(--gt-border) !important;
+}
+
+.stat + .stat{
+  border-color:var(--gt-border) !important;
+}
+
+
+/* ABOUT */
+
+.section{
+  border-color:var(--gt-border) !important;
+}
+
+.about{
+  border-color:var(--gt-border) !important;
+}
+
+
+/* FOOTER */
+
+footer{
+  border-color:var(--gt-border) !important;
+}
+
+.footer-inner{
+  color:#666 !important;
+}
+
+
+/* LINKS */
+
+a{
+  transition:.15s;
+}
+
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  button{
+    min-height:46px;
+  }
+
+}
