@@ -7,56 +7,80 @@
 <title>PC Game Settings Guides | GameTools</title>
 
 <meta name="description"
-content="Search GameTools PC graphics settings guides for Fortnite, Cyberpunk 2077, Black Myth: Wukong, Resident Evil Requiem and more.">
+content="Search GameTools PC graphics settings guides for Fortnite, Cyberpunk 2077, Resident Evil Requiem and more.">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 :root{
-  --bg:#0a0a0b;
-  --surface:#111113;
-  --surface-hover:#161618;
-  --border:#262629;
-  --border-hover:#3a3a3f;
-  --text:#f5f5f5;
-  --muted:#96969f;
-  --accent:#8b7cff;
+  --black:#090909;
+  --black2:#111111;
+  --black3:#181818;
+  --white:#f7f7f5;
+  --muted:#999999;
+  --border:#2a2a2a;
+  --border-hover:#454545;
+  --orange:#ff6a00;
+  --orange-hover:#ff7a1a;
 }
 
 body{
-  font-family:Inter,ui-sans-serif,-apple-system,
-  BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:var(--bg);
-  color:var(--text);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background:var(--black);
+  color:var(--white);
   min-height:100vh;
 }
 
+
+/* NAV */
+
 nav{
-  height:68px;
-  max-width:1180px;
+  height:72px;
+  max-width:1200px;
   margin:auto;
-  padding:0 24px;
+  padding:0 26px;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
 
 .logo{
-  font-size:19px;
-  font-weight:700;
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:-.7px;
 }
 
-.logo span{color:var(--accent)}
+.logo span{
+  color:var(--orange);
+}
 
 .nav-links{
   display:flex;
-  gap:24px;
+  gap:26px;
 }
 
 .nav-links a{
   color:var(--muted);
   text-decoration:none;
   font-size:14px;
+  transition:.15s;
+}
+
+.nav-links a:hover{
+  color:white;
 }
 
 .line{
@@ -64,98 +88,166 @@ nav{
   background:var(--border);
 }
 
+
+/* HERO */
+
 .hero{
-  max-width:1180px;
+  max-width:1200px;
   margin:auto;
-  padding:90px 24px 60px;
+  padding:95px 26px 65px;
 }
 
 .eyebrow{
-  color:var(--muted);
+  display:flex;
+  align-items:center;
+  gap:9px;
+
+  color:var(--orange);
+
   font-size:12px;
+  font-weight:800;
+  letter-spacing:.09em;
   text-transform:uppercase;
-  letter-spacing:.08em;
-  margin-bottom:22px;
+
+  margin-bottom:24px;
+}
+
+.eyebrow::before{
+  content:"";
+  width:25px;
+  height:2px;
+  background:var(--orange);
 }
 
 .hero h1{
-  max-width:820px;
-  font-size:clamp(44px,7vw,72px);
-  line-height:1.03;
-  letter-spacing:-3px;
+  max-width:850px;
+
+  font-size:clamp(46px,7vw,76px);
+  line-height:1;
+  letter-spacing:-4px;
 }
 
 .hero h1 span{
-  color:#777780;
+  color:#707070;
 }
 
 .hero p{
-  max-width:670px;
-  margin-top:24px;
+  max-width:660px;
+
+  margin-top:26px;
+
   color:var(--muted);
-  line-height:1.7;
+
   font-size:17px;
+  line-height:1.75;
 }
+
+
+/* MAIN */
 
 main{
-  max-width:1180px;
+  max-width:1200px;
   margin:auto;
-  padding:0 24px 100px;
+  padding:0 26px 105px;
 }
 
+
+/* SEARCH */
+
 .search-area{
-  margin-bottom:35px;
+  margin-bottom:40px;
+}
+
+.search-title{
+  margin-bottom:10px;
+
+  color:#b5b5b5;
+
+  font-size:13px;
+  font-weight:700;
 }
 
 .search-box input{
   width:100%;
-  height:54px;
-  padding:0 18px;
+  height:58px;
+
+  padding:0 20px;
+
   border:1px solid var(--border);
   border-radius:9px;
-  background:var(--surface);
+
+  background:var(--black2);
   color:white;
+
   font-size:15px;
   outline:none;
+
+  transition:.15s;
 }
 
 .search-box input:focus{
-  border-color:var(--border-hover);
+  border-color:var(--orange);
+  box-shadow:0 0 0 3px rgba(255,106,0,.08);
 }
+
+.search-box input::placeholder{
+  color:#666;
+}
+
+
+/* FILTERS */
 
 .filters{
   display:flex;
   gap:8px;
   flex-wrap:wrap;
-  margin-top:13px;
+
+  margin-top:14px;
 }
 
 .filter{
-  padding:8px 12px;
+  padding:9px 13px;
+
   border:1px solid var(--border);
   border-radius:7px;
-  background:transparent;
+
+  background:var(--black2);
   color:var(--muted);
+
   font-size:12px;
-  font-weight:600;
+  font-weight:700;
+
   cursor:pointer;
+
+  transition:.15s;
+}
+
+.filter:hover{
+  color:white;
+  border-color:var(--border-hover);
 }
 
 .filter.active{
-  background:#f1f1f1;
-  color:#111;
-  border-color:#f1f1f1;
+  background:var(--orange);
+  color:white;
+  border-color:var(--orange);
 }
+
+
+/* TOP */
 
 .top{
   display:flex;
   justify-content:space-between;
   align-items:end;
-  margin-bottom:24px;
+  gap:20px;
+
+  margin-bottom:25px;
 }
 
 .top h2{
-  font-size:26px;
+  font-size:29px;
+  letter-spacing:-1px;
 }
 
 .top p{
@@ -163,34 +255,48 @@ main{
   font-size:13px;
 }
 
+
+/* GUIDES */
+
 .guides{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:16px;
+  gap:14px;
 }
 
 .guide{
-  min-height:330px;
-  padding:26px;
+  min-height:335px;
+
+  padding:27px;
+
   display:flex;
   flex-direction:column;
-  text-decoration:none;
+
   color:white;
+  text-decoration:none;
+
   border:1px solid var(--border);
-  border-radius:10px;
-  background:var(--surface);
+  border-radius:11px;
+
+  background:var(--black2);
+
   transition:.15s;
 }
 
 .guide:hover{
   transform:translateY(-3px);
-  border-color:var(--border-hover);
-  background:var(--surface-hover);
+
+  border-color:var(--orange);
+
+  background:var(--black3);
 }
 
 .number{
-  color:#66666e;
-  font-size:12px;
+  color:var(--orange);
+
+  font-size:11px;
+  font-weight:800;
+
   margin-bottom:35px;
 }
 
@@ -198,26 +304,44 @@ main{
   display:flex;
   flex-wrap:wrap;
   gap:7px;
+
   margin-bottom:18px;
 }
 
 .tag{
   padding:5px 8px;
-  border:1px solid var(--border);
+
+  border:1px solid #353535;
   border-radius:5px;
-  color:#aaaab2;
-  font-size:11px;
-  font-weight:600;
+
+  color:#bcbcbc;
+
+  font-size:10px;
+  font-weight:700;
+}
+
+.multi{
+  color:var(--orange);
+  border-color:#633013;
+}
+
+.new{
+  color:white;
+  background:var(--orange);
+  border-color:var(--orange);
 }
 
 .guide h3{
   font-size:21px;
   line-height:1.3;
+  letter-spacing:-.5px;
+
   margin-bottom:12px;
 }
 
 .guide p{
   color:var(--muted);
+
   font-size:14px;
   line-height:1.65;
 }
@@ -225,62 +349,213 @@ main{
 .read{
   margin-top:auto;
   padding-top:24px;
-  color:#d0d0d5;
+
+  color:white;
+
   font-size:13px;
-  font-weight:600;
+  font-weight:700;
 }
+
+.guide:hover .read{
+  color:var(--orange);
+}
+
+
+/* NO RESULTS */
 
 .no-results{
   display:none;
-  padding:40px;
+
+  padding:45px;
+
   border:1px solid var(--border);
   border-radius:10px;
+
   text-align:center;
+
+  background:var(--black2);
+
   color:var(--muted);
 }
 
-.info{
+.no-results strong{
+  display:block;
+
+  color:white;
+
+  margin-bottom:7px;
+
+  font-size:18px;
+}
+
+
+/* GENERAL FINDER */
+
+.general{
+  position:relative;
+  overflow:hidden;
+
   margin-top:45px;
   padding:27px;
-  border:1px solid var(--border);
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:30px;
+
+  border:1px solid #403027;
   border-radius:10px;
-  color:var(--muted);
-  line-height:1.7;
+
+  background:
+    linear-gradient(
+      110deg,
+      #151515,
+      #111111 70%,
+      #18100b
+    );
 }
 
-.info strong,
-.info a{
-  color:white;
+.general::before{
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  top:0;
+
+  width:4px;
+  height:100%;
+
+  background:var(--orange);
 }
+
+.general-label{
+  color:var(--orange);
+
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.1em;
+
+  margin-bottom:8px;
+}
+
+.general h3{
+  font-size:21px;
+  margin-bottom:7px;
+}
+
+.general p{
+  max-width:650px;
+
+  color:var(--muted);
+
+  font-size:14px;
+  line-height:1.65;
+}
+
+.general a{
+  flex-shrink:0;
+
+  padding:13px 17px;
+
+  border-radius:7px;
+
+  background:var(--orange);
+  color:white;
+
+  text-decoration:none;
+
+  font-size:13px;
+  font-weight:800;
+}
+
+.general a:hover{
+  background:var(--orange-hover);
+}
+
+
+/* FOOTER */
 
 footer{
   border-top:1px solid var(--border);
 }
 
 .footer-inner{
-  max-width:1180px;
+  max-width:1200px;
   margin:auto;
-  padding:30px 24px;
+
+  padding:31px 26px;
+
   display:flex;
   justify-content:space-between;
-  color:#686870;
+
+  color:#666;
   font-size:12px;
 }
 
-@media(max-width:900px){
-  .guides{grid-template-columns:repeat(2,1fr)}
+
+/* MOBILE */
+
+@media(max-width:950px){
+
+  .guides{
+    grid-template-columns:repeat(2,1fr);
+  }
+
 }
 
-@media(max-width:650px){
-  .guides{grid-template-columns:1fr}
-  .top{display:block}
-  .top p{margin-top:7px}
-  .hero h1{letter-spacing:-2px}
+@media(max-width:700px){
+
+  .guides{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding-top:70px;
+  }
+
+  .hero h1{
+    letter-spacing:-2.5px;
+  }
+
+  .top{
+    display:block;
+  }
+
+  .top p{
+    margin-top:7px;
+  }
+
+  .general{
+    display:block;
+  }
+
+  .general a{
+    display:inline-block;
+    margin-top:18px;
+  }
+
+  .nav-links a:first-child{
+    display:none;
+  }
+
+  .footer-inner{
+    display:block;
+  }
+
+  .footer-inner span:last-child{
+    display:block;
+    margin-top:7px;
+  }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
 
 <nav>
 
@@ -289,62 +564,85 @@ GameTools<span>.</span>
 </div>
 
 <div class="nav-links">
-<a href="settings.html">Settings Finder</a>
-<a href="index.html">← Home</a>
+
+<a href="settings.html">
+Settings Finder
+</a>
+
+<a href="index.html">
+← Home
+</a>
+
 </div>
 
 </nav>
 
+
 <div class="line"></div>
+
 
 <header class="hero">
 
 <div class="eyebrow">
-Multi-GPU graphics guides
+GAME SETTINGS
 </div>
 
 <h1>
-Find settings for
-<span>your game.</span>
+Find your game.
+<span>Choose your hardware.</span>
 </h1>
 
 <p>
-Choose a game, then select your GPU, resolution and graphics
-priority inside the guide.
+Dedicated graphics guides with support for multiple NVIDIA
+and AMD GPUs. Choose your resolution and graphics priority
+inside each guide.
 </p>
 
 </header>
 
+
 <main>
+
 
 <div class="search-area">
 
+<div class="search-title">
+Search game guides
+</div>
+
 <div class="search-box">
+
 <input
 id="search"
 type="text"
-placeholder="Search games — Requiem, Cyberpunk, Kingdom Come..."
+placeholder="Try: Resident Evil Requiem, Cyberpunk, KCD2..."
 oninput="filterGuides()">
+
 </div>
+
 
 <div class="filters">
 
-<button class="filter active"
+<button
+class="filter active"
 onclick="setFilter('all',this)">
 All
 </button>
 
-<button class="filter"
+<button
+class="filter"
 onclick="setFilter('competitive',this)">
 Competitive
 </button>
 
-<button class="filter"
+<button
+class="filter"
 onclick="setFilter('story',this)">
 Story / RPG
 </button>
 
-<button class="filter"
+<button
+class="filter"
 onclick="setFilter('demanding',this)">
 Demanding
 </button>
@@ -353,9 +651,12 @@ Demanding
 
 </div>
 
+
 <div class="top">
 
-<h2>Dedicated game guides</h2>
+<h2>
+Dedicated guides
+</h2>
 
 <p id="resultCount">
 9 guides
@@ -363,256 +664,440 @@ Demanding
 
 </div>
 
+
 <div class="guides">
 
 
-<a class="guide"
-href="fortnite-settings.html"
-data-name="fortnite"
-data-category="competitive">
-
-<div class="number">01</div>
-
-<div class="meta">
-<span class="tag">FORTNITE</span>
-<span class="tag">MULTI-GPU</span>
-</div>
-
-<h3>Fortnite Settings Finder</h3>
-
-<p>
-Competitive, balanced and higher-quality starting settings.
-</p>
-
-<div class="read">Open guide →</div>
-
-</a>
-
-
-<a class="guide"
-href="cyberpunk-settings.html"
-data-name="cyberpunk cyberpunk 2077"
-data-category="story demanding">
-
-<div class="number">02</div>
-
-<div class="meta">
-<span class="tag">CYBERPUNK 2077</span>
-<span class="tag">MULTI-GPU</span>
-</div>
-
-<h3>Cyberpunk 2077 Settings Finder</h3>
-
-<p>
-Tune upscaling, ray tracing, textures and demanding effects.
-</p>
-
-<div class="read">Open guide →</div>
-
-</a>
-
-
-<a class="guide"
-href="black-myth-wukong-settings.html"
-data-name="black myth wukong"
-data-category="story demanding">
-
-<div class="number">03</div>
-
-<div class="meta">
-<span class="tag">BLACK MYTH: WUKONG</span>
-<span class="tag">MULTI-GPU</span>
-</div>
-
-<h3>Black Myth: Wukong Settings Finder</h3>
-
-<p>
-Balance global illumination, textures and other heavy effects.
-</p>
-
-<div class="read">Open guide →</div>
-
-</a>
-
-
-<a class="guide"
-href="kingdom-come-2-settings.html"
-data-name="kingdom come deliverance 2 ii kcd2"
-data-category="story demanding">
-
-<div class="number">04</div>
-
-<div class="meta">
-<span class="tag">KINGDOM COME II</span>
-<span class="tag">MULTI-GPU</span>
-</div>
-
-<h3>Kingdom Come: Deliverance II</h3>
-
-<p>
-Find a practical graphics setup for your GPU and resolution.
-</p>
-
-<div class="read">Open guide →</div>
-
-</a>
-
-
-<a class="guide"
-href="alan-wake-2-settings.html"
-data-name="alan wake 2 alan wake ii"
-data-category="story demanding">
-
-<div class="number">05</div>
-
-<div class="meta">
-<span class="tag">ALAN WAKE 2</span>
-<span class="tag">MULTI-GPU</span>
-</div>
-
-<h3>Alan Wake 2 Settings Finder</h3>
-
-<p>
-Tune one of the more demanding modern PC games.
-</p>
-
-<div class="read">Open guide →</div>
-
-</a>
-
-
-<a class="guide"
-href="helldivers-2-settings.html"
-data-name="helldivers 2 helldivers"
-data-category="competitive demanding">
-
-<div class="number">06</div>
-
-<div class="meta">
-<span class="tag">HELLDIVERS 2</span>
-<span class="tag">MULTI-GPU</span>
-</div>
-
-<h3>Helldivers 2 Settings Finder</h3>
-
-<p>
-Balance smooth combat performance with strong image quality.
-</p>
-
-<div class="read">Open guide →</div>
-
-</a>
-
-
-<a class="guide"
-href="red-dead-redemption-2-settings.html"
-data-name="red dead redemption 2 rdr2 red dead"
-data-category="story">
-
-<div class="number">07</div>
-
-<div class="meta">
-<span class="tag">RED DEAD REDEMPTION 2</span>
-<span class="tag">MULTI-GPU</span>
-</div>
-
-<h3>Red Dead Redemption 2 Settings Finder</h3>
-
-<p>
-Get a balanced RDR2 setup without maxing expensive options.
-</p>
-
-<div class="read">Open guide →</div>
-
-</a>
-
-
-<a class="guide"
-href="hogwarts-legacy-settings.html"
-data-name="hogwarts legacy hogwarts"
-data-category="story demanding">
-
-<div class="number">08</div>
-
-<div class="meta">
-<span class="tag">HOGWARTS LEGACY</span>
-<span class="tag">MULTI-GPU</span>
-</div>
-
-<h3>Hogwarts Legacy Settings Finder</h3>
-
-<p>
-Tune textures, effects and ray tracing for your hardware.
-</p>
-
-<div class="read">Open guide →</div>
-
-</a>
-
-
-<a class="guide"
+<a
+class="guide"
 href="resident-evil-requiem-settings.html"
 data-name="resident evil requiem re requiem resident evil 9"
 data-category="story demanding">
 
-<div class="number">09</div>
-
-<div class="meta">
-<span class="tag">RESIDENT EVIL REQUIEM</span>
-<span class="tag">MULTI-GPU</span>
+<div class="number">
+01
 </div>
 
-<h3>Resident Evil Requiem Settings Finder</h3>
+<div class="meta">
+
+<span class="tag new">
+NEW
+</span>
+
+<span class="tag">
+RESIDENT EVIL REQUIEM
+</span>
+
+<span class="tag multi">
+MULTI-GPU
+</span>
+
+</div>
+
+<h3>
+Resident Evil Requiem Settings Finder
+</h3>
 
 <p>
-Choose your GPU and resolution for a practical horror setup.
+Choose your GPU and resolution for a practical graphics
+starting point.
 </p>
 
-<div class="read">Open guide →</div>
+<div class="read">
+Open guide →
+</div>
+
+</a>
+
+
+
+<a
+class="guide"
+href="cyberpunk-settings.html"
+data-name="cyberpunk cyberpunk 2077"
+data-category="story demanding">
+
+<div class="number">
+02
+</div>
+
+<div class="meta">
+
+<span class="tag">
+CYBERPUNK 2077
+</span>
+
+<span class="tag multi">
+MULTI-GPU
+</span>
+
+</div>
+
+<h3>
+Cyberpunk 2077 Settings Finder
+</h3>
+
+<p>
+Tune textures, DLSS or FSR, reflections, ray tracing and
+other demanding settings.
+</p>
+
+<div class="read">
+Open guide →
+</div>
+
+</a>
+
+
+
+<a
+class="guide"
+href="black-myth-wukong-settings.html"
+data-name="black myth wukong"
+data-category="story demanding">
+
+<div class="number">
+03
+</div>
+
+<div class="meta">
+
+<span class="tag">
+BLACK MYTH: WUKONG
+</span>
+
+<span class="tag multi">
+MULTI-GPU
+</span>
+
+</div>
+
+<h3>
+Black Myth: Wukong Settings Finder
+</h3>
+
+<p>
+Balance global illumination, textures, shadows and
+demanding visual effects.
+</p>
+
+<div class="read">
+Open guide →
+</div>
+
+</a>
+
+
+
+<a
+class="guide"
+href="kingdom-come-2-settings.html"
+data-name="kingdom come deliverance 2 ii kcd2"
+data-category="story demanding">
+
+<div class="number">
+04
+</div>
+
+<div class="meta">
+
+<span class="tag">
+KINGDOM COME II
+</span>
+
+<span class="tag multi">
+MULTI-GPU
+</span>
+
+</div>
+
+<h3>
+Kingdom Come: Deliverance II
+</h3>
+
+<p>
+Find a balanced graphics setup based on your GPU and
+resolution.
+</p>
+
+<div class="read">
+Open guide →
+</div>
+
+</a>
+
+
+
+<a
+class="guide"
+href="alan-wake-2-settings.html"
+data-name="alan wake 2 alan wake ii"
+data-category="story demanding">
+
+<div class="number">
+05
+</div>
+
+<div class="meta">
+
+<span class="tag">
+ALAN WAKE 2
+</span>
+
+<span class="tag multi">
+MULTI-GPU
+</span>
+
+</div>
+
+<h3>
+Alan Wake 2 Settings Finder
+</h3>
+
+<p>
+Get a practical starting point for one of the more demanding
+PC games.
+</p>
+
+<div class="read">
+Open guide →
+</div>
+
+</a>
+
+
+
+<a
+class="guide"
+href="helldivers-2-settings.html"
+data-name="helldivers 2 helldivers"
+data-category="competitive demanding">
+
+<div class="number">
+06
+</div>
+
+<div class="meta">
+
+<span class="tag">
+HELLDIVERS 2
+</span>
+
+<span class="tag multi">
+MULTI-GPU
+</span>
+
+</div>
+
+<h3>
+Helldivers 2 Settings Finder
+</h3>
+
+<p>
+Balance smooth combat performance with strong image
+quality.
+</p>
+
+<div class="read">
+Open guide →
+</div>
+
+</a>
+
+
+
+<a
+class="guide"
+href="red-dead-redemption-2-settings.html"
+data-name="red dead redemption 2 rdr2 red dead"
+data-category="story">
+
+<div class="number">
+07
+</div>
+
+<div class="meta">
+
+<span class="tag">
+RED DEAD REDEMPTION 2
+</span>
+
+<span class="tag multi">
+MULTI-GPU
+</span>
+
+</div>
+
+<h3>
+Red Dead Redemption 2 Settings Finder
+</h3>
+
+<p>
+Build a balanced RDR2 setup without unnecessarily maxing
+every expensive option.
+</p>
+
+<div class="read">
+Open guide →
+</div>
+
+</a>
+
+
+
+<a
+class="guide"
+href="hogwarts-legacy-settings.html"
+data-name="hogwarts legacy"
+data-category="story demanding">
+
+<div class="number">
+08
+</div>
+
+<div class="meta">
+
+<span class="tag">
+HOGWARTS LEGACY
+</span>
+
+<span class="tag multi">
+MULTI-GPU
+</span>
+
+</div>
+
+<h3>
+Hogwarts Legacy Settings Finder
+</h3>
+
+<p>
+Tune textures, effects and demanding graphics features for
+your hardware.
+</p>
+
+<div class="read">
+Open guide →
+</div>
+
+</a>
+
+
+
+<a
+class="guide"
+href="fortnite-settings.html"
+data-name="fortnite"
+data-category="competitive">
+
+<div class="number">
+09
+</div>
+
+<div class="meta">
+
+<span class="tag">
+FORTNITE
+</span>
+
+<span class="tag multi">
+MULTI-GPU
+</span>
+
+</div>
+
+<h3>
+Fortnite Settings Finder
+</h3>
+
+<p>
+Switch between competitive high-FPS, balanced and
+higher-quality setups.
+</p>
+
+<div class="read">
+Open guide →
+</div>
 
 </a>
 
 
 </div>
 
-<div class="no-results" id="noResults">
-No matching guides found.
-</div>
 
-<div class="info">
+<div
+class="no-results"
+id="noResults">
 
-<strong>Can't find your game?</strong>
+<strong>
+No guides found
+</strong>
 
-<br><br>
-
-Use the
-<a href="settings.html">General PC Settings Finder</a>
-for supported games that do not yet have a dedicated guide.
+Try another game name or category.
 
 </div>
+
+
+<div class="general">
+
+<div>
+
+<div class="general-label">
+★ MAIN TOOL
+</div>
+
+<h3>
+Can't find your game?
+</h3>
+
+<p>
+The General PC Settings Finder supports additional games
+that do not yet have their own dedicated guide.
+</p>
+
+</div>
+
+<a href="settings.html">
+Open Settings Finder →
+</a>
+
+</div>
+
 
 </main>
+
 
 <footer>
 
 <div class="footer-inner">
-<span>© 2026 GameTools</span>
-<span>9 multi-GPU game guides</span>
+
+<span>
+© 2026 GameTools
+</span>
+
+<span>
+9 multi-GPU graphics guides
+</span>
+
 </div>
 
 </footer>
 
+
 <script>
 
-let activeFilter="all";
+let activeFilter = "all";
+
 
 function setFilter(filter,button){
 
-  activeFilter=filter;
+  activeFilter = filter;
 
   document
     .querySelectorAll(".filter")
-    .forEach(btn=>btn.classList.remove("active"));
+    .forEach(btn => {
+      btn.classList.remove("active");
+    });
 
   button.classList.add("active");
 
@@ -620,58 +1105,78 @@ function setFilter(filter,button){
 
 }
 
+
 function filterGuides(){
 
-  const search=
+  const search =
     document
       .getElementById("search")
       .value
       .toLowerCase()
       .trim();
 
-  const guides=
+
+  const guides =
     document.querySelectorAll(".guide");
 
-  let visible=0;
 
-  guides.forEach(guide=>{
+  let visible = 0;
 
-    const name=
+
+  guides.forEach(guide => {
+
+    const name =
       guide.dataset.name.toLowerCase();
 
-    const category=
+    const category =
       guide.dataset.category.toLowerCase();
 
-    const matchesSearch=
+
+    const matchesSearch =
       name.includes(search);
 
-    const matchesFilter=
-      activeFilter==="all" ||
+
+    const matchesFilter =
+      activeFilter === "all" ||
       category.includes(activeFilter);
+
 
     if(matchesSearch && matchesFilter){
 
-      guide.style.display="flex";
+      guide.style.display = "flex";
+
       visible++;
 
     }
+
     else{
 
-      guide.style.display="none";
+      guide.style.display = "none";
 
     }
 
   });
 
-  document.getElementById("resultCount").innerText=
-    visible + (visible===1 ? " guide" : " guides");
 
-  document.getElementById("noResults").style.display=
-    visible===0 ? "block" : "none";
+  document
+    .getElementById("resultCount")
+    .innerText =
+      visible +
+      (visible === 1 ? " guide" : " guides");
+
+
+  document
+    .getElementById("noResults")
+    .style
+    .display =
+      visible === 0
+      ? "block"
+      : "none";
 
 }
 
 </script>
+
 
 </body>
 </html>
