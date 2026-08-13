@@ -79,7 +79,9 @@ nav a{
   letter-spacing:-3px;
 }
 
-.hero h1 span{color:#777780}
+.hero h1 span{
+  color:#777780;
+}
 
 .hero p{
   max-width:680px;
@@ -144,6 +146,8 @@ button{
   padding:15px;
   border:none;
   border-radius:8px;
+  background:#f1f1f1;
+  color:#111;
   font-weight:700;
   cursor:pointer;
 }
@@ -221,17 +225,20 @@ button{
   padding:18px;
   border:1px solid var(--border);
   border-radius:8px;
+  background:#0d0d0f;
 }
 
 .game-guide p{
   color:var(--muted);
   margin-top:7px;
+  line-height:1.6;
 }
 
 .game-guide a{
   display:inline-block;
   margin-top:12px;
   color:white;
+  font-weight:600;
 }
 
 .note{
@@ -244,6 +251,7 @@ button{
 @media(max-width:750px){
   .grid,.settings{grid-template-columns:1fr}
   .result-head{display:block}
+  .hero h1{letter-spacing:-2px}
 }
 </style>
 </head>
@@ -269,8 +277,8 @@ Choose your hardware.
 </h1>
 
 <p>
-Use the general finder for games that do not yet have their
-own dedicated GameTools guide.
+Use the general finder for any supported game, or jump to a
+dedicated game guide when one is available.
 </p>
 
 </header>
@@ -284,8 +292,8 @@ own dedicated GameTools guide.
 <h2>PC Settings Finder</h2>
 
 <p>
-The same shared GPU database is now used across the entire
-GameTools site.
+GPU and game data are now shared across GameTools, so the
+site is much easier to expand and keep consistent.
 </p>
 
 </div>
@@ -320,26 +328,7 @@ GameTools site.
 
 <div>
 <label>Game</label>
-
-<select id="game">
-<option value="cyberpunk">Cyberpunk 2077</option>
-<option value="blackmyth">Black Myth: Wukong</option>
-<option value="fortnite">Fortnite</option>
-<option value="elden">Elden Ring</option>
-<option value="warzone">Call of Duty: Warzone</option>
-<option value="rdr2">Red Dead Redemption 2</option>
-<option value="witcher3">The Witcher 3</option>
-<option value="hogwarts">Hogwarts Legacy</option>
-<option value="starfield">Starfield</option>
-<option value="minecraft">Minecraft</option>
-<option value="gta5">GTA V</option>
-<option value="helldivers">Helldivers 2</option>
-<option value="forza">Forza Horizon 5</option>
-<option value="bg3">Baldur's Gate 3</option>
-<option value="alanwake">Alan Wake 2</option>
-<option value="kingdomcome">Kingdom Come: Deliverance II</option>
-</select>
-
+<select id="game"></select>
 </div>
 
 <div>
@@ -388,11 +377,13 @@ Generate Settings
 <h3>Recommended starting point</h3>
 
 <div>
+
 <div style="color:#96969f;font-size:11px;">
 GRAPHICS HEADROOM
 </div>
 
 <div class="level-value" id="level"></div>
+
 </div>
 
 </div>
@@ -462,13 +453,11 @@ If performance is too low, reduce:
 
 <div class="game-guide" id="guideBox">
 
-<strong>
-This game has a dedicated multi-GPU guide.
+<strong id="guideTitle">
+Dedicated game guide available
 </strong>
 
-<p>
-The dedicated version gives more game-specific settings.
-</p>
+<p id="guideText"></p>
 
 <a id="guideLink" href="#">
 Open dedicated guide →
@@ -477,9 +466,9 @@ Open dedicated guide →
 </div>
 
 <div class="note">
-The GPU power values used by GameTools are internal
-categories for generating rough settings recommendations.
-They are not benchmark scores or guaranteed FPS results.
+GameTools uses internal relative hardware and game-demand
+categories to generate practical starting recommendations.
+They are not benchmark scores or guaranteed FPS figures.
 </div>
 
 </div>
@@ -491,44 +480,26 @@ They are not benchmark scores or guaranteed FPS results.
 </main>
 
 <script src="gpu-data.js"></script>
+<script src="game-data.js"></script>
 
 <script>
 
 populateGpuSelect("gpu","5060");
+populateGameSelect("game","cyberpunk");
 
 
 const cpuPower = {
-"low":0.78,
-"11400":0.90,
-"12400":0.96,
-"13400":1.03,
-"13600":1.12,
-"14600":1.16,
-"highintel":1.22,
-"5600":0.95,
-"7600cpu":1.08,
-"7800x3d":1.22,
-"9800x3d":1.30
-};
-
-
-const gameDemand = {
-"cyberpunk":1.50,
-"blackmyth":1.70,
-"fortnite":0.75,
-"elden":1.00,
-"warzone":1.05,
-"rdr2":1.15,
-"witcher3":1.10,
-"hogwarts":1.30,
-"starfield":1.40,
-"minecraft":0.60,
-"gta5":0.65,
-"helldivers":1.25,
-"forza":0.90,
-"bg3":0.90,
-"alanwake":1.75,
-"kingdomcome":1.55
+  "low":0.78,
+  "11400":0.90,
+  "12400":0.96,
+  "13400":1.03,
+  "13600":1.12,
+  "14600":1.16,
+  "highintel":1.22,
+  "5600":0.95,
+  "7600cpu":1.08,
+  "7800x3d":1.22,
+  "9800x3d":1.30
 };
 
 
@@ -540,7 +511,7 @@ document.getElementById("gpu").value;
 const cpu =
 document.getElementById("cpu").value;
 
-const game =
+const gameId =
 document.getElementById("game").value;
 
 const resolution =
@@ -552,21 +523,25 @@ document.getElementById("priority").value;
 const rtPreference =
 document.getElementById("rtPreference").value;
 
+
 const card =
 GPU_DATABASE[gpuId];
+
+const game =
+GAME_DATABASE[gameId];
 
 
 let score =
 (card.power * cpuPower[cpu]) /
-gameDemand[game];
+game.demand;
 
 
 if(resolution==="1440"){
-score*=0.78;
+  score*=0.78;
 }
 
 if(resolution==="4k"){
-score*=0.54;
+  score*=0.54;
 }
 
 
@@ -582,136 +557,133 @@ let upscaling;
 
 if(score<0.8){
 
-level="Limited";
-preset="Low / Medium";
-textures="Medium";
-shadows="Low";
-reflections="Low";
-volumetrics="Low";
-rt="Off";
-upscaling="Performance";
+  level="Limited";
+  preset="Low / Medium";
+  textures="Medium";
+  shadows="Low";
+  reflections="Low";
+  volumetrics="Low";
+  rt="Off";
+  upscaling="Performance";
 
 }
-
 else if(score<1.15){
 
-level="Moderate";
-preset="Medium";
-textures="High";
-shadows="Medium";
-reflections="Medium";
-volumetrics="Medium";
-rt="Off";
-upscaling="Balanced";
+  level="Moderate";
+  preset="Medium";
+  textures="High";
+  shadows="Medium";
+  reflections="Medium";
+  volumetrics="Medium";
+  rt="Off";
+  upscaling="Balanced";
 
 }
-
 else if(score<1.65){
 
-level="Good";
-preset="High";
-textures="High";
-shadows="Medium / High";
-reflections="High";
-volumetrics="Medium";
-rt="Off / Low";
-upscaling="Quality";
+  level="Good";
+  preset="High";
+  textures="High";
+  shadows="Medium / High";
+  reflections="High";
+  volumetrics="Medium";
+  rt="Off / Low";
+  upscaling="Quality";
 
 }
-
 else if(score<2.3){
 
-level="Strong";
-preset="High / Ultra";
-textures="Ultra";
-shadows="High";
-reflections="High";
-volumetrics="High";
-rt="Low / Medium";
-upscaling="Quality";
+  level="Strong";
+  preset="High / Ultra";
+  textures="Ultra";
+  shadows="High";
+  reflections="High";
+  volumetrics="High";
+  rt="Low / Medium";
+  upscaling="Quality";
 
 }
-
 else{
 
-level="Very Strong";
-preset="Ultra";
-textures="Ultra";
-shadows="Ultra";
-reflections="Ultra";
-volumetrics="High / Ultra";
-rt="Medium / High";
-upscaling="Native / Quality";
+  level="Very Strong";
+  preset="Ultra";
+  textures="Ultra";
+  shadows="Ultra";
+  reflections="Ultra";
+  volumetrics="High / Ultra";
+  rt="Medium / High";
+  upscaling="Native / Quality";
 
 }
 
 
 if(priority==="performance"){
 
-preset =
-score>1.3
-? "Medium / High"
-: "Low / Medium";
+  preset =
+    score>1.3
+    ? "Medium / High"
+    : "Low / Medium";
 
-shadows="Low";
-reflections="Low / Medium";
-volumetrics="Low / Medium";
-rt="Off";
+  shadows="Low";
+  reflections="Low / Medium";
+  volumetrics="Low / Medium";
+  rt="Off";
 
-upscaling =
-resolution==="1080"
-? "Quality / Balanced"
-: "Balanced / Performance";
+  upscaling =
+    resolution==="1080"
+    ? "Quality / Balanced"
+    : "Balanced / Performance";
 
 }
 
 
 if(priority==="quality"){
 
-textures="Ultra";
-shadows="High / Ultra";
-reflections="High / Ultra";
+  textures="Ultra";
+  shadows="High / Ultra";
+  reflections="High / Ultra";
 
-if(score>1.4){
-volumetrics="High";
-}
+  if(score>1.4){
+    volumetrics="High";
+  }
 
 }
 
 
 if(rtPreference==="off"){
-rt="Off";
+  rt="Off";
 }
+
 
 if(rtPreference==="on"){
 
-if(score<1.2){
-rt="Low — demanding";
-}
-else if(score<2){
-rt="Low / Medium";
-}
-else{
-rt="Medium / High";
-}
+  if(score<1.2){
+    rt="Low — demanding";
+  }
+  else if(score<2){
+    rt="Low / Medium";
+  }
+  else{
+    rt="Medium / High";
+  }
 
 }
 
 
 if(card.brand==="nvidia"){
 
-upscaling =
-upscaling==="Native / Quality"
-? "DLSS Quality / Native"
-: "DLSS " + upscaling;
+  upscaling =
+    upscaling==="Native / Quality"
+    ? "DLSS Quality / Native"
+    : "DLSS " + upscaling;
 
 }
 else{
 
-upscaling =
-upscaling==="Native / Quality"
-? "FSR Quality / Native"
-: "FSR " + upscaling;
+  upscaling =
+    upscaling==="Native / Quality"
+    ? "FSR Quality / Native"
+    : "FSR " + upscaling;
 
 }
 
@@ -720,83 +692,125 @@ let fg;
 
 if(card.framegen){
 
-fg =
-priority==="quality"
-? "Optional"
-: "On if supported";
+  fg =
+    priority==="quality"
+    ? "Optional"
+    : "On if supported";
 
 }
 else{
 
-fg =
-"Use if game and hardware support it";
+  fg =
+    "Use if game and hardware support it";
 
 }
 
 
 let summary;
 
-if(level==="Limited")
-summary="This is a demanding combination. Start conservatively and prioritize smooth gameplay.";
+if(level==="Limited"){
 
-else if(level==="Moderate")
-summary="This setup should be workable with compromises on heavier graphics effects.";
+  summary =
+    `${card.name} at the selected resolution is a demanding match for ${game.name}. Start conservatively and prioritize smooth gameplay.`;
 
-else if(level==="Good")
-summary="This looks like a solid match. High settings are a sensible starting point.";
+}
+else if(level==="Moderate"){
 
-else if(level==="Strong")
-summary="You have good graphics headroom for high to ultra settings.";
+  summary =
+    `${card.name} should handle ${game.name} with some compromises on heavier graphics effects.`;
 
-else
-summary="This setup has substantial graphics headroom and can prioritize image quality.";
+}
+else if(level==="Good"){
+
+  summary =
+    `${card.name} is a solid match for ${game.name}. High settings are a sensible starting point.`;
+
+}
+else if(level==="Strong"){
+
+  summary =
+    `${card.name} has good graphics headroom for ${game.name} at this resolution.`;
+
+}
+else{
+
+  summary =
+    `${card.name} has substantial graphics headroom for ${game.name}, so you can prioritize visual quality.`;
+
+}
 
 
-document.getElementById("level").innerText=level;
-document.getElementById("summary").innerText=summary;
+document.getElementById("level").innerText =
+level;
 
-document.getElementById("preset").innerText=preset;
-document.getElementById("textures").innerText=textures;
-document.getElementById("shadows").innerText=shadows;
-document.getElementById("reflections").innerText=reflections;
-document.getElementById("volumetrics").innerText=volumetrics;
-document.getElementById("rt").innerText=rt;
-document.getElementById("upscaling").innerText=upscaling;
-document.getElementById("fg").innerText=fg;
+document.getElementById("summary").innerText =
+summary;
+
+document.getElementById("preset").innerText =
+preset;
+
+document.getElementById("textures").innerText =
+textures;
+
+document.getElementById("shadows").innerText =
+shadows;
+
+document.getElementById("reflections").innerText =
+reflections;
+
+document.getElementById("volumetrics").innerText =
+volumetrics;
+
+document.getElementById("rt").innerText =
+rt;
+
+document.getElementById("upscaling").innerText =
+upscaling;
+
+document.getElementById("fg").innerText =
+fg;
 
 
 const guideBox =
 document.getElementById("guideBox");
 
+const guideTitle =
+document.getElementById("guideTitle");
+
+const guideText =
+document.getElementById("guideText");
+
 const guideLink =
 document.getElementById("guideLink");
+
 
 guideBox.style.display="none";
 
 
-if(game==="fortnite"){
+if(game.guide){
 
-guideBox.style.display="block";
-guideLink.href="fortnite-settings.html";
+  guideBox.style.display="block";
 
-}
+  guideTitle.innerText =
+    `${game.name} has a dedicated GameTools guide`;
 
-if(game==="cyberpunk"){
+  guideText.innerText =
+    `Open the dedicated ${game.name} page for more game-specific settings while keeping the same shared GPU database.`;
 
-guideBox.style.display="block";
-guideLink.href="cyberpunk-settings.html";
-
-}
-
-if(game==="blackmyth"){
-
-guideBox.style.display="block";
-guideLink.href="black-myth-wukong-settings.html";
+  guideLink.href =
+    game.guide;
 
 }
 
 
-document.getElementById("result").style.display="block";
+document.getElementById("result").style.display =
+"block";
+
+
+document.getElementById("result").scrollIntoView({
+  behavior:"smooth",
+  block:"nearest"
+});
 
 }
 
