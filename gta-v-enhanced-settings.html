@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Game Settings | GameTools</title>
+
+<meta name="description"
+content="Find recommended PC graphics settings based on your GPU, resolution and graphics priority.">
+
+<link rel="stylesheet" href="game-guide.css">
+<link rel="stylesheet" href="theme.css">
+
+</head>
+
+<body>
+
+
+<nav>
+
+<div class="logo">
+GameTools<span>.</span>
+</div>
+
+<a href="guides.html">
+← All Guides
+</a>
+
+</nav>
+
+
+<div class="line"></div>
+
+
+<header class="hero">
+
+<div class="eyebrow">
+DEDICATED GAME GUIDE
+</div>
+
+<h1>
+<span id="gameName">Game</span>
+Settings Finder
+</h1>
+
+<p>
+Choose your GPU, resolution and graphics priority to get a
+practical starting point for
+<strong id="gameName2">this game</strong>.
+</p>
+
+</header>
+
+
+<main>
+
+<div class="tool">
+
+
+<div class="tool-top">
+
+<h2 id="gameName3">
+Game Settings
+</h2>
+
+<p>
+Select your hardware and preferred graphics profile below.
+</p>
+
+</div>
+
+
+<div class="form">
+
+
+<div class="grid">
+
+
+<div>
+
+<label for="gpu">
+Graphics Card
+</label>
+
+<select id="gpu"></select>
+
+</div>
+
+
+<div>
+
+<label for="resolution">
+Resolution
+</label>
+
+<select id="resolution">
+
+<option value="1080">
+1920 × 1080
+</option>
+
+<option value="1440" selected>
+2560 × 1440
+</option>
+
+<option value="4k">
+3840 × 2160 (4K)
+</option>
+
+</select>
+
+</div>
+
+
+<div>
+
+<label for="profile">
+Graphics Priority
+</label>
+
+<select id="profile">
+
+<option value="performance">
+Performance
+</option>
+
+<option value="balanced" selected>
+Balanced
+</option>
+
+<option value="quality">
+Best Visual Quality
+</option>
+
+</select>
+
+</div>
+
+
+</div>
+
+
+<button onclick="generateGameSettings()">
+Generate Settings →
+</button>
+
+
+<div class="result" id="result">
+
+
+<div class="result-head">
+
+<div>
+
+<h3>
+Recommended Settings
+</h3>
+
+</div>
+
+
+<div>
+
+<div class="level-value" id="level">
+</div>
+
+</div>
+
+</div>
+
+
+<div class="summary" id="summary">
+</div>
+
+
+<div class="settings">
+
+
+<div class="setting">
+
+<span>
+Overall Preset
+</span>
+
+<strong id="preset"></strong>
+
+</div>
+
+
+<div class="setting">
+
+<span>
+Textures
+</span>
+
+<strong id="textures"></strong>
+
+</div>
+
+
+<div class="setting">
+
+<span>
+Shadows
+</span>
+
+<strong id="shadows"></strong>
+
+</div>
+
+
+<div class="setting">
+
+<span>
+Reflections
+</span>
+
+<strong id="reflections"></strong>
+
+</div>
+
+
+<div class="setting">
+
+<span>
+Effects
+</span>
+
+<strong id="effects"></strong>
+
+</div>
+
+
+<div class="setting">
+
+<span>
+Volumetrics
+</span>
+
+<strong id="volumetrics"></strong>
+
+</div>
+
+
+<div class="setting">
+
+<span>
+Ray Tracing
+</span>
+
+<strong id="rt"></strong>
+
+</div>
+
+
+<div class="setting">
+
+<span>
+Upscaling
+</span>
+
+<strong id="upscaling"></strong>
+
+</div>
+
+
+<div class="setting">
+
+<span>
+Frame Generation
+</span>
+
+<strong id="fg"></strong>
+
+</div>
+
+
+</div>
+
+
+<div class="tip">
+
+<span id="tip"></span>
+
+</div>
+
+
+<div class="note">
+GameTools recommendations are practical starting points,
+not guaranteed benchmark results. Actual performance can
+vary with CPU, RAM, VRAM, drivers, game updates and the
+scene being rendered.
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+</main>
+
+
+<script src="gpu-data.js"></script>
+<script src="game-guide.js"></script>
+
+<script>
+
+/*
+CHANGE ONLY THIS LINE FOR EACH GAME
+*/
+
+startGameGuide("gta5enhanced");
+
+</script>
+
+
+</body>
+</html>
