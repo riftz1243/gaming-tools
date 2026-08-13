@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fortnite Settings by GPU | GameTools</title>
+
+<meta name="description"
+content="Choose your GPU and get practical Fortnite settings for competitive, balanced or quality-focused play.">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --bg:#0a0a0b;
+  --surface:#111113;
+  --surface2:#161618;
+  --border:#262629;
+  --border-hover:#3a3a3f;
+  --text:#f5f5f5;
+  --muted:#96969f;
+  --accent:#8b7cff;
+  --good:#75d6a2;
+}
+
+body{
+  font-family:
+    Inter,
+    ui-sans-serif,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+}
+
+nav{
+  height:68px;
+  max-width:1100px;
+  margin:auto;
+  padding:0 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:19px;
+  font-weight:700;
+  letter-spacing:-.5px;
+}
+
+.logo span{
+  color:var(--accent);
+}
+
+nav a{
+  color:var(--muted);
+  text-decoration:none;
+  font-size:14px;
+}
+
+nav a:hover{
+  color:white;
+}
+
+.line{
+  height:1px;
+  background:var(--border);
+}
+
+.hero{
+  max-width:900px;
+  margin:auto;
+  padding:90px 24px 60px;
+}
+
+.eyebrow{
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-size:12px;
+  font-weight:600;
+  margin-bottom:22px;
+}
+
+.hero h1{
+  font-size:clamp(42px,7vw,70px);
+  line-height:1.03;
+  letter-spacing:-3px;
+  font-weight:650;
+}
+
+.hero h1 span{
+  color:#777780;
+}
+
+.hero p{
+  max-width:680px;
+  margin-top:24px;
+  color:var(--muted);
+  line-height:1.75;
+  font-size:17px;
+}
+
+main{
+  max-width:900px;
+  margin:auto;
+  padding:0 24px 100px;
+}
+
+.tool{
+  border:1px solid var(--border);
+  background:var(--surface);
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.tool-top{
+  padding:28px;
+  border-bottom:1px solid var(--border);
+}
+
+.tool-top h2{
+  font-size:27px;
+  letter-spacing:-.8px;
+  font-weight:600;
+}
+
+.tool-top p{
+  color:var(--muted);
+  margin-top:8px;
+  line-height:1.6;
+  font-size:14px;
+}
+
+.form{
+  padding:28px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.field label{
+  display:block;
+  margin-bottom:8px;
+  color:#b8b8c0;
+  font-size:13px;
+}
+
+select{
+  width:100%;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:#0c0c0e;
+  color:white;
+  font-size:14px;
+  outline:none;
+}
+
+select:focus{
+  border-color:var(--border-hover);
+}
+
+button{
+  width:100%;
+  margin-top:22px;
+  padding:15px;
+  border:none;
+  border-radius:8px;
+  background:#f1f1f1;
+  color:#111;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+button:hover{
+  background:white;
+}
+
+.result{
+  display:none;
+  margin-top:26px;
+  padding-top:26px;
+  border-top:1px solid var(--border);
+}
+
+.result-head{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:flex-start;
+  margin-bottom:20px;
+}
+
+.result-head h3{
+  font-size:24px;
+  letter-spacing:-.7px;
+}
+
+.level{
+  text-align:right;
+}
+
+.level-label{
+  color:var(--muted);
+  font-size:11px;
+  letter-spacing:.06em;
+}
+
+.level-value{
+  margin-top:5px;
+  font-size:21px;
+  font-weight:700;
+  color:var(--good);
+}
+
+.summary{
+  padding:16px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:#0d0d0f;
+  color:#b8b8c0;
+  line-height:1.6;
+  margin-bottom:20px;
+}
+
+.settings{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:0 26px;
+}
+
+.setting{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:13px 0;
+  border-bottom:1px solid var(--border);
+}
+
+.setting span{
+  color:var(--muted);
+}
+
+.setting strong{
+  text-align:right;
+}
+
+.tip{
+  margin-top:22px;
+  padding:18px;
+  border:1px solid var(--border);
+  border-radius:8px;
+  background:var(--surface2);
+  color:#b8b8c0;
+  line-height:1.7;
+  font-size:14px;
+}
+
+.note{
+  margin-top:20px;
+  color:#73737a;
+  font-size:12px;
+  line-height:1.6;
+}
+
+footer{
+  border-top:1px solid var(--border);
+}
+
+.footer-inner{
+  max-width:900px;
+  margin:auto;
+  padding:30px 24px;
+  display:flex;
+  justify-content:space-between;
+  color:#686870;
+  font-size:12px;
+}
+
+@media(max-width:800px){
+  .grid,
+  .settings{
+    grid-template-columns:1fr;
+  }
+
+  .result-head{
+    display:block;
+  }
+
+  .level{
+    text-align:left;
+    margin-top:15px;
+  }
+
+  .hero h1{
+    letter-spacing:-2px;
+  }
+
+  .footer-inner{
+    display:block;
+  }
+
+  .footer-inner span:last-child{
+    display:block;
+    margin-top:8px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">GameTools<span>.</span></div>
+  <a href="guides.html">← Guides</a>
+</nav>
+
+<div class="line"></div>
+
+<header class="hero">
+
+<div class="eyebrow">
+Fortnite graphics settings
+</div>
+
+<h1>
+Choose your GPU.
+<span>Get your Fortnite setup.</span>
+</h1>
+
+<p>
+Pick your graphics card, resolution and play style.
+GameTools will give you a practical Fortnite settings
+starting point for your hardware.
+</p>
+
+</header>
+
+<main>
+
+<div class="tool">
+
+<div class="tool-top">
+  <h2>Fortnite Settings Finder</h2>
+  <p>
+    This guide uses practical hardware categories rather than
+    pretending every result is a measured benchmark.
+  </p>
+</div>
+
+<div class="form">
+
+<div class="grid">
+
+<div class="field">
+<label>Graphics card</label>
+<select id="gpu">
+
+<option value="3060">RTX 3060</option>
+<option value="3070">RTX 3070</option>
+<option value="4060">RTX 4060</option>
+<option value="4070">RTX 4070</option>
+<option value="5060" selected>RTX 5060</option>
+<option value="5070">RTX 5070</option>
+
+<option value="6600">RX 6600</option>
+<option value="7600">RX 7600</option>
+<option value="7700xt">RX 7700 XT</option>
+<option value="7800xt">RX 7800 XT</option>
+
+</select>
+</div>
+
+<div class="field">
+<label>Resolution</label>
+<select id="resolution">
+<option value="1080">1080p</option>
+<option value="1440" selected>1440p</option>
+<option value="4k">4K</option>
+</select>
+</div>
+
+<div class="field">
+<label>Play style</label>
+<select id="profile">
+<option value="competitive">Competitive / High FPS</option>
+<option value="balanced" selected>Balanced</option>
+<option value="quality">Better Graphics</option>
+</select>
+</div>
+
+</div>
+
+<button onclick="generateSettings()">
+Generate Fortnite Settings
+</button>
+
+<div class="result" id="result">
+
+<div class="result-head">
+
+<div>
+<h3>Your Fortnite starting point</h3>
+</div>
+
+<div class="level">
+<div class="level-label">GRAPHICS HEADROOM</div>
+<div class="level-value" id="level"></div>
+</div>
+
+</div>
+
+<div class="summary" id="summary"></div>
+
+<div class="settings">
+
+<div class="setting">
+<span>Rendering Mode</span>
+<strong id="rendering"></strong>
+</div>
+
+<div class="setting">
+<span>View Distance</span>
+<strong id="viewdistance"></strong>
+</div>
+
+<div class="setting">
+<span>Shadows</span>
+<strong id="shadows"></strong>
+</div>
+
+<div class="setting">
+<span>Textures</span>
+<strong id="textures"></strong>
+</div>
+
+<div class="setting">
+<span>Effects</span>
+<strong id="effects"></strong>
+</div>
+
+<div class="setting">
+<span>Post Processing</span>
+<strong id="post"></strong>
+</div>
+
+<div class="setting">
+<span>Upscaling</span>
+<strong id="upscaling"></strong>
+</div>
+
+<div class="setting">
+<span>Ray Tracing</span>
+<strong id="rt"></strong>
+</div>
+
+<div class="setting">
+<span>Frame Generation</span>
+<strong id="fg"></strong>
+</div>
+
+<div class="setting">
+<span>NVIDIA Reflex</span>
+<strong id="reflex"></strong>
+</div>
+
+</div>
+
+<div class="tip" id="tip"></div>
+
+<div class="note">
+Actual Fortnite performance can vary with CPU performance,
+game updates, map areas, drivers and background applications.
+Treat these settings as a starting point and test them on
+your own PC.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+<footer>
+
+<div class="footer-inner">
+<span>© 2026 GameTools</span>
+<span>Fortnite settings for multiple GPUs</span>
+</div>
+
+</footer>
+
+<script>
+
+const gpuData = {
+
+"3060":{
+power:1.25,
+brand:"nvidia",
+framegen:false
+},
+
+"3070":{
+power:1.55,
+brand:"nvidia",
+framegen:false
+},
+
+"4060":{
+power:1.45,
+brand:"nvidia",
+framegen:true
+},
+
+"4070":{
+power:2.10,
+brand:"nvidia",
+framegen:true
+},
+
+"5060":{
+power:1.85,
+brand:"nvidia",
+framegen:true
+},
+
+"5070":{
+power:2.65,
+brand:"nvidia",
+framegen:true
+},
+
+"6600":{
+power:1.05,
+brand:"amd",
+framegen:false
+},
+
+"7600":{
+power:1.25,
+brand:"amd",
+framegen:false
+},
+
+"7700xt":{
+power:1.80,
+brand:"amd",
+framegen:false
+},
+
+"7800xt":{
+power:2.25,
+brand:"amd",
+framegen:false
+}
+
+};
+
+
+function generateSettings(){
+
+const gpu =
+document.getElementById("gpu").value;
+
+const resolution =
+document.getElementById("resolution").value;
+
+const profile =
+document.getElementById("profile").value;
+
+const card =
+gpuData[gpu];
+
+let score =
+card.power;
+
+if(resolution === "1440"){
+score *= 0.78;
+}
+
+if(resolution === "4k"){
+score *= 0.52;
+}
+
+
+let level;
+
+if(score < 0.9){
+level="Limited";
+}
+else if(score < 1.3){
+level="Moderate";
+}
+else if(score < 1.8){
+level="Good";
+}
+else if(score < 2.4){
+level="Strong";
+}
+else{
+level="Very Strong";
+}
+
+
+let rendering;
+let viewdistance;
+let shadows;
+let textures;
+let effects;
+let post;
+let upscaling;
+let rt;
+let fg;
+let reflex;
+
+
+if(profile === "competitive"){
+
+rendering="Performance Mode / DX12 Low";
+viewdistance="Medium / Far";
+shadows="Off";
+textures="Low / Medium";
+effects="Low";
+post="Low";
+rt="Off";
+
+if(card.brand === "nvidia"){
+upscaling =
+resolution === "1080"
+? "Native / DLSS Quality"
+: "DLSS Balanced";
+}
+else{
+upscaling =
+resolution === "1080"
+? "Native / FSR Quality"
+: "FSR Balanced";
+}
+
+fg="Off";
+reflex =
+card.brand === "nvidia"
+? "On + Boost if available"
+: "Not available";
+
+}
+
+
+else if(profile === "balanced"){
+
+rendering="DirectX 12";
+viewdistance="Far";
+shadows =
+score < 1.2 ? "Low" : "Medium";
+
+textures =
+score < 1 ? "Medium" : "High";
+
+effects =
+score < 1.3 ? "Medium" : "Medium / High";
+
+post="Medium";
+rt="Off";
+
+if(card.brand === "nvidia"){
+upscaling =
+resolution === "1080"
+? "DLSS Quality / Native"
+: "DLSS Quality";
+}
+else{
+upscaling =
+resolution === "1080"
+? "FSR Quality / Native"
+: "FSR Quality";
+}
+
+fg =
+card.framegen
+? "Optional if supported"
+: "Off";
+
+reflex =
+card.brand === "nvidia"
+? "On"
+: "Not available";
+
+}
+
+
+else{
+
+rendering="DirectX 12";
+viewdistance="Far / Epic";
+shadows =
+score < 1.3 ? "Medium" : "High";
+
+textures="High";
+
+effects =
+score < 1.4 ? "Medium" : "High";
+
+post =
+score < 1.4 ? "Medium" : "High";
+
+rt =
+score > 2.0
+? "Optional / Low"
+: "Off";
+
+if(card.brand === "nvidia"){
+upscaling =
+resolution === "4k"
+? "DLSS Balanced / Quality"
+: "DLSS Quality / Native";
+}
+else{
+upscaling =
+resolution === "4k"
+? "FSR Balanced / Quality"
+: "FSR Quality / Native";
+}
+
+fg =
+card.framegen
+? "Optional"
+: "Off";
+
+reflex =
+card.brand === "nvidia"
+? "On"
+: "Not available";
+
+}
+
+
+let summary;
+
+if(level === "Limited"){
+
+summary =
+"This combination is fairly demanding. Prioritize lower visual settings and upscaling if you want smoother gameplay.";
+
+}
+
+else if(level === "Moderate"){
+
+summary =
+"This setup should work well with a few compromises on heavier visual settings.";
+
+}
+
+else if(level === "Good"){
+
+summary =
+"This is a solid Fortnite setup. You have enough headroom for a balanced mix of performance and visual quality.";
+
+}
+
+else if(level === "Strong"){
+
+summary =
+"This GPU has good headroom for Fortnite at the selected resolution. You can push image quality further if you want.";
+
+}
+
+else{
+
+summary =
+"This is a strong combination. Higher settings are reasonable unless you're specifically targeting very high competitive frame rates.";
+
+}
+
+
+let tip;
+
+if(profile === "competitive"){
+
+tip =
+"Competitive tip: keep shadows and effects low, disable ray tracing, and prioritize stable responsiveness over extra visual detail.";
+
+}
+
+else if(profile === "balanced"){
+
+tip =
+"Balanced tip: keep textures high, but reduce shadows and effects first if performance drops.";
+
+}
+
+else{
+
+tip =
+"Quality tip: keep textures high and reduce ray tracing, shadows and effects first if you need more performance.";
+
+}
+
+
+document.getElementById("level").innerText =
+level;
+
+document.getElementById("summary").innerText =
+summary;
+
+document.getElementById("rendering").innerText =
+rendering;
+
+document.getElementById("viewdistance").innerText =
+viewdistance;
+
+document.getElementById("shadows").innerText =
+shadows;
+
+document.getElementById("textures").innerText =
+textures;
+
+document.getElementById("effects").innerText =
+effects;
+
+document.getElementById("post").innerText =
+post;
+
+document.getElementById("upscaling").innerText =
+upscaling;
+
+document.getElementById("rt").innerText =
+rt;
+
+document.getElementById("fg").innerText =
+fg;
+
+document.getElementById("reflex").innerText =
+reflex;
+
+document.getElementById("tip").innerText =
+tip;
+
+document.getElementById("result").style.display =
+"block";
+
+document.getElementById("result").scrollIntoView({
+behavior:"smooth",
+block:"nearest"
+});
+
+}
+
+</script>
+
+</body>
+</html>
