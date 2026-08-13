@@ -7,7 +7,7 @@
 <title>PC Game Settings Guides | GameTools</title>
 
 <meta name="description"
-content="Browse practical PC graphics settings guides for Fortnite, Cyberpunk 2077 and Black Myth: Wukong across multiple GPUs.">
+content="Choose your GPU and find practical PC graphics settings for Fortnite, Cyberpunk 2077 and Black Myth: Wukong.">
 
 <style>
 *{
@@ -28,14 +28,8 @@ content="Browse practical PC graphics settings guides for Fortnite, Cyberpunk 20
 }
 
 body{
-  font-family:
-    Inter,
-    ui-sans-serif,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-
+  font-family:Inter,ui-sans-serif,-apple-system,
+  BlinkMacSystemFont,"Segoe UI",sans-serif;
   background:var(--bg);
   color:var(--text);
   min-height:100vh;
@@ -46,7 +40,6 @@ nav{
   max-width:1180px;
   margin:auto;
   padding:0 24px;
-
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -98,7 +91,7 @@ nav{
 }
 
 .hero h1{
-  max-width:780px;
+  max-width:800px;
   font-size:clamp(44px,7vw,72px);
   line-height:1.03;
   letter-spacing:-3px;
@@ -123,63 +116,69 @@ main{
   padding:0 24px 100px;
 }
 
-.section-title{
+.top{
   display:flex;
   justify-content:space-between;
   align-items:end;
   gap:20px;
-  margin-bottom:24px;
+  margin-bottom:25px;
 }
 
-.section-title h2{
+.top h2{
   font-size:26px;
   letter-spacing:-.8px;
   font-weight:600;
 }
 
-.section-title p{
+.top p{
   color:var(--muted);
   font-size:13px;
 }
 
 .guides{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(3,1fr);
   gap:16px;
 }
 
 .guide{
+  min-height:345px;
+  padding:28px;
+
   display:flex;
   flex-direction:column;
-  min-height:315px;
-
-  padding:28px;
 
   color:white;
   text-decoration:none;
 
   border:1px solid var(--border);
   border-radius:10px;
+
   background:var(--surface);
 
   transition:.15s;
 }
 
 .guide:hover{
-  transform:translateY(-2px);
+  transform:translateY(-3px);
   border-color:var(--border-hover);
   background:var(--surface-hover);
+}
+
+.number{
+  color:#66666e;
+  font-size:12px;
+  margin-bottom:45px;
 }
 
 .meta{
   display:flex;
   flex-wrap:wrap;
-  gap:8px;
-  margin-bottom:50px;
+  gap:7px;
+  margin-bottom:18px;
 }
 
 .tag{
-  display:inline-block;
   padding:5px 8px;
 
   border:1px solid var(--border);
@@ -191,15 +190,14 @@ main{
 }
 
 .guide h3{
-  max-width:470px;
   font-size:23px;
+  line-height:1.25;
   letter-spacing:-.7px;
-  font-weight:600;
   margin-bottom:12px;
+  font-weight:600;
 }
 
 .guide p{
-  max-width:500px;
   color:var(--muted);
   line-height:1.65;
   font-size:14px;
@@ -213,7 +211,7 @@ main{
   font-weight:600;
 }
 
-.more{
+.info{
   margin-top:45px;
   padding:27px;
 
@@ -224,11 +222,11 @@ main{
   line-height:1.7;
 }
 
-.more strong{
+.info strong{
   color:white;
 }
 
-.more a{
+.info a{
   color:white;
 }
 
@@ -248,11 +246,15 @@ footer{
   font-size:12px;
 }
 
-@media(max-width:800px){
+@media(max-width:900px){
 
   .guides{
     grid-template-columns:1fr;
   }
+
+}
+
+@media(max-width:700px){
 
   .hero{
     padding-top:70px;
@@ -262,11 +264,11 @@ footer{
     letter-spacing:-2px;
   }
 
-  .section-title{
+  .top{
     display:block;
   }
 
-  .section-title p{
+  .top p{
     margin-top:7px;
   }
 
@@ -282,6 +284,7 @@ footer{
     display:block;
     margin-top:8px;
   }
+
 }
 </style>
 </head>
@@ -310,43 +313,51 @@ Settings Finder
 
 <div class="line"></div>
 
+
 <header class="hero">
 
 <div class="eyebrow">
-PC graphics guides
+Game-specific settings
 </div>
 
 <h1>
-One game.
-<span>Multiple GPUs.</span>
+Choose a game.
+<span>Then choose your GPU.</span>
 </h1>
 
 <p>
-Choose a game guide and then select your graphics card,
-resolution and preferred graphics style directly on the page.
+Each guide lets you select your graphics card, resolution
+and preferred graphics style instead of requiring a separate
+page for every hardware combination.
 </p>
 
 </header>
 
+
 <main>
 
-<div class="section-title">
+<div class="top">
 
 <h2>
-Game guides
+Multi-GPU guides
 </h2>
 
 <p>
-3 games available
+3 games · NVIDIA + AMD
 </p>
 
 </div>
+
 
 <div class="guides">
 
 
 <a class="guide"
 href="fortnite-settings.html">
+
+<div class="number">
+01
+</div>
 
 <div class="meta">
 
@@ -355,34 +366,37 @@ FORTNITE
 </span>
 
 <span class="tag">
-NVIDIA + AMD
+10 GPUs
 </span>
 
 <span class="tag">
-10 GPUs
+NVIDIA + AMD
 </span>
 
 </div>
 
 <h3>
-Fortnite settings by GPU
+Fortnite Settings Finder
 </h3>
 
 <p>
-Choose from RTX 3060, RTX 3070, RTX 4060, RTX 4070,
-RTX 5060, RTX 5070 and several Radeon GPUs, then select
-1080p, 1440p or 4K and your preferred play style.
+Choose your GPU, resolution and play style. Switch between
+competitive high-FPS, balanced and higher-quality settings.
 </p>
 
 <div class="read">
-Open Fortnite guide →
+Open Fortnite settings →
 </div>
 
 </a>
 
 
 <a class="guide"
-href="rtx-5060-cyberpunk-settings.html">
+href="cyberpunk-settings.html">
+
+<div class="number">
+02
+</div>
 
 <div class="meta">
 
@@ -391,29 +405,37 @@ CYBERPUNK 2077
 </span>
 
 <span class="tag">
-RTX 5060
+10 GPUs
+</span>
+
+<span class="tag">
+NVIDIA + AMD
 </span>
 
 </div>
 
 <h3>
-Cyberpunk 2077 settings
+Cyberpunk 2077 Settings Finder
 </h3>
 
 <p>
-Recommended starting settings for the RTX 5060 at 1080p
-and 1440p, including DLSS and ray tracing advice.
+Get a practical starting point for textures, shadows,
+reflections, DLSS or FSR, ray tracing and Frame Generation.
 </p>
 
 <div class="read">
-Read Cyberpunk guide →
+Open Cyberpunk settings →
 </div>
 
 </a>
 
 
 <a class="guide"
-href="rtx-5060-black-myth-wukong-settings.html">
+href="black-myth-wukong-settings.html">
+
+<div class="number">
+03
+</div>
 
 <div class="meta">
 
@@ -422,22 +444,27 @@ BLACK MYTH: WUKONG
 </span>
 
 <span class="tag">
-RTX 5060
+10 GPUs
+</span>
+
+<span class="tag">
+NVIDIA + AMD
 </span>
 
 </div>
 
 <h3>
-Black Myth: Wukong settings
+Black Myth: Wukong Settings Finder
 </h3>
 
 <p>
-A practical RTX 5060 setup focused on balancing image
-quality with the game's demanding graphics effects.
+Choose hardware and resolution to balance textures,
+global illumination, shadows, reflections and other
+demanding graphics options.
 </p>
 
 <div class="read">
-Read Black Myth guide →
+Open Black Myth settings →
 </div>
 
 </a>
@@ -445,21 +472,24 @@ Read Black Myth guide →
 
 </div>
 
-<div class="more">
+
+<div class="info">
 
 <strong>
-More multi-GPU guides are coming.
+Want another game?
 </strong>
 
 <br><br>
 
-Next, Cyberpunk 2077 and Black Myth: Wukong can be upgraded
-to the same system as Fortnite, so visitors can choose
-their GPU instead of needing a separate page for every card.
+We'll keep adding games to this system instead of creating
+hundreds of nearly identical GPU pages. You can also use the
+<a href="settings.html">general PC Settings Finder</a>
+for games that do not yet have their own dedicated guide.
 
 </div>
 
 </main>
+
 
 <footer>
 
@@ -470,7 +500,7 @@ their GPU instead of needing a separate page for every card.
 </span>
 
 <span>
-PC gaming tools and settings guides
+Multi-GPU PC gaming guides
 </span>
 
 </div>
