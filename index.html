@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming Tools</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0b0b0f;
+      color: white;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 30px 20px;
+      text-align: center;
+      border-bottom: 1px solid #222;
+    }
+
+    header h1 {
+      font-size: 38px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: #aaa;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #15151c;
+      border: 1px solid #25252f;
+      border-radius: 18px;
+      padding: 25px;
+    }
+
+    .card h2 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #aaa;
+      margin-bottom: 18px;
+    }
+
+    input, textarea {
+      width: 100%;
+      background: #0e0e13;
+      color: white;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      width: 100%;
+      background: white;
+      color: black;
+      border: none;
+      border-radius: 10px;
+      padding: 12px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.85;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      color: #666;
+      padding: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🎮 Gaming Tools</h1>
+  <p>Små gratis verktyg för gamers.</p>
+</header>
+
+<main>
+
+  <div class="tools">
+
+    <!-- Procent -->
+    <div class="card">
+      <h2>🧮 Procenträknare</h2>
+      <p>Räkna ut hur många procent ett tal är av ett annat.</p>
+
+      <input id="number1" type="number" placeholder="Till exempel 25">
+      <input id="number2" type="number" placeholder="Av till exempel 100">
+
+      <button onclick="calculatePercent()">Räkna ut</button>
+
+      <div class="result" id="percentResult"></div>
+    </div>
+
+
+    <!-- Random Game -->
+    <div class="card">
+      <h2>🎲 Vilket spel ska jag spela?</h2>
+      <p>Skriv dina spel, ett per rad.</p>
+
+      <textarea id="games" placeholder="Cyberpunk 2077&#10;Minecraft&#10;Elden Ring&#10;Fortnite"></textarea>
+
+      <button onclick="pickGame()">Välj ett spel</button>
+
+      <div class="result" id="gameResult"></div>
+    </div>
+
+
+    <!-- Gaming Time -->
+    <div class="card">
+      <h2>⏱️ Speltidskalkylator</h2>
+      <p>Se hur mycket du spelar på en vecka.</p>
+
+      <input id="hours" type="number" placeholder="Timmar per dag">
+
+      <button onclick="calculateGaming()">Räkna ut</button>
+
+      <div class="result" id="gamingResult"></div>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  Gaming Tools • 2026
+</footer>
+
+
+<script>
+
+  function calculatePercent() {
+    const a = Number(document.getElementById("number1").value);
+    const b = Number(document.getElementById("number2").value);
+
+    if (!a || !b) {
+      document.getElementById("percentResult").innerText =
+        "Fyll i båda talen.";
+      return;
+    }
+
+    const result = (a / b) * 100;
+
+    document.getElementById("percentResult").innerText =
+      result.toFixed(1) + "%";
+  }
+
+
+  function pickGame() {
+    const text = document.getElementById("games").value;
+
+    const games = text
+      .split("\n")
+      .map(game => game.trim())
+      .filter(game => game !== "");
+
+    if (games.length === 0) {
+      document.getElementById("gameResult").innerText =
+        "Skriv minst ett spel.";
+      return;
+    }
+
+    const randomGame =
+      games[Math.floor(Math.random() * games.length)];
+
+    document.getElementById("gameResult").innerText =
+      "🎮 Spela: " + randomGame;
+  }
+
+
+  function calculateGaming() {
+    const hours =
+      Number(document.getElementById("hours").value);
+
+    if (!hours) {
+      document.getElementById("gamingResult").innerText =
+        "Skriv antal timmar.";
+      return;
+    }
+
+    const weekly = hours * 7;
+    const monthly = hours * 30;
+
+    document.getElementById("gamingResult").innerHTML =
+      weekly + " timmar / vecka<br>" +
+      monthly + " timmar / månad";
+  }
+
+</script>
+
+</body>
+</html>
