@@ -7,37 +7,25 @@
 <title>PC Graphics Settings Finder | GameTools</title>
 
 <meta name="description"
-content="Find practical PC graphics settings starting points based on your GPU, CPU, game, resolution and visual priority.">
+content="Choose your GPU, CPU, game and resolution to get a practical PC graphics settings starting point.">
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 :root{
   --bg:#0a0a0b;
   --surface:#111113;
   --surface2:#161618;
   --border:#262629;
-  --border-hover:#3a3a3f;
   --text:#f5f5f5;
   --muted:#96969f;
   --accent:#8b7cff;
-  --good:#76d5a3;
-  --warn:#e7c66e;
+  --good:#75d6a2;
 }
 
 body{
-  font-family:
-    Inter,
-    ui-sans-serif,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-
+  font-family:Inter,ui-sans-serif,-apple-system,
+  BlinkMacSystemFont,"Segoe UI",sans-serif;
   background:var(--bg);
   color:var(--text);
   min-height:100vh;
@@ -45,10 +33,9 @@ body{
 
 nav{
   height:68px;
-  max-width:1180px;
+  max-width:1100px;
   margin:auto;
   padding:0 24px;
-
   display:flex;
   justify-content:space-between;
   align-items:center;
@@ -57,21 +44,14 @@ nav{
 .logo{
   font-size:19px;
   font-weight:700;
-  letter-spacing:-.5px;
 }
 
-.logo span{
-  color:var(--accent);
-}
+.logo span{color:var(--accent)}
 
 nav a{
   color:var(--muted);
   text-decoration:none;
   font-size:14px;
-}
-
-nav a:hover{
-  color:white;
 }
 
 .line{
@@ -80,7 +60,7 @@ nav a:hover{
 }
 
 .hero{
-  max-width:1180px;
+  max-width:900px;
   margin:auto;
   padding:90px 24px 60px;
 }
@@ -88,41 +68,35 @@ nav a:hover{
 .eyebrow{
   color:var(--muted);
   font-size:12px;
-  font-weight:600;
   text-transform:uppercase;
   letter-spacing:.08em;
-  margin-bottom:20px;
+  margin-bottom:22px;
 }
 
 .hero h1{
-  max-width:850px;
-  font-size:clamp(44px,7vw,74px);
+  font-size:clamp(42px,7vw,70px);
   line-height:1.03;
   letter-spacing:-3px;
-  font-weight:650;
 }
 
-.hero h1 span{
-  color:#777780;
-}
+.hero h1 span{color:#777780}
 
 .hero p{
   max-width:680px;
   margin-top:24px;
   color:var(--muted);
-  line-height:1.7;
-  font-size:17px;
+  line-height:1.75;
 }
 
 main{
-  max-width:1180px;
+  max-width:900px;
   margin:auto;
   padding:0 24px 100px;
 }
 
 .tool{
   border:1px solid var(--border);
-  border-radius:12px;
+  border-radius:10px;
   background:var(--surface);
   overflow:hidden;
 }
@@ -132,17 +106,10 @@ main{
   border-bottom:1px solid var(--border);
 }
 
-.tool-top h2{
-  font-size:26px;
-  font-weight:600;
-  letter-spacing:-.8px;
-}
-
 .tool-top p{
   color:var(--muted);
   margin-top:8px;
   line-height:1.6;
-  font-size:14px;
 }
 
 .form{
@@ -152,10 +119,10 @@ main{
 .grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:18px;
+  gap:16px;
 }
 
-.field label{
+label{
   display:block;
   margin-bottom:8px;
   color:#b8b8c0;
@@ -165,39 +132,20 @@ main{
 select{
   width:100%;
   padding:14px;
-
   border:1px solid var(--border);
   border-radius:8px;
-
   background:#0c0c0e;
   color:white;
-
-  font-size:14px;
-  outline:none;
-}
-
-select:focus{
-  border-color:var(--border-hover);
 }
 
 button{
   width:100%;
-  margin-top:24px;
+  margin-top:22px;
   padding:15px;
-
   border:none;
   border-radius:8px;
-
-  background:#f0f0f0;
-  color:#111;
-
-  font-size:14px;
   font-weight:700;
   cursor:pointer;
-}
-
-button:hover{
-  background:white;
 }
 
 .result{
@@ -211,30 +159,13 @@ button:hover{
   display:flex;
   justify-content:space-between;
   gap:20px;
-  align-items:flex-start;
   margin-bottom:20px;
 }
 
-.result-head h3{
-  font-size:24px;
-  letter-spacing:-.6px;
-}
-
-.performance{
-  text-align:right;
-}
-
-.performance-label{
-  color:var(--muted);
-  font-size:11px;
-  letter-spacing:.06em;
-}
-
-.performance-value{
-  margin-top:5px;
-  font-size:22px;
-  font-weight:700;
+.level-value{
   color:var(--good);
+  font-size:21px;
+  font-weight:700;
 }
 
 .summary{
@@ -270,84 +201,49 @@ button:hover{
 }
 
 .priority{
-  margin-top:24px;
+  margin-top:22px;
   padding:18px;
-
   border:1px solid var(--border);
   border-radius:8px;
-
   background:var(--surface2);
 }
 
-.priority h4{
-  margin-bottom:10px;
-  font-size:14px;
-}
-
 .priority ol{
+  margin-top:10px;
   padding-left:20px;
   color:#b8b8c0;
   line-height:1.8;
-  font-size:14px;
 }
 
-.guide-box{
+.game-guide{
   display:none;
   margin-top:20px;
   padding:18px;
-
   border:1px solid var(--border);
   border-radius:8px;
-
-  background:#0d0d0f;
 }
 
-.guide-box strong{
-  display:block;
-  margin-bottom:7px;
-}
-
-.guide-box p{
+.game-guide p{
   color:var(--muted);
-  line-height:1.6;
-  font-size:14px;
+  margin-top:7px;
 }
 
-.guide-box a{
+.game-guide a{
   display:inline-block;
   margin-top:12px;
   color:white;
-  font-weight:600;
-  font-size:14px;
-  text-decoration:none;
 }
 
 .note{
-  margin-top:22px;
+  margin-top:20px;
   color:#73737a;
   font-size:12px;
   line-height:1.6;
 }
 
 @media(max-width:750px){
-
-  .grid,
-  .settings{
-    grid-template-columns:1fr;
-  }
-
-  .result-head{
-    display:block;
-  }
-
-  .performance{
-    margin-top:15px;
-    text-align:left;
-  }
-
-  .hero h1{
-    letter-spacing:-2px;
-  }
+  .grid,.settings{grid-template-columns:1fr}
+  .result-head{display:block}
 }
 </style>
 </head>
@@ -355,39 +251,29 @@ button:hover{
 <body>
 
 <nav>
-
-<div class="logo">
-GameTools<span>.</span>
-</div>
-
-<a href="index.html">
-← Home
-</a>
-
+<div class="logo">GameTools<span>.</span></div>
+<a href="index.html">← Home</a>
 </nav>
 
 <div class="line"></div>
 
-
 <header class="hero">
 
 <div class="eyebrow">
-PC graphics settings finder
+General PC settings finder
 </div>
 
 <h1>
-Find a practical
-<span>starting point.</span>
+Choose your hardware.
+<span>Get a starting point.</span>
 </h1>
 
 <p>
-Choose your hardware, game, resolution and priority.
-GameTools will suggest graphics settings to start with,
-without pretending they are verified benchmark results.
+Use the general finder for games that do not yet have their
+own dedicated GameTools guide.
 </p>
 
 </header>
-
 
 <main>
 
@@ -395,68 +281,28 @@ without pretending they are verified benchmark results.
 
 <div class="tool-top">
 
-<h2>
-Your setup
-</h2>
+<h2>PC Settings Finder</h2>
 
 <p>
-Pick the options that best match your PC and how you want
-the game to feel.
+The same shared GPU database is now used across the entire
+GameTools site.
 </p>
 
 </div>
-
 
 <div class="form">
 
 <div class="grid">
 
-
-<div class="field">
-
+<div>
 <label>Graphics card</label>
-
-<select id="gpu">
-
-<option value="2060">NVIDIA GeForce RTX 2060</option>
-<option value="3060">NVIDIA GeForce RTX 3060</option>
-<option value="3060ti">NVIDIA GeForce RTX 3060 Ti</option>
-<option value="3070">NVIDIA GeForce RTX 3070</option>
-<option value="3080">NVIDIA GeForce RTX 3080</option>
-
-<option value="4060">NVIDIA GeForce RTX 4060</option>
-<option value="4060ti">NVIDIA GeForce RTX 4060 Ti</option>
-<option value="4070">NVIDIA GeForce RTX 4070</option>
-<option value="4070s">NVIDIA GeForce RTX 4070 Super</option>
-<option value="4080">NVIDIA GeForce RTX 4080</option>
-<option value="4090">NVIDIA GeForce RTX 4090</option>
-
-<option value="5060" selected>NVIDIA GeForce RTX 5060</option>
-<option value="5060ti">NVIDIA GeForce RTX 5060 Ti</option>
-<option value="5070">NVIDIA GeForce RTX 5070</option>
-<option value="5070ti">NVIDIA GeForce RTX 5070 Ti</option>
-<option value="5080">NVIDIA GeForce RTX 5080</option>
-<option value="5090">NVIDIA GeForce RTX 5090</option>
-
-<option value="6600">AMD Radeon RX 6600</option>
-<option value="6700xt">AMD Radeon RX 6700 XT</option>
-<option value="7600">AMD Radeon RX 7600</option>
-<option value="7700xt">AMD Radeon RX 7700 XT</option>
-<option value="7800xt">AMD Radeon RX 7800 XT</option>
-<option value="7900xt">AMD Radeon RX 7900 XT</option>
-<option value="7900xtx">AMD Radeon RX 7900 XTX</option>
-
-</select>
-
+<select id="gpu"></select>
 </div>
 
-
-<div class="field">
-
+<div>
 <label>Processor</label>
 
 <select id="cpu">
-
 <option value="low">Older / Entry CPU</option>
 <option value="11400" selected>Intel Core i5-11400F</option>
 <option value="12400">Intel Core i5-12400F</option>
@@ -468,18 +314,14 @@ the game to feel.
 <option value="7600cpu">AMD Ryzen 5 7600</option>
 <option value="7800x3d">AMD Ryzen 7 7800X3D</option>
 <option value="9800x3d">AMD Ryzen 7 9800X3D</option>
-
 </select>
 
 </div>
 
-
-<div class="field">
-
+<div>
 <label>Game</label>
 
 <select id="game">
-
 <option value="cyberpunk">Cyberpunk 2077</option>
 <option value="blackmyth">Black Myth: Wukong</option>
 <option value="fortnite">Fortnite</option>
@@ -496,98 +338,71 @@ the game to feel.
 <option value="bg3">Baldur's Gate 3</option>
 <option value="alanwake">Alan Wake 2</option>
 <option value="kingdomcome">Kingdom Come: Deliverance II</option>
-
 </select>
 
 </div>
 
-
-<div class="field">
-
+<div>
 <label>Resolution</label>
 
 <select id="resolution">
-
-<option value="1080">1920 × 1080</option>
-<option value="1440" selected>2560 × 1440</option>
-<option value="4k">3840 × 2160 (4K)</option>
-
+<option value="1080">1080p</option>
+<option value="1440" selected>1440p</option>
+<option value="4k">4K</option>
 </select>
 
 </div>
 
-
-<div class="field">
-
-<label>Profile</label>
+<div>
+<label>Priority</label>
 
 <select id="priority">
-
-<option value="competitive">Competitive / High FPS</option>
+<option value="performance">Performance</option>
 <option value="balanced" selected>Balanced</option>
-<option value="quality">Best Visual Quality</option>
-
+<option value="quality">Visual Quality</option>
 </select>
 
 </div>
 
-
-<div class="field">
-
-<label>Ray tracing preference</label>
+<div>
+<label>Ray tracing</label>
 
 <select id="rtPreference">
-
 <option value="off">Prefer Off</option>
 <option value="auto" selected>Automatic</option>
 <option value="on">Try to Keep On</option>
-
 </select>
 
 </div>
 
-
 </div>
 
-
 <button onclick="generateSettings()">
-Generate settings
+Generate Settings
 </button>
-
 
 <div class="result" id="result">
 
 <div class="result-head">
 
+<h3>Recommended starting point</h3>
+
 <div>
-
-<h3>
-Recommended starting point
-</h3>
-
+<div style="color:#96969f;font-size:11px;">
+GRAPHICS HEADROOM
 </div>
 
-<div class="performance">
-
-<div class="performance-label">
-PERFORMANCE HEADROOM
-</div>
-
-<div class="performance-value" id="level"></div>
-
+<div class="level-value" id="level"></div>
 </div>
 
 </div>
-
 
 <div class="summary" id="summary"></div>
 
-
 <div class="settings">
 
-
 <div class="setting">
-<span>Overall preset</span>
+<span>Overall Preset</span>
 <strong id="preset"></strong>
 </div>
 
@@ -612,8 +427,8 @@ PERFORMANCE HEADROOM
 </div>
 
 <div class="setting">
-<span>Ray tracing</span>
-<strong id="raytracing"></strong>
+<span>Ray Tracing</span>
+<strong id="rt"></strong>
 </div>
 
 <div class="setting">
@@ -622,47 +437,50 @@ PERFORMANCE HEADROOM
 </div>
 
 <div class="setting">
-<span>Frame generation</span>
-<strong id="framegen"></strong>
+<span>Frame Generation</span>
+<strong id="fg"></strong>
 </div>
 
-
 </div>
-
 
 <div class="priority">
 
-<h4>
-If performance is too low, reduce settings in this order:
-</h4>
+<strong>
+If performance is too low, reduce:
+</strong>
 
-<ol id="priorityList"></ol>
+<ol>
+<li>Ray tracing</li>
+<li>Volumetric effects</li>
+<li>Reflections</li>
+<li>Shadows</li>
+<li>Upscaling quality</li>
+<li>Overall preset</li>
+</ol>
 
 </div>
 
-
-<div class="guide-box" id="guideBox">
+<div class="game-guide" id="guideBox">
 
 <strong>
-We have a dedicated guide for this setup.
+This game has a dedicated multi-GPU guide.
 </strong>
 
-<p id="guideText"></p>
+<p>
+The dedicated version gives more game-specific settings.
+</p>
 
 <a id="guideLink" href="#">
-Read the full guide →
+Open dedicated guide →
 </a>
 
 </div>
 
-
 <div class="note">
-GameTools currently uses broad hardware and game-demand
-categories rather than a verified benchmark result for
-every possible combination. Always test the recommended
-settings in-game.
+The GPU power values used by GameTools are internal
+categories for generating rough settings recommendations.
+They are not benchmark scores or guaranteed FPS results.
 </div>
-
 
 </div>
 
@@ -672,44 +490,14 @@ settings in-game.
 
 </main>
 
+<script src="gpu-data.js"></script>
 
 <script>
 
-const gpuPower = {
-
-"2060":1.00,
-"3060":1.25,
-"3060ti":1.55,
-"3070":1.75,
-"3080":2.15,
-
-"4060":1.35,
-"4060ti":1.65,
-"4070":2.15,
-"4070s":2.40,
-"4080":3.15,
-"4090":4.10,
-
-"5060":1.85,
-"5060ti":2.20,
-"5070":2.70,
-"5070ti":3.20,
-"5080":4.00,
-"5090":5.00,
-
-"6600":1.05,
-"6700xt":1.55,
-"7600":1.25,
-"7700xt":1.80,
-"7800xt":2.25,
-"7900xt":2.90,
-"7900xtx":3.50
-
-};
+populateGpuSelect("gpu","5060");
 
 
 const cpuPower = {
-
 "low":0.78,
 "11400":0.90,
 "12400":0.96,
@@ -721,12 +509,10 @@ const cpuPower = {
 "7600cpu":1.08,
 "7800x3d":1.22,
 "9800x3d":1.30
-
 };
 
 
 const gameDemand = {
-
 "cyberpunk":1.50,
 "blackmyth":1.70,
 "fortnite":0.75,
@@ -743,13 +529,12 @@ const gameDemand = {
 "bg3":0.90,
 "alanwake":1.75,
 "kingdomcome":1.55
-
 };
 
 
 function generateSettings(){
 
-const gpu =
+const gpuId =
 document.getElementById("gpu").value;
 
 const cpu =
@@ -767,18 +552,21 @@ document.getElementById("priority").value;
 const rtPreference =
 document.getElementById("rtPreference").value;
 
+const card =
+GPU_DATABASE[gpuId];
+
 
 let score =
-(gpuPower[gpu] * cpuPower[cpu]) /
+(card.power * cpuPower[cpu]) /
 gameDemand[game];
 
 
-if(resolution === "1440"){
-score *= 0.78;
+if(resolution==="1440"){
+score*=0.78;
 }
 
-if(resolution === "4k"){
-score *= 0.54;
+if(resolution==="4k"){
+score*=0.54;
 }
 
 
@@ -788,11 +576,11 @@ let textures;
 let shadows;
 let reflections;
 let volumetrics;
-let raytracing;
+let rt;
 let upscaling;
 
 
-if(score < 0.8){
+if(score<0.8){
 
 level="Limited";
 preset="Low / Medium";
@@ -800,12 +588,12 @@ textures="Medium";
 shadows="Low";
 reflections="Low";
 volumetrics="Low";
-raytracing="Off";
+rt="Off";
 upscaling="Performance";
 
 }
 
-else if(score < 1.15){
+else if(score<1.15){
 
 level="Moderate";
 preset="Medium";
@@ -813,12 +601,12 @@ textures="High";
 shadows="Medium";
 reflections="Medium";
 volumetrics="Medium";
-raytracing="Off";
+rt="Off";
 upscaling="Balanced";
 
 }
 
-else if(score < 1.65){
+else if(score<1.65){
 
 level="Good";
 preset="High";
@@ -826,12 +614,12 @@ textures="High";
 shadows="Medium / High";
 reflections="High";
 volumetrics="Medium";
-raytracing="Off / Low";
+rt="Off / Low";
 upscaling="Quality";
 
 }
 
-else if(score < 2.3){
+else if(score<2.3){
 
 level="Strong";
 preset="High / Ultra";
@@ -839,7 +627,7 @@ textures="Ultra";
 shadows="High";
 reflections="High";
 volumetrics="High";
-raytracing="Low / Medium";
+rt="Low / Medium";
 upscaling="Quality";
 
 }
@@ -852,119 +640,95 @@ textures="Ultra";
 shadows="Ultra";
 reflections="Ultra";
 volumetrics="High / Ultra";
-raytracing="Medium / High";
+rt="Medium / High";
 upscaling="Native / Quality";
 
 }
 
 
-if(priority === "competitive"){
+if(priority==="performance"){
 
 preset =
-score > 1.3 ? "Medium / High" : "Low / Medium";
+score>1.3
+? "Medium / High"
+: "Low / Medium";
 
 shadows="Low";
-reflections="Low";
-volumetrics="Low";
-raytracing="Off";
+reflections="Low / Medium";
+volumetrics="Low / Medium";
+rt="Off";
 
 upscaling =
-resolution === "1080"
+resolution==="1080"
 ? "Quality / Balanced"
 : "Balanced / Performance";
 
 }
 
 
-if(priority === "quality"){
+if(priority==="quality"){
 
 textures="Ultra";
 shadows="High / Ultra";
 reflections="High / Ultra";
 
-if(score > 1.4){
+if(score>1.4){
 volumetrics="High";
 }
 
 }
 
 
-if(rtPreference === "off"){
-raytracing="Off";
+if(rtPreference==="off"){
+rt="Off";
 }
 
+if(rtPreference==="on"){
 
-if(rtPreference === "on"){
-
-if(score < 1.2){
-raytracing="Low — demanding";
+if(score<1.2){
+rt="Low — demanding";
 }
-
-else if(score < 2){
-raytracing="Low / Medium";
-}
-
-else{
-raytracing="Medium / High";
-}
-
-}
-
-
-const nvidia =
-[
-"2060","3060","3060ti","3070","3080",
-"4060","4060ti","4070","4070s","4080","4090",
-"5060","5060ti","5070","5070ti","5080","5090"
-]
-.includes(gpu);
-
-
-const modernNvidia =
-[
-"4060","4060ti","4070","4070s","4080","4090",
-"5060","5060ti","5070","5070ti","5080","5090"
-]
-.includes(gpu);
-
-
-if(nvidia){
-
-if(upscaling === "Native / Quality"){
-upscaling="DLSS Quality / Native";
+else if(score<2){
+rt="Low / Medium";
 }
 else{
-upscaling="DLSS " + upscaling;
+rt="Medium / High";
 }
 
 }
 
+
+if(card.brand==="nvidia"){
+
+upscaling =
+upscaling==="Native / Quality"
+? "DLSS Quality / Native"
+: "DLSS " + upscaling;
+
+}
 else{
 
-if(upscaling === "Native / Quality"){
-upscaling="FSR Quality / Native";
-}
-else{
-upscaling="FSR " + upscaling;
-}
+upscaling =
+upscaling==="Native / Quality"
+? "FSR Quality / Native"
+: "FSR " + upscaling;
 
 }
 
 
-let framegen;
+let fg;
 
-if(modernNvidia){
+if(card.framegen){
 
-framegen =
-priority === "quality"
+fg =
+priority==="quality"
 ? "Optional"
 : "On if supported";
 
 }
-
 else{
 
-framegen =
+fg =
 "Use if game and hardware support it";
 
 }
@@ -972,159 +736,67 @@ framegen =
 
 let summary;
 
-if(level === "Limited"){
+if(level==="Limited")
+summary="This is a demanding combination. Start conservatively and prioritize smooth gameplay.";
 
-summary =
-"This is a demanding combination for the selected setup. Start with conservative settings and prioritize smooth gameplay.";
+else if(level==="Moderate")
+summary="This setup should be workable with compromises on heavier graphics effects.";
 
-}
+else if(level==="Good")
+summary="This looks like a solid match. High settings are a sensible starting point.";
 
-else if(level === "Moderate"){
+else if(level==="Strong")
+summary="You have good graphics headroom for high to ultra settings.";
 
-summary =
-"This setup should be workable with some compromises on heavier graphics options.";
-
-}
-
-else if(level === "Good"){
-
-summary =
-"This looks like a solid match. High settings are a sensible starting point while keeping heavier effects under control.";
-
-}
-
-else if(level === "Strong"){
-
-summary =
-"You have good graphics headroom here. High to Ultra settings are a reasonable starting point.";
-
-}
-
-else{
-
-summary =
-"This setup has substantial graphics headroom. You can prioritize image quality and reduce settings only if needed.";
-
-}
+else
+summary="This setup has substantial graphics headroom and can prioritize image quality.";
 
 
-document.getElementById("level").innerText =
-level;
+document.getElementById("level").innerText=level;
+document.getElementById("summary").innerText=summary;
 
-document.getElementById("summary").innerText =
-summary;
-
-document.getElementById("preset").innerText =
-preset;
-
-document.getElementById("textures").innerText =
-textures;
-
-document.getElementById("shadows").innerText =
-shadows;
-
-document.getElementById("reflections").innerText =
-reflections;
-
-document.getElementById("volumetrics").innerText =
-volumetrics;
-
-document.getElementById("raytracing").innerText =
-raytracing;
-
-document.getElementById("upscaling").innerText =
-upscaling;
-
-document.getElementById("framegen").innerText =
-framegen;
-
-
-const priorityList =
-document.getElementById("priorityList");
-
-priorityList.innerHTML="";
-
-
-[
-"Ray tracing",
-"Volumetric effects",
-"Reflections",
-"Shadow quality",
-"Upscaling quality",
-"Overall preset"
-]
-.forEach(item => {
-
-const li =
-document.createElement("li");
-
-li.innerText=item;
-
-priorityList.appendChild(li);
-
-});
+document.getElementById("preset").innerText=preset;
+document.getElementById("textures").innerText=textures;
+document.getElementById("shadows").innerText=shadows;
+document.getElementById("reflections").innerText=reflections;
+document.getElementById("volumetrics").innerText=volumetrics;
+document.getElementById("rt").innerText=rt;
+document.getElementById("upscaling").innerText=upscaling;
+document.getElementById("fg").innerText=fg;
 
 
 const guideBox =
 document.getElementById("guideBox");
 
-const guideText =
-document.getElementById("guideText");
-
 const guideLink =
 document.getElementById("guideLink");
-
 
 guideBox.style.display="none";
 
 
-if(gpu === "5060" && game === "cyberpunk"){
+if(game==="fortnite"){
 
 guideBox.style.display="block";
+guideLink.href="fortnite-settings.html";
 
-guideText.innerText =
-"See our RTX 5060 Cyberpunk 2077 guide with separate 1080p and 1440p starting points.";
+}
 
-guideLink.href =
-"rtx-5060-cyberpunk-settings.html";
+if(game==="cyberpunk"){
+
+guideBox.style.display="block";
+guideLink.href="cyberpunk-settings.html";
+
+}
+
+if(game==="blackmyth"){
+
+guideBox.style.display="block";
+guideLink.href="black-myth-wukong-settings.html";
 
 }
 
 
-if(gpu === "5060" && game === "blackmyth"){
-
-guideBox.style.display="block";
-
-guideText.innerText =
-"See our dedicated RTX 5060 Black Myth: Wukong settings guide.";
-
-guideLink.href =
-"rtx-5060-black-myth-wukong-settings.html";
-
-}
-
-
-if(gpu === "5060" && game === "fortnite"){
-
-guideBox.style.display="block";
-
-guideText.innerText =
-"Compare competitive and higher-quality Fortnite settings for the RTX 5060.";
-
-guideLink.href =
-"rtx-5060-fortnite-settings.html";
-
-}
-
-
-document.getElementById("result").style.display =
-"block";
-
-
-document.getElementById("result").scrollIntoView({
-behavior:"smooth",
-block:"nearest"
-});
+document.getElementById("result").style.display="block";
 
 }
 
