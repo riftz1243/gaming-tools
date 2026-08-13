@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>GameTools — PC Gaming Tools & Settings Guides</title>
 
 <meta name="description"
-content="Search PC gaming tools and multi-GPU graphics settings guides for Fortnite, Cyberpunk 2077, Resident Evil Requiem and more.">
+content="Find practical PC graphics settings for your GPU, CPU and games. Browse multi-GPU guides for Battlefield 6, GTA V Enhanced, Cyberpunk 2077, CS2 and more.">
+
+<link rel="stylesheet" href="theme.css">
 
 <style>
 
@@ -25,7 +29,6 @@ content="Search PC gaming tools and multi-GPU graphics settings guides for Fortn
   --muted:#999999;
   --border:#2a2a2a;
   --orange:#ff6a00;
-  --orange-hover:#ff7a1a;
 }
 
 html{
@@ -41,8 +44,6 @@ body{
     "Segoe UI",
     sans-serif;
 
-  background:var(--black);
-  color:var(--white);
   min-height:100vh;
   line-height:1.5;
 }
@@ -73,18 +74,12 @@ nav{
 
 .nav-links{
   display:flex;
-  gap:30px;
+  gap:28px;
 }
 
 .nav-links a{
-  color:var(--muted);
   text-decoration:none;
   font-size:14px;
-  transition:.15s;
-}
-
-.nav-links a:hover{
-  color:var(--white);
 }
 
 .line{
@@ -98,26 +93,27 @@ nav{
 .hero{
   max-width:1200px;
   margin:auto;
-  padding:115px 26px 90px;
+  padding:110px 26px 82px;
 }
 
 .eyebrow{
-  display:inline-flex;
+  display:flex;
   align-items:center;
   gap:9px;
 
   color:var(--orange);
+
   font-size:12px;
   font-weight:800;
   letter-spacing:.09em;
   text-transform:uppercase;
 
-  margin-bottom:26px;
+  margin-bottom:25px;
 }
 
 .eyebrow::before{
   content:"";
-  width:26px;
+  width:25px;
   height:2px;
   background:var(--orange);
 }
@@ -128,7 +124,6 @@ nav{
   font-size:clamp(50px,7vw,86px);
   line-height:.99;
   letter-spacing:-4.5px;
-  font-weight:700;
 }
 
 .hero h1 span{
@@ -136,24 +131,28 @@ nav{
 }
 
 .hero p{
-  max-width:640px;
-  margin-top:30px;
+  max-width:650px;
+
+  margin-top:29px;
 
   color:var(--muted);
+
   font-size:18px;
   line-height:1.75;
 }
 
 .hero-actions{
   display:flex;
+  flex-wrap:wrap;
   gap:12px;
+
   margin-top:36px;
 }
 
 .btn{
   display:inline-flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
 
   min-height:46px;
   padding:0 19px;
@@ -161,30 +160,9 @@ nav{
   border-radius:8px;
 
   text-decoration:none;
+
   font-size:14px;
-  font-weight:700;
-
-  transition:.15s;
-}
-
-.btn-main{
-  background:var(--orange);
-  color:white;
-}
-
-.btn-main:hover{
-  background:var(--orange-hover);
-  transform:translateY(-1px);
-}
-
-.btn-second{
-  background:var(--black2);
-  border:1px solid var(--border);
-  color:var(--white);
-}
-
-.btn-second:hover{
-  background:var(--black3);
+  font-weight:800;
 }
 
 
@@ -200,18 +178,16 @@ main{
 /* SEARCH */
 
 .search-section{
-  padding-top:70px;
+  padding-top:68px;
 }
 
 .search-title{
+  color:#b5b5b5;
+
   font-size:13px;
   font-weight:700;
-  color:#b0b0b0;
-  margin-bottom:11px;
-}
 
-.search-box{
-  position:relative;
+  margin-bottom:10px;
 }
 
 .search-box input{
@@ -220,146 +196,96 @@ main{
 
   padding:0 20px;
 
-  border:1px solid var(--border);
   border-radius:9px;
 
-  background:var(--black2);
-  color:white;
-
   font-size:15px;
-  outline:none;
-
-  transition:.15s;
-}
-
-.search-box input:focus{
-  border-color:var(--orange);
-  box-shadow:0 0 0 3px rgba(255,106,0,.08);
-}
-
-.search-box input::placeholder{
-  color:#666;
 }
 
 .search-status{
   margin-top:10px;
+
   color:#777;
+
   font-size:12px;
 }
 
 .no-results{
   display:none;
 
-  margin-top:16px;
+  margin-top:17px;
   padding:20px;
 
   border:1px solid var(--border);
   border-radius:8px;
 
   color:var(--muted);
-  background:var(--black2);
 }
 
 
 /* MAIN TOOL */
 
 .featured{
-  position:relative;
-  overflow:hidden;
-
   margin-top:25px;
-  padding:31px;
+  padding:30px;
 
   display:flex;
-  align-items:center;
   justify-content:space-between;
-  gap:40px;
+  align-items:center;
+  gap:35px;
 
-  border:1px solid #343434;
-  border-radius:12px;
-
-  background:
-    linear-gradient(
-      110deg,
-      #151515 0%,
-      #111111 65%,
-      #17110d 100%
-    );
-}
-
-.featured::before{
-  content:"";
-  position:absolute;
-
-  top:0;
-  left:0;
-
-  width:4px;
-  height:100%;
-
-  background:var(--orange);
+  border-radius:11px;
 }
 
 .featured-label{
   color:var(--orange);
 
-  font-size:11px;
+  font-size:10px;
   font-weight:800;
   letter-spacing:.1em;
 
-  margin-bottom:10px;
+  margin-bottom:8px;
 }
 
 .featured h2{
   font-size:26px;
-  letter-spacing:-.8px;
-  margin-bottom:9px;
+  letter-spacing:-.7px;
+
+  margin-bottom:8px;
 }
 
 .featured p{
-  max-width:650px;
+  max-width:660px;
 
   color:var(--muted);
+
   font-size:14px;
   line-height:1.7;
 }
 
-.featured-button{
+.featured a{
   flex-shrink:0;
-
-  display:inline-flex;
-  align-items:center;
 
   padding:14px 18px;
 
   border-radius:8px;
 
-  background:var(--orange);
-  color:white;
-
   text-decoration:none;
+
   font-size:14px;
   font-weight:800;
-
-  transition:.15s;
-}
-
-.featured-button:hover{
-  background:var(--orange-hover);
-  transform:translateY(-1px);
 }
 
 
 /* SECTIONS */
 
 .section{
-  padding-top:90px;
+  padding-top:88px;
 }
 
 .section-head{
   display:flex;
-  justify-content:space-between;
   align-items:end;
+  justify-content:space-between;
   gap:25px;
 
   margin-bottom:28px;
@@ -381,31 +307,20 @@ main{
 .tools{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:12px;
+  gap:13px;
 }
 
 .tool{
   min-height:265px;
-  padding:26px;
+
+  padding:27px;
 
   display:flex;
   flex-direction:column;
 
-  color:white;
   text-decoration:none;
 
-  border:1px solid var(--border);
   border-radius:10px;
-
-  background:var(--black2);
-
-  transition:.15s;
-}
-
-.tool:hover{
-  border-color:#474747;
-  background:var(--black3);
-  transform:translateY(-2px);
 }
 
 .tool-number{
@@ -414,32 +329,32 @@ main{
   font-size:11px;
   font-weight:800;
 
-  margin-bottom:55px;
+  margin-bottom:53px;
 }
 
 .tool h3{
   font-size:21px;
-  letter-spacing:-.5px;
+
   margin-bottom:10px;
 }
 
 .tool p{
   color:var(--muted);
+
   font-size:14px;
   line-height:1.65;
 }
 
 .tool-link{
   margin-top:auto;
-  padding-top:25px;
+  padding-top:24px;
 
-  color:var(--white);
   font-size:13px;
-  font-weight:600;
+  font-weight:700;
 }
 
 
-/* GUIDES */
+/* FEATURED GUIDES */
 
 .guides{
   display:grid;
@@ -449,26 +364,15 @@ main{
 
 .guide{
   min-height:315px;
+
   padding:27px;
 
   display:flex;
   flex-direction:column;
 
-  color:white;
   text-decoration:none;
 
-  border:1px solid var(--border);
   border-radius:10px;
-
-  background:var(--black2);
-
-  transition:.15s;
-}
-
-.guide:hover{
-  border-color:var(--orange);
-  background:var(--black3);
-  transform:translateY(-3px);
 }
 
 .tags{
@@ -476,24 +380,16 @@ main{
   flex-wrap:wrap;
   gap:7px;
 
-  margin-bottom:42px;
+  margin-bottom:40px;
 }
 
 .tag{
   padding:5px 8px;
 
-  border:1px solid #353535;
   border-radius:5px;
-
-  color:#bcbcbc;
 
   font-size:10px;
   font-weight:700;
-}
-
-.orange-tag{
-  color:var(--orange);
-  border-color:#633013;
 }
 
 .guide h3{
@@ -506,17 +402,17 @@ main{
 
 .guide p{
   color:var(--muted);
+
   font-size:14px;
   line-height:1.65;
 }
 
 .read{
   margin-top:auto;
-  padding-top:24px;
+  padding-top:23px;
 
-  color:var(--white);
   font-size:13px;
-  font-weight:600;
+  font-weight:700;
 }
 
 .all-guides{
@@ -525,13 +421,46 @@ main{
 
 .all-guides a{
   color:var(--orange);
+
   text-decoration:none;
+
   font-size:14px;
-  font-weight:700;
+  font-weight:800;
 }
 
-.all-guides a:hover{
-  color:var(--orange-hover);
+
+/* QUICK GAMES */
+
+.quick-games{
+  margin-top:18px;
+
+  display:flex;
+  flex-wrap:wrap;
+
+  gap:8px;
+}
+
+.quick-games a{
+  padding:9px 12px;
+
+  border:1px solid var(--border);
+  border-radius:7px;
+
+  background:var(--black2);
+
+  color:#bdbdbd;
+
+  text-decoration:none;
+
+  font-size:12px;
+  font-weight:700;
+
+  transition:.15s;
+}
+
+.quick-games a:hover{
+  color:white;
+  border-color:var(--orange);
 }
 
 
@@ -548,12 +477,13 @@ main{
 }
 
 .stat{
-  padding:30px 5px;
+  padding:31px 5px;
 }
 
 .stat + .stat{
   border-left:1px solid var(--border);
-  padding-left:30px;
+
+  padding-left:31px;
 }
 
 .stat strong{
@@ -561,15 +491,17 @@ main{
 
   color:var(--orange);
 
-  font-size:29px;
+  font-size:30px;
   letter-spacing:-1px;
 }
 
 .stat span{
   display:block;
+
   margin-top:5px;
 
   color:var(--muted);
+
   font-size:12px;
 }
 
@@ -583,12 +515,14 @@ footer{
 .footer-inner{
   max-width:1200px;
   margin:auto;
+
   padding:31px 26px;
 
   display:flex;
   justify-content:space-between;
 
   color:#666;
+
   font-size:12px;
 }
 
@@ -627,7 +561,9 @@ footer{
     display:block;
   }
 
-  .featured-button{
+  .featured a{
+    display:inline-block;
+
     margin-top:20px;
   }
 
@@ -650,6 +586,7 @@ footer{
   .stat + .stat{
     border-left:none;
     border-top:1px solid var(--border);
+
     padding-left:5px;
   }
 
@@ -657,15 +594,10 @@ footer{
     display:block;
   }
 
-  .footer-inner span:last-child{
-    display:block;
-    margin-top:7px;
-  }
-
 }
 
 </style>
-<link rel="stylesheet" href="theme.css">
+
 </head>
 
 
@@ -712,9 +644,8 @@ Better settings.
 </h1>
 
 <p>
-Find practical graphics settings for your hardware,
-search multi-GPU game guides and use simple gaming tools
-without wasting time digging through forums.
+Choose your hardware, find practical graphics settings and
+browse dedicated multi-GPU guides for popular PC games.
 </p>
 
 <div class="hero-actions">
@@ -722,13 +653,17 @@ without wasting time digging through forums.
 <a
 href="settings.html"
 class="btn btn-main">
+
 Find my PC settings →
+
 </a>
 
 <a
 href="guides.html"
 class="btn btn-second">
-Browse game guides
+
+Browse 15 game guides
+
 </a>
 
 </div>
@@ -753,7 +688,7 @@ Search GameTools
 <input
 id="homeSearch"
 type="text"
-placeholder="Try: Resident Evil Requiem, Cyberpunk, download..."
+placeholder="Try: Battlefield 6, GTA V, CS2, settings..."
 oninput="searchHome()">
 
 </div>
@@ -761,19 +696,24 @@ oninput="searchHome()">
 <div
 class="search-status"
 id="searchStatus">
+
 Search tools and featured guides
+
 </div>
 
 <div
 class="no-results"
 id="noResults">
-No matching results found. Try the full Guides page or General Settings Finder.
+
+No featured result found. Try the full Guides page or
+General Settings Finder.
+
 </div>
 
 
 <div
 class="featured searchable"
-data-search="general pc settings finder graphics gpu cpu game resolution main tool">
+data-search="general pc settings finder graphics gpu cpu games resolution fps main tool">
 
 <div>
 
@@ -786,15 +726,13 @@ General PC Settings Finder
 </h2>
 
 <p>
-Choose your GPU, CPU, game, resolution and graphics priority.
-GameTools gives you a practical starting point for your PC.
+Choose your GPU, CPU, game, resolution and FPS target to
+build a practical graphics settings starting point.
 </p>
 
 </div>
 
-<a
-href="settings.html"
-class="featured-button">
+<a href="settings.html">
 Open Settings Finder →
 </a>
 
@@ -827,7 +765,7 @@ Free · no account required
 <a
 href="settings.html"
 class="tool searchable"
-data-search="settings finder graphics gpu cpu games resolution">
+data-search="general settings finder gpu cpu graphics fps games resolution">
 
 <div class="tool-number">
 01 / MAIN
@@ -838,12 +776,12 @@ PC Settings Finder
 </h3>
 
 <p>
-Choose your PC hardware and game to get a practical
-graphics settings starting point.
+Build graphics recommendations from your hardware,
+resolution and target performance.
 </p>
 
 <div class="tool-link">
-Open Settings Finder →
+Find my settings →
 </div>
 
 </a>
@@ -852,7 +790,7 @@ Open Settings Finder →
 <a
 href="download.html"
 class="tool searchable"
-data-search="download calculator internet speed mbps size game">
+data-search="download calculator internet speed mbps game size">
 
 <div class="tool-number">
 02
@@ -863,8 +801,7 @@ Download Calculator
 </h3>
 
 <p>
-Estimate how long a game will take to download using
-its file size and your internet speed.
+Estimate how long your next game download will take.
 </p>
 
 <div class="tool-link">
@@ -877,7 +814,7 @@ Calculate download →
 <a
 href="picker.html"
 class="tool searchable"
-data-search="random game picker choose what play">
+data-search="random game picker choose what to play">
 
 <div class="tool-number">
 03
@@ -888,8 +825,7 @@ Random Game Picker
 </h3>
 
 <p>
-Can't choose what to play? Add your games and let
-GameTools decide.
+Add your backlog and let GameTools choose what you play.
 </p>
 
 <div class="tool-link">
@@ -914,7 +850,7 @@ Featured guides
 </h2>
 
 <p>
-9 dedicated multi-GPU guides
+15 dedicated multi-GPU guides
 </p>
 
 </div>
@@ -924,29 +860,29 @@ Featured guides
 
 
 <a
-href="resident-evil-requiem-settings.html"
+href="battlefield-6-settings.html"
 class="guide searchable"
-data-search="resident evil requiem resident evil 9 re requiem settings">
+data-search="battlefield 6 bf6 settings competitive">
 
 <div class="tags">
 
-<span class="tag orange-tag">
+<span class="tag new">
 NEW
 </span>
 
 <span class="tag">
-RESIDENT EVIL REQUIEM
+BATTLEFIELD 6
 </span>
 
 </div>
 
 <h3>
-Resident Evil Requiem Settings Finder
+Battlefield 6 Settings Finder
 </h3>
 
 <p>
-Choose your GPU, resolution and graphics priority for a
-practical Resident Evil Requiem starting setup.
+Build a multiplayer-focused setup for your GPU and
+resolution.
 </p>
 
 <div class="read">
@@ -954,32 +890,33 @@ Open guide →
 </div>
 
 </a>
+
 
 
 <a
-href="cyberpunk-settings.html"
+href="gta-v-enhanced-settings.html"
 class="guide searchable"
-data-search="cyberpunk cyberpunk 2077 settings dlss fsr ray tracing">
+data-search="grand theft auto v gta 5 gta v enhanced settings">
 
 <div class="tags">
 
-<span class="tag">
-CYBERPUNK 2077
+<span class="tag new">
+NEW
 </span>
 
-<span class="tag orange-tag">
-MULTI-GPU
+<span class="tag">
+GTA V ENHANCED
 </span>
 
 </div>
 
 <h3>
-Cyberpunk 2077 Settings Finder
+GTA V Enhanced Settings Finder
 </h3>
 
 <p>
-Tune textures, upscaling, reflections, volumetrics,
-ray tracing and more.
+Tune the enhanced PC version for your graphics card and
+resolution.
 </p>
 
 <div class="read">
@@ -987,32 +924,33 @@ Open guide →
 </div>
 
 </a>
+
 
 
 <a
-href="kingdom-come-2-settings.html"
+href="cs2-settings.html"
 class="guide searchable"
-data-search="kingdom come deliverance 2 kcd2 settings">
+data-search="counter strike 2 counterstrike cs2 settings competitive">
 
 <div class="tags">
 
-<span class="tag">
-KINGDOM COME II
+<span class="tag new">
+NEW
 </span>
 
-<span class="tag orange-tag">
-MULTI-GPU
+<span class="tag">
+COUNTER-STRIKE 2
 </span>
 
 </div>
 
 <h3>
-Kingdom Come: Deliverance II
+Counter-Strike 2 Settings Finder
 </h3>
 
 <p>
-Find a practical graphics starting point based on your
-GPU and resolution.
+Prioritize responsiveness, clarity and competitive
+performance.
 </p>
 
 <div class="read">
@@ -1021,6 +959,35 @@ Open guide →
 
 </a>
 
+
+</div>
+
+
+<div class="quick-games">
+
+<a href="valorant-settings.html">
+VALORANT
+</a>
+
+<a href="marvel-rivals-settings.html">
+Marvel Rivals
+</a>
+
+<a href="elden-ring-settings.html">
+Elden Ring
+</a>
+
+<a href="resident-evil-requiem-settings.html">
+Resident Evil Requiem
+</a>
+
+<a href="cyberpunk-settings.html">
+Cyberpunk 2077
+</a>
+
+<a href="fortnite-settings.html">
+Fortnite
+</a>
 
 </div>
 
@@ -1028,7 +995,7 @@ Open guide →
 <div class="all-guides">
 
 <a href="guides.html">
-Browse all 9 guides →
+Browse all 15 game guides →
 </a>
 
 </div>
@@ -1039,10 +1006,11 @@ Browse all 9 guides →
 
 <div class="stats">
 
+
 <div class="stat">
 
 <strong>
-9
+15
 </strong>
 
 <span>
@@ -1068,20 +1036,20 @@ GPU options
 <div class="stat">
 
 <strong>
-3
+21
 </strong>
 
 <span>
-Free gaming tools
+Games in Settings Finder
 </span>
 
 </div>
+
 
 </div>
 
 
 </main>
-
 
 
 <footer>
@@ -1093,7 +1061,7 @@ Free gaming tools
 </span>
 
 <span>
-PC gaming tools & graphics guides
+PC gaming tools & multi-GPU guides
 </span>
 
 </div>
@@ -1145,23 +1113,25 @@ function searchHome(){
   });
 
 
-  const status =
-    document.getElementById("searchStatus");
+  document
+    .getElementById("searchStatus")
+    .innerText =
 
+      query === ""
 
-  status.innerText =
-    query === ""
-    ? "Search tools and featured guides"
-    : visible +
-      (visible === 1
-        ? " result"
-        : " results");
+      ? "Search tools and featured guides"
+
+      : visible +
+        (visible === 1
+          ? " result"
+          : " results");
 
 
   document
     .getElementById("noResults")
     .style
     .display =
+
       visible === 0
       ? "block"
       : "none";
@@ -1172,4 +1142,5 @@ function searchHome(){
 
 
 </body>
+
 </html>
