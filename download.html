@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Game Download Time Calculator | GameTools</title>
+<meta name="description" content="Calculate how long a game will take to download based on game size and internet speed.">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#07080d;
+  --card:#10121a;
+  --border:#242837;
+  --text:#fff;
+  --muted:#969cab;
+  --purple:#765cff;
+  --blue:#4f9cff;
+  --green:#5ee2a0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:radial-gradient(circle at top,#191530 0%,#07080d 38%);
+  color:var(--text);
+  min-height:100vh;
+}
+
+nav{
+  height:72px;
+  padding:0 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--border);
+  background:rgba(7,8,13,.9);
+}
+
+.logo{
+  font-size:23px;
+  font-weight:900;
+}
+
+.logo span{color:var(--purple)}
+
+nav a{
+  color:#b8bdca;
+  text-decoration:none;
+}
+
+nav a:hover{color:white}
+
+.hero{
+  text-align:center;
+  padding:80px 20px 45px;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 15px;
+  border:1px solid var(--border);
+  border-radius:100px;
+  color:#c7cad5;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-size:clamp(40px,6vw,65px);
+  letter-spacing:-2px;
+  margin-bottom:20px;
+}
+
+.gradient{
+  background:linear-gradient(90deg,var(--purple),var(--blue));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  color:var(--muted);
+  max-width:600px;
+  margin:auto;
+  line-height:1.6;
+  font-size:17px;
+}
+
+main{
+  max-width:720px;
+  margin:auto;
+  padding:20px 20px 100px;
+}
+
+.calculator{
+  background:rgba(16,18,26,.95);
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:35px;
+}
+
+label{
+  display:block;
+  margin:18px 0 8px;
+  color:#c8ccd5;
+  font-size:14px;
+}
+
+input{
+  width:100%;
+  padding:15px;
+  background:#090b11;
+  border:1px solid #303545;
+  border-radius:11px;
+  color:white;
+  font-size:16px;
+  outline:none;
+}
+
+input:focus{border-color:var(--purple)}
+
+button{
+  width:100%;
+  margin-top:25px;
+  padding:16px;
+  border:none;
+  border-radius:12px;
+  color:white;
+  font-weight:800;
+  font-size:15px;
+  cursor:pointer;
+  background:linear-gradient(90deg,var(--purple),var(--blue));
+}
+
+button:hover{opacity:.92}
+
+.result{
+  display:none;
+  margin-top:25px;
+  padding:25px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#090b11;
+  text-align:center;
+}
+
+.result-small{
+  color:var(--muted);
+  font-size:13px;
+}
+
+.time{
+  font-size:38px;
+  font-weight:900;
+  color:var(--green);
+  margin:10px 0;
+}
+
+.details{
+  margin-top:20px;
+  border-top:1px solid var(--border);
+  padding-top:18px;
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  padding:8px 0;
+  color:var(--muted);
+}
+
+.row strong{color:white}
+
+.examples{
+  margin-top:25px;
+  padding:20px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:#0d0f16;
+}
+
+.examples h3{margin-bottom:13px}
+
+.examples p{
+  color:var(--muted);
+  line-height:1.7;
+  font-size:14px;
+}
+
+footer{
+  border-top:1px solid var(--border);
+  text-align:center;
+  padding:35px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+@media(max-width:600px){
+  .calculator{padding:23px}
+  .hero{padding-top:55px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">Game<span>Tools</span></div>
+  <a href="index.html">← Settings Finder</a>
+</nav>
+
+<section class="hero">
+
+<div class="badge">⚡ Free Gaming Tool</div>
+
+<h1>
+Game Download
+<span class="gradient">Time Calculator</span>
+</h1>
+
+<p>
+Enter your game size and internet speed to estimate
+how long your download will take.
+</p>
+
+</section>
+
+<main>
+
+<div class="calculator">
+
+<label>Game size (GB)</label>
+<input id="size" type="number" min="0" step="0.1"
+placeholder="Example: 100">
+
+<label>Internet speed (Mbps)</label>
+<input id="speed" type="number" min="0" step="0.1"
+placeholder="Example: 250">
+
+<button onclick="calculateDownload()">
+⚡ Calculate Download Time
+</button>
+
+<div class="result" id="result">
+
+<div class="result-small">ESTIMATED DOWNLOAD TIME</div>
+
+<div class="time" id="time"></div>
+
+<div class="details">
+
+<div class="row">
+<span>Game size</span>
+<strong id="sizeResult"></strong>
+</div>
+
+<div class="row">
+<span>Internet speed</span>
+<strong id="speedResult"></strong>
+</div>
+
+</div>
+
+</div>
+
+<div class="examples">
+
+<h3>💡 Example</h3>
+
+<p>
+A 100 GB game on a 100 Mbps connection takes roughly
+2 hours and 13 minutes under ideal conditions.
+Real downloads may be slower because of Wi-Fi,
+server speeds and network traffic.
+</p>
+
+</div>
+
+</div>
+
+</main>
+
+<footer>
+© 2026 GameTools — Free PC gaming tools
+</footer>
+
+<script>
+
+function calculateDownload(){
+
+const size =
+Number(document.getElementById("size").value);
+
+const speed =
+Number(document.getElementById("speed").value);
+
+if(size <= 0 || speed <= 0){
+  alert("Please enter a valid game size and internet speed.");
+  return;
+}
+
+/*
+1 byte = 8 bits.
+Decimal GB and Mbps are used here.
+*/
+
+const totalSeconds =
+(size * 8000) / speed;
+
+const hours =
+Math.floor(totalSeconds / 3600);
+
+const minutes =
+Math.floor((totalSeconds % 3600) / 60);
+
+const seconds =
+Math.round(totalSeconds % 60);
+
+let text="";
+
+if(hours > 0){
+  text += hours + (hours === 1 ? " hr " : " hrs ");
+}
+
+if(minutes > 0){
+  text += minutes + " min ";
+}
+
+if(hours === 0 && minutes < 5){
+  text += seconds + " sec";
+}
+
+document.getElementById("time").innerText =
+text.trim();
+
+document.getElementById("sizeResult").innerText =
+size + " GB";
+
+document.getElementById("speedResult").innerText =
+speed + " Mbps";
+
+document.getElementById("result").style.display =
+"block";
+
+}
+
+</script>
+
+</body>
+</html>
