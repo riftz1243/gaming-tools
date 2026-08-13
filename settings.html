@@ -1,55 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PC Graphics Settings Finder | GameTools</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+General PC Settings Finder | GameTools
+</title>
 
 <meta name="description"
-content="Choose your GPU, CPU, game and resolution to get a practical PC graphics settings starting point.">
+content="Choose your GPU, CPU, game, resolution and target FPS to get practical PC graphics settings recommendations.">
+
+<link rel="stylesheet" href="theme.css">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 :root{
-  --bg:#0a0a0b;
-  --surface:#111113;
-  --surface2:#161618;
-  --border:#262629;
-  --text:#f5f5f5;
-  --muted:#96969f;
-  --accent:#8b7cff;
-  --good:#75d6a2;
+  --black:#090909;
+  --black2:#111111;
+  --black3:#181818;
+  --white:#f7f7f5;
+  --muted:#999999;
+  --border:#2a2a2a;
+  --orange:#ff6a00;
+  --orange-hover:#ff7a1a;
 }
 
 body{
-  font-family:Inter,ui-sans-serif,-apple-system,
-  BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:var(--bg);
-  color:var(--text);
   min-height:100vh;
 }
 
+
+/* NAV */
+
 nav{
-  height:68px;
+  height:72px;
   max-width:1100px;
   margin:auto;
-  padding:0 24px;
+  padding:0 26px;
+
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 }
 
 .logo{
-  font-size:19px;
-  font-weight:700;
+  font-size:20px;
+  font-weight:800;
 }
 
-.logo span{color:var(--accent)}
+.logo span{
+  color:var(--orange);
+}
 
 nav a{
-  color:var(--muted);
   text-decoration:none;
   font-size:14px;
 }
@@ -59,763 +73,1951 @@ nav a{
   background:var(--border);
 }
 
+
+/* HERO */
+
 .hero{
-  max-width:900px;
+  max-width:950px;
   margin:auto;
-  padding:90px 24px 60px;
+
+  padding:90px 26px 60px;
 }
 
 .eyebrow{
-  color:var(--muted);
+  display:flex;
+  align-items:center;
+  gap:9px;
+
+  color:var(--orange);
+
   font-size:12px;
+  font-weight:800;
+  letter-spacing:.09em;
+
   text-transform:uppercase;
-  letter-spacing:.08em;
+
   margin-bottom:22px;
 }
 
+.eyebrow::before{
+  content:"";
+
+  width:25px;
+  height:2px;
+
+  background:var(--orange);
+}
+
 .hero h1{
-  font-size:clamp(42px,7vw,70px);
-  line-height:1.03;
-  letter-spacing:-3px;
+  max-width:850px;
+
+  font-size:clamp(44px,7vw,72px);
+
+  line-height:1.02;
+
+  letter-spacing:-3.5px;
 }
 
 .hero h1 span{
-  color:#777780;
+  color:#747474;
 }
 
 .hero p{
   max-width:680px;
+
   margin-top:24px;
+
   color:var(--muted);
+
+  font-size:17px;
+
   line-height:1.75;
 }
 
+
+/* MAIN */
+
 main{
-  max-width:900px;
+  max-width:950px;
   margin:auto;
-  padding:0 24px 100px;
+
+  padding:0 26px 110px;
 }
 
+
+/* TOOL */
+
 .tool{
-  border:1px solid var(--border);
-  border-radius:10px;
-  background:var(--surface);
   overflow:hidden;
+
+  border:1px solid var(--border);
+
+  border-radius:12px;
+
+  background:var(--black2);
 }
 
 .tool-top{
-  padding:28px;
+  position:relative;
+
+  padding:29px;
+
   border-bottom:1px solid var(--border);
 }
 
-.tool-top p{
-  color:var(--muted);
-  margin-top:8px;
-  line-height:1.6;
+.tool-top::before{
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  top:0;
+
+  width:4px;
+  height:100%;
+
+  background:var(--orange);
 }
 
+.main-label{
+  color:var(--orange);
+
+  font-size:10px;
+
+  font-weight:800;
+
+  letter-spacing:.1em;
+
+  margin-bottom:8px;
+}
+
+.tool-top h2{
+  font-size:28px;
+
+  letter-spacing:-.8px;
+}
+
+.tool-top p{
+  margin-top:9px;
+
+  color:var(--muted);
+
+  font-size:14px;
+
+  line-height:1.65;
+}
+
+
+/* FORM */
+
 .form{
-  padding:28px;
+  padding:29px;
 }
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:16px;
+
+  grid-template-columns:
+  repeat(2,1fr);
+
+  gap:17px;
 }
 
-label{
+.field label{
   display:block;
+
   margin-bottom:8px;
-  color:#b8b8c0;
+
+  color:#bcbcbc;
+
   font-size:13px;
+
+  font-weight:600;
 }
 
 select{
   width:100%;
+
   padding:14px;
-  border:1px solid var(--border);
+
   border-radius:8px;
-  background:#0c0c0e;
-  color:white;
+
+  font-size:14px;
 }
 
-button{
+.generate{
   width:100%;
-  margin-top:22px;
-  padding:15px;
+
+  margin-top:24px;
+
+  padding:16px;
+
   border:none;
+
   border-radius:8px;
-  background:#f1f1f1;
-  color:#111;
-  font-weight:700;
+
+  background:var(--orange);
+
+  color:white;
+
+  font-size:14px;
+
+  font-weight:800;
+
   cursor:pointer;
 }
 
+.generate:hover{
+  background:var(--orange-hover);
+}
+
+
+/* RESULT */
+
 .result{
   display:none;
-  margin-top:26px;
-  padding-top:26px;
+
+  margin-top:30px;
+
+  padding-top:30px;
+
   border-top:1px solid var(--border);
 }
 
-.result-head{
+.result-top{
   display:flex;
-  justify-content:space-between;
-  gap:20px;
+
+  justify-content:
+  space-between;
+
+  align-items:flex-start;
+
+  gap:25px;
+
+  margin-bottom:22px;
+}
+
+.result-top h3{
+  font-size:25px;
+
+  letter-spacing:-.7px;
+}
+
+.rating{
+  text-align:right;
+}
+
+.rating-label{
+  color:#777;
+
+  font-size:10px;
+
+  font-weight:700;
+
+  letter-spacing:.08em;
+}
+
+.rating-value{
+  margin-top:5px;
+
+  color:var(--orange);
+
+  font-size:22px;
+
+  font-weight:800;
+}
+
+
+/* HARDWARE SUMMARY */
+
+.hardware-summary{
+  display:grid;
+
+  grid-template-columns:
+  repeat(3,1fr);
+
+  gap:10px;
+
   margin-bottom:20px;
 }
 
-.level-value{
-  color:var(--good);
-  font-size:21px;
-  font-weight:700;
+.hardware-card{
+  padding:15px;
+
+  border:1px solid var(--border);
+
+  border-radius:8px;
+
+  background:#0d0d0d;
 }
+
+.hardware-card span{
+  display:block;
+
+  color:#777;
+
+  font-size:10px;
+
+  font-weight:700;
+
+  letter-spacing:.07em;
+
+  margin-bottom:6px;
+}
+
+.hardware-card strong{
+  font-size:13px;
+}
+
+
+/* SUMMARY */
 
 .summary{
-  padding:16px;
+  padding:17px;
+
   border:1px solid var(--border);
+
   border-radius:8px;
-  background:#0d0d0f;
-  color:#b8b8c0;
-  line-height:1.6;
-  margin-bottom:20px;
+
+  background:#0d0d0d;
+
+  color:#b8b8b8;
+
+  line-height:1.65;
+
+  margin-bottom:22px;
+}
+
+
+/* SETTINGS */
+
+.settings-title{
+  font-size:15px;
+
+  margin-bottom:5px;
 }
 
 .settings{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:0 26px;
+
+  grid-template-columns:
+  repeat(2,1fr);
+
+  gap:0 30px;
 }
 
 .setting{
   display:flex;
-  justify-content:space-between;
+
+  justify-content:
+  space-between;
+
   gap:20px;
-  padding:13px 0;
-  border-bottom:1px solid var(--border);
+
+  padding:14px 0;
+
+  border-bottom:
+  1px solid var(--border);
 }
 
 .setting span{
   color:var(--muted);
+
+  font-size:14px;
 }
 
 .setting strong{
   text-align:right;
+
+  font-size:14px;
 }
 
-.priority{
-  margin-top:22px;
-  padding:18px;
-  border:1px solid var(--border);
+
+/* IMPORTANT */
+
+.performance-plan{
+  margin-top:24px;
+
+  padding:19px;
+
+  border:1px solid #4c2a15;
+
   border-radius:8px;
-  background:var(--surface2);
+
+  background:#17110d;
 }
 
-.priority ol{
-  margin-top:10px;
+.performance-plan h4{
+  color:var(--orange);
+
+  font-size:12px;
+
+  text-transform:uppercase;
+
+  letter-spacing:.08em;
+
+  margin-bottom:11px;
+}
+
+.performance-plan ol{
   padding-left:20px;
-  color:#b8b8c0;
-  line-height:1.8;
+
+  color:#bebebe;
+
+  font-size:14px;
+
+  line-height:1.85;
 }
 
-.game-guide{
+
+/* WARNING */
+
+.warning{
   display:none;
-  margin-top:20px;
-  padding:18px;
-  border:1px solid var(--border);
+
+  margin-top:17px;
+
+  padding:17px;
+
+  border:1px solid #4a3420;
+
   border-radius:8px;
-  background:#0d0d0f;
+
+  background:#17120d;
+
+  color:#c0c0c0;
+
+  font-size:13px;
+
+  line-height:1.65;
 }
 
-.game-guide p{
+.warning strong{
+  color:var(--orange);
+}
+
+
+/* GUIDE */
+
+.guide-box{
+  display:none;
+
+  margin-top:18px;
+
+  padding:20px;
+
+  border:1px solid #4a2b17;
+
+  border-radius:8px;
+
+  background:
+  linear-gradient(
+    110deg,
+    #151515,
+    #17100c
+  );
+}
+
+.guide-label{
+  color:var(--orange);
+
+  font-size:10px;
+
+  font-weight:800;
+
+  letter-spacing:.09em;
+
+  margin-bottom:7px;
+}
+
+.guide-box h4{
+  font-size:18px;
+}
+
+.guide-box p{
+  margin-top:6px;
+
   color:var(--muted);
-  margin-top:7px;
+
+  font-size:13px;
+
   line-height:1.6;
 }
 
-.game-guide a{
+.guide-box a{
   display:inline-block;
-  margin-top:12px;
+
+  margin-top:14px;
+
+  padding:11px 14px;
+
+  border-radius:7px;
+
+  background:var(--orange);
+
   color:white;
-  font-weight:600;
+
+  text-decoration:none;
+
+  font-size:13px;
+
+  font-weight:800;
 }
+
+
+/* DISCLAIMER */
 
 .note{
   margin-top:20px;
-  color:#73737a;
+
+  color:#6f6f6f;
+
   font-size:12px;
-  line-height:1.6;
+
+  line-height:1.65;
 }
 
-@media(max-width:750px){
-  .grid,.settings{grid-template-columns:1fr}
-  .result-head{display:block}
-  .hero h1{letter-spacing:-2px}
+
+/* FOOTER */
+
+footer{
+  border-top:1px solid var(--border);
 }
+
+.footer-inner{
+  max-width:950px;
+
+  margin:auto;
+
+  padding:30px 26px;
+
+  display:flex;
+
+  justify-content:
+  space-between;
+
+  color:#666;
+
+  font-size:12px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:750px){
+
+  .grid,
+  .settings,
+  .hardware-summary{
+    grid-template-columns:1fr;
+  }
+
+  .result-top{
+    display:block;
+  }
+
+  .rating{
+    text-align:left;
+
+    margin-top:15px;
+  }
+
+  .hero{
+    padding-top:70px;
+  }
+
+  .hero h1{
+    letter-spacing:-2.3px;
+  }
+
+  .footer-inner{
+    display:block;
+  }
+
+}
+
 </style>
-<link rel="stylesheet" href="theme.css">
+
 </head>
+
 
 <body>
 
+
 <nav>
-<div class="logo">GameTools<span>.</span></div>
-<a href="index.html">← Home</a>
+
+<div class="logo">
+GameTools<span>.</span>
+</div>
+
+<a href="index.html">
+← Home
+</a>
+
 </nav>
 
+
 <div class="line"></div>
+
 
 <header class="hero">
 
 <div class="eyebrow">
-General PC settings finder
+MAIN TOOL
 </div>
 
 <h1>
-Choose your hardware.
-<span>Get a starting point.</span>
+Build better
+<span>PC settings.</span>
 </h1>
 
 <p>
-Use the general finder for any supported game, or jump to a
-dedicated game guide when one is available.
+Choose your graphics card, processor, game, resolution
+and performance target. GameTools will build a practical
+graphics settings starting point for your PC.
 </p>
 
 </header>
 
+
 <main>
+
 
 <div class="tool">
 
+
 <div class="tool-top">
 
-<h2>PC Settings Finder</h2>
+<div class="main-label">
+★ GAMETOOLS MAIN TOOL
+</div>
+
+<h2>
+General PC Settings Finder
+</h2>
 
 <p>
-GPU and game data are now shared across GameTools, so the
-site is much easier to expand and keep consistent.
+Works with the shared GameTools GPU and game databases.
+Dedicated game guides are linked automatically when available.
 </p>
 
 </div>
 
+
 <div class="form">
+
 
 <div class="grid">
 
-<div>
-<label>Graphics card</label>
+
+<div class="field">
+
+<label>
+Graphics card
+</label>
+
 <select id="gpu"></select>
+
 </div>
 
-<div>
-<label>Processor</label>
+
+<div class="field">
+
+<label>
+Processor
+</label>
 
 <select id="cpu">
-<option value="low">Older / Entry CPU</option>
-<option value="11400" selected>Intel Core i5-11400F</option>
-<option value="12400">Intel Core i5-12400F</option>
-<option value="13400">Intel Core i5-13400F</option>
-<option value="13600">Intel Core i5-13600K</option>
-<option value="14600">Intel Core i5-14600K</option>
-<option value="highintel">Modern Intel Core i7 / i9</option>
-<option value="5600">AMD Ryzen 5 5600</option>
-<option value="7600cpu">AMD Ryzen 5 7600</option>
-<option value="7800x3d">AMD Ryzen 7 7800X3D</option>
-<option value="9800x3d">AMD Ryzen 7 9800X3D</option>
+
+<option value="entry">
+Older / Entry CPU
+</option>
+
+<option value="11400" selected>
+Intel Core i5-11400F
+</option>
+
+<option value="12400">
+Intel Core i5-12400F
+</option>
+
+<option value="13400">
+Intel Core i5-13400F
+</option>
+
+<option value="13600">
+Intel Core i5-13600K
+</option>
+
+<option value="14600">
+Intel Core i5-14600K
+</option>
+
+<option value="intelhigh">
+Modern Intel Core i7 / i9
+</option>
+
+<option value="5600">
+AMD Ryzen 5 5600
+</option>
+
+<option value="7600">
+AMD Ryzen 5 7600
+</option>
+
+<option value="7800x3d">
+AMD Ryzen 7 7800X3D
+</option>
+
+<option value="9800x3d">
+AMD Ryzen 7 9800X3D
+</option>
+
+<option value="amdhigh">
+Modern Ryzen 9 / High-end Ryzen
+</option>
+
 </select>
 
 </div>
 
-<div>
-<label>Game</label>
+
+<div class="field">
+
+<label>
+Game
+</label>
+
 <select id="game"></select>
+
 </div>
 
-<div>
-<label>Resolution</label>
+
+<div class="field">
+
+<label>
+Resolution
+</label>
 
 <select id="resolution">
-<option value="1080">1080p</option>
-<option value="1440" selected>1440p</option>
-<option value="4k">4K</option>
+
+<option value="1080">
+1920 × 1080
+</option>
+
+<option value="1440" selected>
+2560 × 1440
+</option>
+
+<option value="4k">
+3840 × 2160 (4K)
+</option>
+
 </select>
 
 </div>
 
-<div>
-<label>Priority</label>
 
-<select id="priority">
-<option value="performance">Performance</option>
-<option value="balanced" selected>Balanced</option>
-<option value="quality">Visual Quality</option>
+<div class="field">
+
+<label>
+Target
+</label>
+
+<select id="target">
+
+<option value="60" selected>
+Smooth 60 FPS target
+</option>
+
+<option value="120">
+High FPS — around 120 FPS
+</option>
+
+<option value="144">
+Competitive — 144 FPS+
+</option>
+
+<option value="quality">
+Best Visual Quality
+</option>
+
 </select>
 
 </div>
 
-<div>
-<label>Ray tracing</label>
+
+<div class="field">
+
+<label>
+Ray tracing preference
+</label>
 
 <select id="rtPreference">
-<option value="off">Prefer Off</option>
-<option value="auto" selected>Automatic</option>
-<option value="on">Try to Keep On</option>
+
+<option value="off">
+Prefer Off
+</option>
+
+<option value="auto" selected>
+Automatic
+</option>
+
+<option value="on">
+Try to Keep On
+</option>
+
 </select>
 
 </div>
 
+
 </div>
 
-<button onclick="generateSettings()">
-Generate Settings
+
+<button
+class="generate"
+onclick="generateSettings()">
+
+Generate My Settings →
+
 </button>
 
-<div class="result" id="result">
 
-<div class="result-head">
+<div
+class="result"
+id="result">
 
-<h3>Recommended starting point</h3>
+
+<div class="result-top">
 
 <div>
 
-<div style="color:#96969f;font-size:11px;">
-GRAPHICS HEADROOM
-</div>
-
-<div class="level-value" id="level"></div>
+<h3>
+Your recommended starting point
+</h3>
 
 </div>
 
+
+<div class="rating">
+
+<div class="rating-label">
+SETUP MATCH
 </div>
 
-<div class="summary" id="summary"></div>
+<div
+class="rating-value"
+id="level">
+</div>
+
+</div>
+
+</div>
+
+
+<div class="hardware-summary">
+
+
+<div class="hardware-card">
+
+<span>
+GPU
+</span>
+
+<strong id="gpuResult"></strong>
+
+</div>
+
+
+<div class="hardware-card">
+
+<span>
+GAME
+</span>
+
+<strong id="gameResult"></strong>
+
+</div>
+
+
+<div class="hardware-card">
+
+<span>
+TARGET
+</span>
+
+<strong id="targetResult"></strong>
+
+</div>
+
+
+</div>
+
+
+<div
+class="summary"
+id="summary">
+</div>
+
+
+<div class="settings-title">
+
+<strong>
+Recommended settings
+</strong>
+
+</div>
+
 
 <div class="settings">
 
+
 <div class="setting">
-<span>Overall Preset</span>
+
+<span>
+Overall Preset
+</span>
+
 <strong id="preset"></strong>
+
 </div>
 
+
 <div class="setting">
-<span>Textures</span>
+
+<span>
+Textures
+</span>
+
 <strong id="textures"></strong>
+
 </div>
 
+
 <div class="setting">
-<span>Shadows</span>
+
+<span>
+Shadows
+</span>
+
 <strong id="shadows"></strong>
+
 </div>
 
+
 <div class="setting">
-<span>Reflections</span>
+
+<span>
+Reflections
+</span>
+
 <strong id="reflections"></strong>
+
 </div>
 
+
 <div class="setting">
-<span>Volumetrics</span>
+
+<span>
+Volumetrics
+</span>
+
 <strong id="volumetrics"></strong>
+
 </div>
 
-<div class="setting">
-<span>Ray Tracing</span>
-<strong id="rt"></strong>
-</div>
 
 <div class="setting">
-<span>Upscaling</span>
+
+<span>
+Effects
+</span>
+
+<strong id="effects"></strong>
+
+</div>
+
+
+<div class="setting">
+
+<span>
+Upscaling
+</span>
+
 <strong id="upscaling"></strong>
+
 </div>
+
 
 <div class="setting">
-<span>Frame Generation</span>
-<strong id="fg"></strong>
-</div>
+
+<span>
+Ray Tracing
+</span>
+
+<strong id="raytracing"></strong>
 
 </div>
 
-<div class="priority">
 
-<strong>
-If performance is too low, reduce:
-</strong>
+<div class="setting">
+
+<span>
+Frame Generation
+</span>
+
+<strong id="framegen"></strong>
+
+</div>
+
+
+<div class="setting">
+
+<span>
+Motion Blur
+</span>
+
+<strong id="motionblur"></strong>
+
+</div>
+
+
+</div>
+
+
+<div class="performance-plan">
+
+<h4>
+Need more performance?
+</h4>
 
 <ol>
-<li>Ray tracing</li>
-<li>Volumetric effects</li>
-<li>Reflections</li>
-<li>Shadows</li>
-<li>Upscaling quality</li>
-<li>Overall preset</li>
+
+<li>
+Disable or reduce Ray Tracing
+</li>
+
+<li>
+Reduce volumetric effects
+</li>
+
+<li>
+Reduce reflections
+</li>
+
+<li>
+Lower shadow quality
+</li>
+
+<li>
+Use a stronger upscaling mode
+</li>
+
+<li>
+Lower the overall preset
+</li>
+
 </ol>
 
 </div>
 
-<div class="game-guide" id="guideBox">
 
-<strong id="guideTitle">
-Dedicated game guide available
-</strong>
+<div
+class="warning"
+id="warning">
+</div>
 
-<p id="guideText"></p>
 
-<a id="guideLink" href="#">
-Open dedicated guide →
+<div
+class="guide-box"
+id="guideBox">
+
+<div class="guide-label">
+DEDICATED GUIDE AVAILABLE
+</div>
+
+<h4 id="guideTitle"></h4>
+
+<p>
+For more game-specific options, open the dedicated
+multi-GPU guide.
+</p>
+
+<a
+id="guideLink"
+href="#">
+Open Full Guide →
 </a>
 
 </div>
 
+
 <div class="note">
-GameTools uses internal relative hardware and game-demand
-categories to generate practical starting recommendations.
-They are not benchmark scores or guaranteed FPS figures.
+
+GameTools recommendations are practical starting points,
+not measured FPS benchmarks. Actual performance depends
+on game version, CPU, RAM, VRAM, drivers, background
+applications and the exact scene being rendered.
+
 </div>
+
+
+</div>
+
 
 </div>
 
 </div>
 
-</div>
 
 </main>
 
+
+<footer>
+
+<div class="footer-inner">
+
+<span>
+© 2026 GameTools
+</span>
+
+<span>
+General PC Settings Finder
+</span>
+
+</div>
+
+</footer>
+
+
 <script src="gpu-data.js"></script>
+
 <script src="game-data.js"></script>
+
 
 <script>
 
-populateGpuSelect("gpu","5060");
-populateGameSelect("game","cyberpunk");
+
+populateGpuSelect(
+  "gpu",
+  "5060"
+);
 
 
-const cpuPower = {
-  "low":0.78,
+populateGameSelect(
+  "game",
+  "cyberpunk"
+);
+
+
+/* CPU RELATIVE CATEGORY */
+
+const CPU_POWER = {
+
+  "entry":0.75,
+
   "11400":0.90,
-  "12400":0.96,
-  "13400":1.03,
-  "13600":1.12,
-  "14600":1.16,
-  "highintel":1.22,
+
+  "12400":0.97,
+
+  "13400":1.04,
+
+  "13600":1.13,
+
+  "14600":1.17,
+
+  "intelhigh":1.23,
+
   "5600":0.95,
-  "7600cpu":1.08,
-  "7800x3d":1.22,
-  "9800x3d":1.30
+
+  "7600":1.08,
+
+  "7800x3d":1.23,
+
+  "9800x3d":1.30,
+
+  "amdhigh":1.24
+
+};
+
+
+/* TARGET LOAD */
+
+const TARGET_FACTOR = {
+
+  "60":1.00,
+
+  "120":0.76,
+
+  "144":0.67,
+
+  "quality":1.12
+
 };
 
 
 function generateSettings(){
 
-const gpuId =
-document.getElementById("gpu").value;
 
-const cpu =
-document.getElementById("cpu").value;
-
-const gameId =
-document.getElementById("game").value;
-
-const resolution =
-document.getElementById("resolution").value;
-
-const priority =
-document.getElementById("priority").value;
-
-const rtPreference =
-document.getElementById("rtPreference").value;
+  const gpuId =
+    document
+      .getElementById("gpu")
+      .value;
 
 
-const card =
-GPU_DATABASE[gpuId];
-
-const game =
-GAME_DATABASE[gameId];
-
-
-let score =
-(card.power * cpuPower[cpu]) /
-game.demand;
+  const cpuId =
+    document
+      .getElementById("cpu")
+      .value;
 
 
-if(resolution==="1440"){
-  score*=0.78;
-}
-
-if(resolution==="4k"){
-  score*=0.54;
-}
+  const gameId =
+    document
+      .getElementById("game")
+      .value;
 
 
-let level;
-let preset;
-let textures;
-let shadows;
-let reflections;
-let volumetrics;
-let rt;
-let upscaling;
+  const resolution =
+    document
+      .getElementById("resolution")
+      .value;
 
 
-if(score<0.8){
-
-  level="Limited";
-  preset="Low / Medium";
-  textures="Medium";
-  shadows="Low";
-  reflections="Low";
-  volumetrics="Low";
-  rt="Off";
-  upscaling="Performance";
-
-}
-else if(score<1.15){
-
-  level="Moderate";
-  preset="Medium";
-  textures="High";
-  shadows="Medium";
-  reflections="Medium";
-  volumetrics="Medium";
-  rt="Off";
-  upscaling="Balanced";
-
-}
-else if(score<1.65){
-
-  level="Good";
-  preset="High";
-  textures="High";
-  shadows="Medium / High";
-  reflections="High";
-  volumetrics="Medium";
-  rt="Off / Low";
-  upscaling="Quality";
-
-}
-else if(score<2.3){
-
-  level="Strong";
-  preset="High / Ultra";
-  textures="Ultra";
-  shadows="High";
-  reflections="High";
-  volumetrics="High";
-  rt="Low / Medium";
-  upscaling="Quality";
-
-}
-else{
-
-  level="Very Strong";
-  preset="Ultra";
-  textures="Ultra";
-  shadows="Ultra";
-  reflections="Ultra";
-  volumetrics="High / Ultra";
-  rt="Medium / High";
-  upscaling="Native / Quality";
-
-}
+  const target =
+    document
+      .getElementById("target")
+      .value;
 
 
-if(priority==="performance"){
-
-  preset =
-    score>1.3
-    ? "Medium / High"
-    : "Low / Medium";
-
-  shadows="Low";
-  reflections="Low / Medium";
-  volumetrics="Low / Medium";
-  rt="Off";
-
-  upscaling =
-    resolution==="1080"
-    ? "Quality / Balanced"
-    : "Balanced / Performance";
-
-}
+  const rtPreference =
+    document
+      .getElementById("rtPreference")
+      .value;
 
 
-if(priority==="quality"){
+  const card =
+    GPU_DATABASE[gpuId];
 
-  textures="Ultra";
-  shadows="High / Ultra";
-  reflections="High / Ultra";
 
-  if(score>1.4){
-    volumetrics="High";
+  const game =
+    GAME_DATABASE[gameId];
+
+
+  let score =
+
+    (
+      card.power *
+      CPU_POWER[cpuId]
+    )
+
+    /
+
+    game.demand;
+
+
+  /* RESOLUTION */
+
+  if(resolution === "1440"){
+    score *= 0.78;
   }
 
-}
 
-
-if(rtPreference==="off"){
-  rt="Off";
-}
-
-
-if(rtPreference==="on"){
-
-  if(score<1.2){
-    rt="Low — demanding";
+  if(resolution === "4k"){
+    score *= 0.54;
   }
-  else if(score<2){
-    rt="Low / Medium";
+
+
+  /* TARGET */
+
+  score *=
+    TARGET_FACTOR[target];
+
+
+  let level;
+
+
+  if(score < 0.65){
+
+    level =
+      "Challenging";
+
   }
+
+  else if(score < 0.95){
+
+    level =
+      "Playable";
+
+  }
+
+  else if(score < 1.30){
+
+    level =
+      "Good";
+
+  }
+
+  else if(score < 1.80){
+
+    level =
+      "Strong";
+
+  }
+
   else{
-    rt="Medium / High";
+
+    level =
+      "Excellent";
+
   }
 
+
+  let preset;
+
+  let textures;
+
+  let shadows;
+
+  let reflections;
+
+  let volumetrics;
+
+  let effects;
+
+  let raytracing;
+
+  let upscaling;
+
+
+  if(score < 0.65){
+
+    preset =
+      "Low / Medium";
+
+    textures =
+      "Medium";
+
+    shadows =
+      "Low";
+
+    reflections =
+      "Low";
+
+    volumetrics =
+      "Low";
+
+    effects =
+      "Low / Medium";
+
+    raytracing =
+      "Off";
+
+    upscaling =
+      "Performance";
+
+  }
+
+
+  else if(score < 0.95){
+
+    preset =
+      "Medium";
+
+    textures =
+      "High";
+
+    shadows =
+      "Medium";
+
+    reflections =
+      "Medium";
+
+    volumetrics =
+      "Medium";
+
+    effects =
+      "Medium";
+
+    raytracing =
+      "Off";
+
+    upscaling =
+      "Balanced";
+
+  }
+
+
+  else if(score < 1.30){
+
+    preset =
+      "High";
+
+    textures =
+      "High";
+
+    shadows =
+      "Medium / High";
+
+    reflections =
+      "Medium / High";
+
+    volumetrics =
+      "Medium";
+
+    effects =
+      "High";
+
+    raytracing =
+      "Off / Low";
+
+    upscaling =
+      "Quality";
+
+  }
+
+
+  else if(score < 1.80){
+
+    preset =
+      "High / Ultra";
+
+    textures =
+      "High / Ultra";
+
+    shadows =
+      "High";
+
+    reflections =
+      "High";
+
+    volumetrics =
+      "High";
+
+    effects =
+      "High";
+
+    raytracing =
+      "Low / Medium";
+
+    upscaling =
+      "Quality";
+
+  }
+
+
+  else{
+
+    preset =
+      "Ultra";
+
+    textures =
+      "Ultra";
+
+    shadows =
+      "High / Ultra";
+
+    reflections =
+      "High / Ultra";
+
+    volumetrics =
+      "High";
+
+    effects =
+      "Ultra";
+
+    raytracing =
+      "Medium / High";
+
+    upscaling =
+      "Native / Quality";
+
+  }
+
+
+  /* HIGH FPS TARGETS */
+
+  if(
+    target === "120" ||
+    target === "144"
+  ){
+
+    shadows =
+      score > 1.3
+      ? "Medium"
+      : "Low";
+
+
+    reflections =
+      score > 1.4
+      ? "Medium"
+      : "Low";
+
+
+    volumetrics =
+      "Low / Medium";
+
+
+    effects =
+      score > 1.2
+      ? "Medium"
+      : "Low / Medium";
+
+
+    raytracing =
+      "Off";
+
+
+    preset =
+      score > 1.2
+      ? "Medium / High"
+      : "Low / Medium";
+
+  }
+
+
+  /* QUALITY TARGET */
+
+  if(target === "quality"){
+
+    textures =
+      "Ultra";
+
+
+    if(score > 1.1){
+
+      shadows =
+        "High";
+
+      reflections =
+        "High";
+
+    }
+
+
+    if(score > 1.5){
+
+      volumetrics =
+        "High";
+
+      effects =
+        "High / Ultra";
+
+    }
+
+  }
+
+
+  /* RT PREFERENCE */
+
+  if(rtPreference === "off"){
+
+    raytracing =
+      "Off";
+
+  }
+
+
+  if(rtPreference === "on"){
+
+    if(score < 1){
+
+      raytracing =
+        "Low — expect a heavy performance cost";
+
+    }
+
+    else if(score < 1.6){
+
+      raytracing =
+        "Low";
+
+    }
+
+    else{
+
+      raytracing =
+        "Medium / High";
+
+    }
+
+  }
+
+
+  /* UPSCALING */
+
+  if(card.brand === "nvidia"){
+
+    if(
+      upscaling ===
+      "Native / Quality"
+    ){
+
+      upscaling =
+        "Native / DLSS Quality";
+
+    }
+
+    else{
+
+      upscaling =
+        "DLSS " +
+        upscaling;
+
+    }
+
+  }
+
+  else{
+
+    if(
+      upscaling ===
+      "Native / Quality"
+    ){
+
+      upscaling =
+        "Native / FSR Quality";
+
+    }
+
+    else{
+
+      upscaling =
+        "FSR " +
+        upscaling;
+
+    }
+
+  }
+
+
+  /* FRAME GENERATION */
+
+  let framegen;
+
+
+  if(card.framegen){
+
+    if(
+      target === "120" ||
+      target === "144"
+    ){
+
+      framegen =
+        "On if supported";
+
+    }
+
+    else{
+
+      framegen =
+        "Optional";
+
+    }
+
+  }
+
+  else{
+
+    framegen =
+      "Use only if the game and GPU support an alternative";
+
+  }
+
+
+  /* MOTION BLUR */
+
+  const motionblur =
+
+    (
+      target === "120" ||
+      target === "144"
+    )
+
+    ? "Off"
+
+    : "Off / Personal preference";
+
+
+  /* RESULT SUMMARY */
+
+  let targetName;
+
+
+  if(target === "60"){
+
+    targetName =
+      "Smooth 60 FPS";
+
+  }
+
+  else if(target === "120"){
+
+    targetName =
+      "Around 120 FPS";
+
+  }
+
+  else if(target === "144"){
+
+    targetName =
+      "144 FPS+";
+
+  }
+
+  else{
+
+    targetName =
+      "Best Visual Quality";
+
+  }
+
+
+  let summary;
+
+
+  if(level === "Challenging"){
+
+    summary =
+      `${card.name} is a demanding match for ${game.name} at this resolution and target. Prioritize upscaling and lower expensive graphics effects.`;
+
+  }
+
+
+  else if(level === "Playable"){
+
+    summary =
+      `${card.name} should be workable for ${game.name}, but some heavier settings will need compromises for this target.`;
+
+  }
+
+
+  else if(level === "Good"){
+
+    summary =
+      `${card.name} is a good match for ${game.name}. This setup should provide a useful balance between graphics quality and your selected target.`;
+
+  }
+
+
+  else if(level === "Strong"){
+
+    summary =
+      `${card.name} has strong graphics headroom for ${game.name} at this resolution. High settings are a sensible starting point.`;
+
+  }
+
+
+  else{
+
+    summary =
+      `${card.name} is an excellent match for this ${game.name} setup. You have substantial room to prioritize image quality.`;
+
+  }
+
+
+  /* OUTPUT */
+
+  document
+    .getElementById("level")
+    .innerText =
+      level;
+
+
+  document
+    .getElementById("gpuResult")
+    .innerText =
+      card.name;
+
+
+  document
+    .getElementById("gameResult")
+    .innerText =
+      game.name;
+
+
+  document
+    .getElementById("targetResult")
+    .innerText =
+      targetName;
+
+
+  document
+    .getElementById("summary")
+    .innerText =
+      summary;
+
+
+  document
+    .getElementById("preset")
+    .innerText =
+      preset;
+
+
+  document
+    .getElementById("textures")
+    .innerText =
+      textures;
+
+
+  document
+    .getElementById("shadows")
+    .innerText =
+      shadows;
+
+
+  document
+    .getElementById("reflections")
+    .innerText =
+      reflections;
+
+
+  document
+    .getElementById("volumetrics")
+    .innerText =
+      volumetrics;
+
+
+  document
+    .getElementById("effects")
+    .innerText =
+      effects;
+
+
+  document
+    .getElementById("upscaling")
+    .innerText =
+      upscaling;
+
+
+  document
+    .getElementById("raytracing")
+    .innerText =
+      raytracing;
+
+
+  document
+    .getElementById("framegen")
+    .innerText =
+      framegen;
+
+
+  document
+    .getElementById("motionblur")
+    .innerText =
+      motionblur;
+
+
+  /* CPU WARNING */
+
+  const warning =
+    document
+      .getElementById("warning");
+
+
+  warning.style.display =
+    "none";
+
+
+  if(
+    (
+      target === "120" ||
+      target === "144"
+    )
+
+    &&
+
+    CPU_POWER[cpuId] < 0.96
+  ){
+
+    warning.style.display =
+      "block";
+
+
+    warning.innerHTML =
+
+      "<strong>CPU note:</strong> " +
+
+      "High-FPS targets can become CPU-limited even when the GPU has enough performance. Your processor may prevent the game from consistently reaching the selected target.";
+
+  }
+
+
+  if(
+    resolution === "4k" &&
+    score < 0.8
+  ){
+
+    warning.style.display =
+      "block";
+
+
+    warning.innerHTML =
+
+      "<strong>4K note:</strong> " +
+
+      "This is a demanding 4K combination. Consider stronger upscaling or 1440p if image quality or responsiveness is not satisfactory.";
+
+  }
+
+
+  /* DEDICATED GUIDE */
+
+  const guideBox =
+    document
+      .getElementById("guideBox");
+
+
+  guideBox.style.display =
+    "none";
+
+
+  if(game.guide){
+
+    guideBox.style.display =
+      "block";
+
+
+    document
+      .getElementById("guideTitle")
+      .innerText =
+
+      `${game.name} Settings Finder`;
+
+
+    document
+      .getElementById("guideLink")
+      .href =
+        game.guide;
+
+  }
+
+
+  /* SHOW RESULT */
+
+  document
+    .getElementById("result")
+    .style
+    .display =
+      "block";
+
+
+  document
+    .getElementById("result")
+    .scrollIntoView({
+
+      behavior:"smooth",
+
+      block:"nearest"
+
+    });
+
 }
 
-
-if(card.brand==="nvidia"){
-
-  upscaling =
-    upscaling==="Native / Quality"
-    ? "DLSS Quality / Native"
-    : "DLSS " + upscaling;
-
-}
-else{
-
-  upscaling =
-    upscaling==="Native / Quality"
-    ? "FSR Quality / Native"
-    : "FSR " + upscaling;
-
-}
-
-
-let fg;
-
-if(card.framegen){
-
-  fg =
-    priority==="quality"
-    ? "Optional"
-    : "On if supported";
-
-}
-else{
-
-  fg =
-    "Use if game and hardware support it";
-
-}
-
-
-let summary;
-
-if(level==="Limited"){
-
-  summary =
-    `${card.name} at the selected resolution is a demanding match for ${game.name}. Start conservatively and prioritize smooth gameplay.`;
-
-}
-else if(level==="Moderate"){
-
-  summary =
-    `${card.name} should handle ${game.name} with some compromises on heavier graphics effects.`;
-
-}
-else if(level==="Good"){
-
-  summary =
-    `${card.name} is a solid match for ${game.name}. High settings are a sensible starting point.`;
-
-}
-else if(level==="Strong"){
-
-  summary =
-    `${card.name} has good graphics headroom for ${game.name} at this resolution.`;
-
-}
-else{
-
-  summary =
-    `${card.name} has substantial graphics headroom for ${game.name}, so you can prioritize visual quality.`;
-
-}
-
-
-document.getElementById("level").innerText =
-level;
-
-document.getElementById("summary").innerText =
-summary;
-
-document.getElementById("preset").innerText =
-preset;
-
-document.getElementById("textures").innerText =
-textures;
-
-document.getElementById("shadows").innerText =
-shadows;
-
-document.getElementById("reflections").innerText =
-reflections;
-
-document.getElementById("volumetrics").innerText =
-volumetrics;
-
-document.getElementById("rt").innerText =
-rt;
-
-document.getElementById("upscaling").innerText =
-upscaling;
-
-document.getElementById("fg").innerText =
-fg;
-
-
-const guideBox =
-document.getElementById("guideBox");
-
-const guideTitle =
-document.getElementById("guideTitle");
-
-const guideText =
-document.getElementById("guideText");
-
-const guideLink =
-document.getElementById("guideLink");
-
-
-guideBox.style.display="none";
-
-
-if(game.guide){
-
-  guideBox.style.display="block";
-
-  guideTitle.innerText =
-    `${game.name} has a dedicated GameTools guide`;
-
-  guideText.innerText =
-    `Open the dedicated ${game.name} page for more game-specific settings while keeping the same shared GPU database.`;
-
-  guideLink.href =
-    game.guide;
-
-}
-
-
-document.getElementById("result").style.display =
-"block";
-
-
-document.getElementById("result").scrollIntoView({
-  behavior:"smooth",
-  block:"nearest"
-});
-
-}
 
 </script>
 
+
 </body>
+
 </html>
