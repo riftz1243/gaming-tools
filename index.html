@@ -7,7 +7,7 @@
 <title>GameTools — PC Gaming Tools & Settings Guides</title>
 
 <meta name="description"
-content="Simple PC gaming tools and graphics settings guides. Search tools and game guides, find recommended settings and more.">
+content="Search free PC gaming tools and graphics settings guides. Find practical settings for your GPU, CPU, game and resolution.">
 
 <style>
 *{
@@ -54,18 +54,17 @@ nav{
   height:68px;
   max-width:1180px;
   margin:auto;
+  padding:0 24px;
 
   display:flex;
   align-items:center;
   justify-content:space-between;
-
-  padding:0 24px;
 }
 
 .logo{
   font-size:19px;
   font-weight:700;
-  letter-spacing:-0.5px;
+  letter-spacing:-.5px;
 }
 
 .logo-dot{
@@ -74,7 +73,6 @@ nav{
 
 .nav-links{
   display:flex;
-  align-items:center;
   gap:28px;
 }
 
@@ -82,7 +80,6 @@ nav{
   color:var(--muted);
   text-decoration:none;
   font-size:14px;
-  transition:.15s;
 }
 
 .nav-links a:hover{
@@ -93,6 +90,9 @@ nav{
   height:1px;
   background:var(--border);
 }
+
+
+/* HERO */
 
 .hero{
   max-width:1180px;
@@ -123,7 +123,7 @@ nav{
 }
 
 .hero-description{
-  max-width:610px;
+  max-width:620px;
   margin-top:28px;
 
   color:var(--muted);
@@ -150,13 +150,15 @@ nav{
   text-decoration:none;
   font-size:14px;
   font-weight:600;
-
-  transition:.15s;
 }
 
 .btn-primary{
   background:#f1f1f1;
   color:#111;
+}
+
+.btn-primary:hover{
+  background:white;
 }
 
 .btn-secondary{
@@ -165,18 +167,25 @@ nav{
   background:var(--surface);
 }
 
+.btn-secondary:hover{
+  border-color:var(--border-hover);
+  background:var(--surface-hover);
+}
+
+
+/* MAIN */
+
 main{
   max-width:1180px;
   margin:auto;
   padding:0 24px 110px;
 }
 
+
+/* SEARCH */
+
 .search-section{
   padding-top:70px;
-}
-
-.search-box{
-  position:relative;
 }
 
 .search-box input{
@@ -213,11 +222,74 @@ main{
   display:none;
   margin-top:20px;
   padding:24px;
+
   border:1px solid var(--border);
   border-radius:9px;
+
+  background:var(--surface);
   color:var(--muted);
+}
+
+
+/* FEATURED SETTINGS */
+
+.featured-settings{
+  margin-top:22px;
+  padding:26px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:35px;
+
+  border:1px solid var(--border-hover);
+  border-radius:10px;
+
   background:var(--surface);
 }
+
+.featured-label{
+  color:var(--accent);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.08em;
+  margin-bottom:8px;
+}
+
+.featured-settings h2{
+  font-size:23px;
+  letter-spacing:-.7px;
+  margin-bottom:8px;
+}
+
+.featured-settings p{
+  max-width:650px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.65;
+}
+
+.featured-button{
+  flex-shrink:0;
+
+  padding:13px 17px;
+
+  border-radius:7px;
+
+  background:#f1f1f1;
+  color:#111;
+
+  text-decoration:none;
+  font-size:14px;
+  font-weight:700;
+}
+
+.featured-button:hover{
+  background:white;
+}
+
+
+/* SECTIONS */
 
 .section{
   padding-top:80px;
@@ -228,6 +300,7 @@ main{
   justify-content:space-between;
   gap:30px;
   align-items:end;
+
   margin-bottom:30px;
 }
 
@@ -241,6 +314,9 @@ main{
   color:var(--muted);
   font-size:14px;
 }
+
+
+/* TOOLS */
 
 .tools{
   display:grid;
@@ -297,6 +373,9 @@ main{
   font-size:13px;
 }
 
+
+/* GUIDES */
+
 .guides{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -304,8 +383,10 @@ main{
 }
 
 .guide{
-  display:block;
+  display:flex;
+  flex-direction:column;
 
+  min-height:310px;
   padding:28px;
 
   border:1px solid var(--border);
@@ -321,6 +402,7 @@ main{
 .guide:hover{
   background:var(--surface-hover);
   border-color:var(--border-hover);
+  transform:translateY(-2px);
 }
 
 .guide-meta{
@@ -334,6 +416,7 @@ main{
   display:inline-flex;
 
   padding:5px 8px;
+
   border:1px solid var(--border);
   border-radius:5px;
 
@@ -357,10 +440,15 @@ main{
 }
 
 .read{
-  margin-top:27px;
+  margin-top:auto;
+  padding-top:27px;
+
   font-size:13px;
   color:#ccccd2;
 }
+
+
+/* ABOUT */
 
 .about{
   display:grid;
@@ -374,6 +462,7 @@ main{
 .about-title{
   font-size:13px;
   color:var(--muted);
+
   text-transform:uppercase;
   letter-spacing:.08em;
 }
@@ -385,7 +474,9 @@ main{
 .about-text h2{
   font-size:29px;
   letter-spacing:-1px;
+
   margin-bottom:18px;
+
   font-weight:600;
 }
 
@@ -397,11 +488,20 @@ main{
 .about-link{
   display:inline-block;
   margin-top:20px;
+
   color:#d8d8dc;
   text-decoration:none;
+
   font-size:14px;
   font-weight:600;
 }
+
+.about-link:hover{
+  color:white;
+}
+
+
+/* FOOTER */
 
 footer{
   border-top:1px solid var(--border);
@@ -419,6 +519,9 @@ footer{
   color:#686870;
   font-size:12px;
 }
+
+
+/* MOBILE */
 
 @media(max-width:900px){
 
@@ -446,6 +549,15 @@ footer{
   .hero-actions{
     flex-direction:column;
     align-items:flex-start;
+  }
+
+  .featured-settings{
+    display:block;
+  }
+
+  .featured-button{
+    display:inline-block;
+    margin-top:18px;
   }
 
   .tools{
@@ -487,14 +599,25 @@ GameTools<span class="logo-dot">.</span>
 </div>
 
 <div class="nav-links">
-  <a href="#tools">Tools</a>
-  <a href="guides.html">Guides</a>
-  <a href="about.html">About</a>
+
+<a href="#tools">
+Tools
+</a>
+
+<a href="guides.html">
+Guides
+</a>
+
+<a href="about.html">
+About
+</a>
+
 </div>
 
 </nav>
 
 <div class="line"></div>
+
 
 <header class="hero">
 
@@ -508,38 +631,46 @@ Useful tools for
 </h1>
 
 <p class="hero-description">
-Search GameTools, find graphics settings, estimate download
-times and get to the right gaming tool faster.
+Find practical graphics settings for your PC, search
+game-specific guides and use simple gaming tools without
+digging through unnecessary pages.
 </p>
 
 <div class="hero-actions">
 
-<a href="settings.html"
+<a
+href="settings.html"
 class="btn btn-primary">
-Find my settings
+Find my PC settings
 </a>
 
-<a href="guides.html"
+<a
+href="guides.html"
 class="btn btn-secondary">
-View game guides
+Browse game guides
 </a>
 
 </div>
 
 </header>
 
+
 <div class="line"></div>
 
+
 <main>
+
 
 <section class="search-section">
 
 <div class="search-box">
+
 <input
 id="homeSearch"
 type="text"
 placeholder="Search GameTools — Fortnite, Cyberpunk, settings, download..."
 oninput="searchHome()">
+
 </div>
 
 <div class="search-status" id="searchStatus">
@@ -550,7 +681,38 @@ Search tools and game guides
 No matching tools or guides found.
 </div>
 
+
+<div class="featured-settings searchable"
+data-search="general pc settings finder graphics gpu cpu game resolution main tool">
+
+<div class="featured-copy">
+
+<div class="featured-label">
+MAIN TOOL
+</div>
+
+<h2>
+Not sure which graphics settings to use?
+</h2>
+
+<p>
+Choose your GPU, CPU, game, resolution and graphics
+priority to get a practical starting recommendation
+in seconds.
+</p>
+
+</div>
+
+<a
+href="settings.html"
+class="featured-button">
+Open General Settings Finder →
+</a>
+
+</div>
+
 </section>
+
 
 <section class="section" id="tools">
 
@@ -566,16 +728,22 @@ Free. No account required.
 
 </div>
 
+
 <div class="tools">
+
 
 <a
 href="settings.html"
 class="tool-card searchable"
-data-search="pc settings finder graphics gpu cpu resolution settings">
+data-search="pc general settings finder graphics gpu cpu resolution game settings">
 
-<div class="tool-number">01</div>
+<div class="tool-number">
+01
+</div>
 
-<h3>PC Settings Finder</h3>
+<h3>
+PC Settings Finder
+</h3>
 
 <p>
 Choose your graphics card, processor, game and resolution
@@ -588,14 +756,19 @@ Open tool →
 
 </a>
 
+
 <a
 href="download.html"
 class="tool-card searchable"
 data-search="download calculator game size internet speed mbps time">
 
-<div class="tool-number">02</div>
+<div class="tool-number">
+02
+</div>
 
-<h3>Download Calculator</h3>
+<h3>
+Download Calculator
+</h3>
 
 <p>
 Calculate approximately how long a game download will take
@@ -608,14 +781,19 @@ Open tool →
 
 </a>
 
+
 <a
 href="picker.html"
 class="tool-card searchable"
-data-search="random game picker choose what to play games">
+data-search="random game picker choose play games">
 
-<div class="tool-number">03</div>
+<div class="tool-number">
+03
+</div>
 
-<h3>Random Game Picker</h3>
+<h3>
+Random Game Picker
+</h3>
 
 <p>
 Can't decide what to play? Enter your games and let the
@@ -628,30 +806,36 @@ Open tool →
 
 </a>
 
+
 </div>
 
 </section>
+
 
 <section class="section">
 
 <div class="section-header">
 
 <div>
-<h2>Game settings guides</h2>
+<h2>
+Game settings guides
+</h2>
 </div>
 
 <p>
-Multi-GPU guides for supported games.
+Dedicated multi-GPU settings finders.
 </p>
 
 </div>
 
+
 <div class="guides">
+
 
 <a
 href="fortnite-settings.html"
 class="guide searchable"
-data-search="fortnite settings nvidia amd rtx rx competitive fps">
+data-search="fortnite settings nvidia amd rtx rx competitive high fps">
 
 <div class="guide-meta">
 
@@ -671,7 +855,7 @@ Fortnite Settings Finder
 
 <p>
 Choose your GPU, resolution and play style for a practical
-Fortnite setup.
+Fortnite graphics setup.
 </p>
 
 <div class="read">
@@ -680,10 +864,11 @@ Open Fortnite guide →
 
 </a>
 
+
 <a
 href="cyberpunk-settings.html"
 class="guide searchable"
-data-search="cyberpunk 2077 settings nvidia amd rtx rx dlss ray tracing">
+data-search="cyberpunk 2077 settings nvidia amd rtx rx dlss fsr ray tracing">
 
 <div class="guide-meta">
 
@@ -702,7 +887,7 @@ Cyberpunk 2077 Settings Finder
 </h3>
 
 <p>
-Tune textures, reflections, volumetrics, DLSS or FSR,
+Tune textures, reflections, volumetrics, upscaling,
 ray tracing and Frame Generation.
 </p>
 
@@ -711,6 +896,7 @@ Open Cyberpunk guide →
 </div>
 
 </a>
+
 
 <a
 href="black-myth-wukong-settings.html"
@@ -735,7 +921,7 @@ Black Myth: Wukong Settings Finder
 
 <p>
 Balance textures, global illumination, shadows and other
-demanding graphics settings.
+demanding graphics options.
 </p>
 
 <div class="read">
@@ -744,9 +930,11 @@ Open Black Myth guide →
 
 </a>
 
+
 </div>
 
 </section>
+
 
 <section class="section">
 
@@ -763,12 +951,14 @@ Straightforward gaming tools without the clutter.
 </h2>
 
 <p>
-GameTools is a collection of utilities and multi-GPU
-settings guides built to answer common PC gaming questions
-quickly.
+GameTools is a collection of simple utilities and
+multi-GPU graphics settings guides built to answer common
+PC gaming questions quickly.
 </p>
 
-<a class="about-link" href="about.html">
+<a
+class="about-link"
+href="about.html">
 Learn more about GameTools →
 </a>
 
@@ -778,7 +968,9 @@ Learn more about GameTools →
 
 </section>
 
+
 </main>
+
 
 <footer>
 
@@ -796,6 +988,7 @@ Free tools for PC gamers
 
 </footer>
 
+
 <script>
 
 function searchHome(){
@@ -807,25 +1000,31 @@ function searchHome(){
       .toLowerCase()
       .trim();
 
+
   const items =
     document.querySelectorAll(".searchable");
 
+
   let visible = 0;
+
 
   items.forEach(item => {
 
     const text =
       (
-        item.dataset.search +
+        (item.dataset.search || "") +
         " " +
         item.innerText
       ).toLowerCase();
 
+
     const match =
       text.includes(query);
 
+
     item.style.display =
       match ? "" : "none";
+
 
     if(match){
       visible++;
@@ -833,11 +1032,13 @@ function searchHome(){
 
   });
 
+
   const status =
     document.getElementById("searchStatus");
 
   const noResults =
     document.getElementById("noResults");
+
 
   if(query === ""){
 
@@ -854,6 +1055,7 @@ function searchHome(){
         : " results");
 
   }
+
 
   noResults.style.display =
     visible === 0
