@@ -7,7 +7,7 @@
 <title>PC Game Settings Guides | GameTools</title>
 
 <meta name="description"
-content="Browse practical PC graphics settings guides for popular games and GPUs including RTX 4060 and RTX 5060.">
+content="Browse practical PC graphics settings guides for Fortnite, Cyberpunk 2077 and Black Myth: Wukong across multiple GPUs.">
 
 <style>
 *{
@@ -46,6 +46,7 @@ nav{
   max-width:1180px;
   margin:auto;
   padding:0 24px;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -64,7 +65,6 @@ nav{
 .nav-links{
   display:flex;
   gap:24px;
-  align-items:center;
 }
 
 .nav-links a{
@@ -123,25 +123,21 @@ main{
   padding:0 24px 100px;
 }
 
-.group{
-  margin-bottom:55px;
-}
-
-.group-header{
+.section-title{
   display:flex;
   justify-content:space-between;
   align-items:end;
   gap:20px;
-  margin-bottom:22px;
+  margin-bottom:24px;
 }
 
-.group-header h2{
+.section-title h2{
   font-size:26px;
-  font-weight:600;
   letter-spacing:-.8px;
+  font-weight:600;
 }
 
-.group-header p{
+.section-title p{
   color:var(--muted);
   font-size:13px;
 }
@@ -155,34 +151,40 @@ main{
 .guide{
   display:flex;
   flex-direction:column;
-  min-height:300px;
-  text-decoration:none;
-  color:white;
+  min-height:315px;
+
   padding:28px;
+
+  color:white;
+  text-decoration:none;
+
   border:1px solid var(--border);
   border-radius:10px;
   background:var(--surface);
+
   transition:.15s;
 }
 
 .guide:hover{
+  transform:translateY(-2px);
   border-color:var(--border-hover);
   background:var(--surface-hover);
-  transform:translateY(-2px);
 }
 
 .meta{
   display:flex;
-  gap:8px;
   flex-wrap:wrap;
-  margin-bottom:55px;
+  gap:8px;
+  margin-bottom:50px;
 }
 
 .tag{
   display:inline-block;
   padding:5px 8px;
+
   border:1px solid var(--border);
   border-radius:5px;
+
   color:#aaaab2;
   font-size:11px;
   font-weight:600;
@@ -205,8 +207,8 @@ main{
 
 .read{
   margin-top:auto;
-  padding-top:27px;
-  color:#ccccd2;
+  padding-top:28px;
+  color:#d0d0d5;
   font-size:13px;
   font-weight:600;
 }
@@ -214,8 +216,10 @@ main{
 .more{
   margin-top:45px;
   padding:27px;
+
   border:1px solid var(--border);
   border-radius:10px;
+
   color:var(--muted);
   line-height:1.7;
 }
@@ -236,8 +240,10 @@ footer{
   max-width:1180px;
   margin:auto;
   padding:30px 24px;
+
   display:flex;
   justify-content:space-between;
+
   color:#686870;
   font-size:12px;
 }
@@ -256,11 +262,11 @@ footer{
     letter-spacing:-2px;
   }
 
-  .group-header{
+  .section-title{
     display:block;
   }
 
-  .group-header p{
+  .section-title p{
     margin-top:7px;
   }
 
@@ -311,110 +317,69 @@ PC graphics guides
 </div>
 
 <h1>
-Settings guides for
-<span>different GPUs.</span>
+One game.
+<span>Multiple GPUs.</span>
 </h1>
 
 <p>
-Browse practical starting points by game and graphics card.
-More GPU and game combinations will be added over time.
+Choose a game guide and then select your graphics card,
+resolution and preferred graphics style directly on the page.
 </p>
 
 </header>
 
 <main>
 
-<section class="group">
+<div class="section-title">
 
-<div class="group-header">
+<h2>
+Game guides
+</h2>
 
-<div>
-<h2>Fortnite</h2>
-</div>
-
-<p>2 GPU guides</p>
+<p>
+3 games available
+</p>
 
 </div>
 
 <div class="guides">
 
+
 <a class="guide"
-href="rtx-4060-fortnite-settings.html">
+href="fortnite-settings.html">
 
 <div class="meta">
-
-<span class="tag">
-RTX 4060
-</span>
 
 <span class="tag">
 FORTNITE
 </span>
 
-</div>
-
-<h3>
-Best RTX 4060 settings for Fortnite
-</h3>
-
-<p>
-Competitive high-FPS settings and a higher-quality setup
-for Fortnite on the GeForce RTX 4060.
-</p>
-
-<div class="read">
-Read guide →
-</div>
-
-</a>
-
-<a class="guide"
-href="rtx-5060-fortnite-settings.html">
-
-<div class="meta">
-
 <span class="tag">
-RTX 5060
+NVIDIA + AMD
 </span>
 
 <span class="tag">
-FORTNITE
+10 GPUs
 </span>
 
 </div>
 
 <h3>
-Best RTX 5060 settings for Fortnite
+Fortnite settings by GPU
 </h3>
 
 <p>
-Compare competitive and higher-quality settings for
-Fortnite on the GeForce RTX 5060.
+Choose from RTX 3060, RTX 3070, RTX 4060, RTX 4070,
+RTX 5060, RTX 5070 and several Radeon GPUs, then select
+1080p, 1440p or 4K and your preferred play style.
 </p>
 
 <div class="read">
-Read guide →
+Open Fortnite guide →
 </div>
 
 </a>
 
-</div>
-
-</section>
-
-<section class="group">
-
-<div class="group-header">
-
-<div>
-<h2>Cyberpunk 2077</h2>
-</div>
-
-<p>1 GPU guide</p>
-
-</div>
-
-<div class="guides">
 
 <a class="guide"
 href="rtx-5060-cyberpunk-settings.html">
@@ -422,47 +387,30 @@ href="rtx-5060-cyberpunk-settings.html">
 <div class="meta">
 
 <span class="tag">
-RTX 5060
+CYBERPUNK 2077
 </span>
 
 <span class="tag">
-CYBERPUNK 2077
+RTX 5060
 </span>
 
 </div>
 
 <h3>
-Best RTX 5060 settings for Cyberpunk 2077
+Cyberpunk 2077 settings
 </h3>
 
 <p>
-Suggested 1080p and 1440p settings covering DLSS,
-ray tracing and demanding graphics options.
+Recommended starting settings for the RTX 5060 at 1080p
+and 1440p, including DLSS and ray tracing advice.
 </p>
 
 <div class="read">
-Read guide →
+Read Cyberpunk guide →
 </div>
 
 </a>
 
-</div>
-
-</section>
-
-<section class="group">
-
-<div class="group-header">
-
-<div>
-<h2>Black Myth: Wukong</h2>
-</div>
-
-<p>1 GPU guide</p>
-
-</div>
-
-<div class="guides">
 
 <a class="guide"
 href="rtx-5060-black-myth-wukong-settings.html">
@@ -470,45 +418,44 @@ href="rtx-5060-black-myth-wukong-settings.html">
 <div class="meta">
 
 <span class="tag">
-RTX 5060
+BLACK MYTH: WUKONG
 </span>
 
 <span class="tag">
-BLACK MYTH: WUKONG
+RTX 5060
 </span>
 
 </div>
 
 <h3>
-Best RTX 5060 settings for Black Myth: Wukong
+Black Myth: Wukong settings
 </h3>
 
 <p>
-A practical setup focused on balancing image quality
-with the heavier graphics effects in Black Myth: Wukong.
+A practical RTX 5060 setup focused on balancing image
+quality with the game's demanding graphics effects.
 </p>
 
 <div class="read">
-Read guide →
+Read Black Myth guide →
 </div>
 
 </a>
 
-</div>
 
-</section>
+</div>
 
 <div class="more">
 
 <strong>
-Using another GPU or game?
+More multi-GPU guides are coming.
 </strong>
 
 <br><br>
 
-More dedicated guides are coming. You can also use the
-<a href="settings.html">PC Settings Finder</a>
-for a quick starting recommendation.
+Next, Cyberpunk 2077 and Black Myth: Wukong can be upgraded
+to the same system as Fortnite, so visitors can choose
+their GPU instead of needing a separate page for every card.
 
 </div>
 
