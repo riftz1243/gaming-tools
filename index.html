@@ -10,56 +10,81 @@
 content="Search PC gaming tools and multi-GPU graphics settings guides for Fortnite, Cyberpunk 2077, Resident Evil Requiem and more.">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
 
-:root{
-  --bg:#0a0a0b;
-  --surface:#111113;
-  --surface-hover:#161618;
-  --border:#262629;
-  --border-hover:#3a3a3f;
-  --text:#f5f5f5;
-  --muted:#96969f;
-  --accent:#8b7cff;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-html{scroll-behavior:smooth}
+:root{
+  --black:#090909;
+  --black2:#111111;
+  --black3:#181818;
+  --white:#f7f7f5;
+  --muted:#999999;
+  --border:#2a2a2a;
+  --orange:#ff6a00;
+  --orange-hover:#ff7a1a;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
-  font-family:Inter,ui-sans-serif,-apple-system,
-  BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:var(--bg);
-  color:var(--text);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background:var(--black);
+  color:var(--white);
   min-height:100vh;
   line-height:1.5;
 }
 
+
+/* NAV */
+
 nav{
-  height:68px;
-  max-width:1180px;
+  height:72px;
+  max-width:1200px;
   margin:auto;
-  padding:0 24px;
+  padding:0 26px;
+
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
 
 .logo{
-  font-size:19px;
-  font-weight:700;
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:-.7px;
 }
 
-.logo span{color:var(--accent)}
+.logo span{
+  color:var(--orange);
+}
 
 .nav-links{
   display:flex;
-  gap:28px;
+  gap:30px;
 }
 
 .nav-links a{
   color:var(--muted);
   text-decoration:none;
   font-size:14px;
+  transition:.15s;
+}
+
+.nav-links a:hover{
+  color:var(--white);
 }
 
 .line{
@@ -67,298 +92,522 @@ nav{
   background:var(--border);
 }
 
+
+/* HERO */
+
 .hero{
-  max-width:1180px;
+  max-width:1200px;
   margin:auto;
-  padding:110px 24px 80px;
+  padding:115px 26px 90px;
 }
 
 .eyebrow{
-  color:var(--muted);
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+
+  color:var(--orange);
   font-size:12px;
+  font-weight:800;
+  letter-spacing:.09em;
   text-transform:uppercase;
-  letter-spacing:.08em;
-  margin-bottom:23px;
+
+  margin-bottom:26px;
+}
+
+.eyebrow::before{
+  content:"";
+  width:26px;
+  height:2px;
+  background:var(--orange);
 }
 
 .hero h1{
-  max-width:850px;
-  font-size:clamp(48px,7vw,82px);
-  line-height:1.02;
-  letter-spacing:-4px;
+  max-width:900px;
+
+  font-size:clamp(50px,7vw,86px);
+  line-height:.99;
+  letter-spacing:-4.5px;
+  font-weight:700;
 }
 
 .hero h1 span{
-  color:#777780;
+  color:#707070;
 }
 
 .hero p{
-  max-width:650px;
-  margin-top:27px;
+  max-width:640px;
+  margin-top:30px;
+
   color:var(--muted);
   font-size:18px;
-  line-height:1.7;
+  line-height:1.75;
 }
 
 .hero-actions{
   display:flex;
   gap:12px;
-  margin-top:34px;
+  margin-top:36px;
 }
 
 .btn{
   display:inline-flex;
-  padding:13px 18px;
+  justify-content:center;
+  align-items:center;
+
+  min-height:46px;
+  padding:0 19px;
+
   border-radius:8px;
+
   text-decoration:none;
   font-size:14px;
-  font-weight:600;
+  font-weight:700;
+
+  transition:.15s;
 }
 
-.primary{
-  background:#f1f1f1;
-  color:#111;
-}
-
-.secondary{
-  background:var(--surface);
-  border:1px solid var(--border);
+.btn-main{
+  background:var(--orange);
   color:white;
 }
 
-main{
-  max-width:1180px;
-  margin:auto;
-  padding:0 24px 100px;
+.btn-main:hover{
+  background:var(--orange-hover);
+  transform:translateY(-1px);
 }
 
+.btn-second{
+  background:var(--black2);
+  border:1px solid var(--border);
+  color:var(--white);
+}
+
+.btn-second:hover{
+  background:var(--black3);
+}
+
+
+/* MAIN */
+
+main{
+  max-width:1200px;
+  margin:auto;
+  padding:0 26px 110px;
+}
+
+
+/* SEARCH */
+
 .search-section{
-  padding-top:65px;
+  padding-top:70px;
+}
+
+.search-title{
+  font-size:13px;
+  font-weight:700;
+  color:#b0b0b0;
+  margin-bottom:11px;
+}
+
+.search-box{
+  position:relative;
 }
 
 .search-box input{
   width:100%;
-  height:56px;
-  padding:0 18px;
+  height:58px;
+
+  padding:0 20px;
+
   border:1px solid var(--border);
   border-radius:9px;
-  background:var(--surface);
+
+  background:var(--black2);
   color:white;
+
   font-size:15px;
   outline:none;
+
+  transition:.15s;
+}
+
+.search-box input:focus{
+  border-color:var(--orange);
+  box-shadow:0 0 0 3px rgba(255,106,0,.08);
+}
+
+.search-box input::placeholder{
+  color:#666;
 }
 
 .search-status{
   margin-top:10px;
-  color:var(--muted);
-  font-size:13px;
+  color:#777;
+  font-size:12px;
 }
 
 .no-results{
   display:none;
-  margin-top:18px;
-  padding:22px;
+
+  margin-top:16px;
+  padding:20px;
+
   border:1px solid var(--border);
-  border-radius:9px;
+  border-radius:8px;
+
   color:var(--muted);
+  background:var(--black2);
 }
 
+
+/* MAIN TOOL */
+
 .featured{
-  margin-top:22px;
-  padding:26px;
-  border:1px solid var(--border-hover);
-  border-radius:10px;
-  background:var(--surface);
+  position:relative;
+  overflow:hidden;
+
+  margin-top:25px;
+  padding:31px;
+
   display:flex;
-  justify-content:space-between;
-  gap:30px;
   align-items:center;
+  justify-content:space-between;
+  gap:40px;
+
+  border:1px solid #343434;
+  border-radius:12px;
+
+  background:
+    linear-gradient(
+      110deg,
+      #151515 0%,
+      #111111 65%,
+      #17110d 100%
+    );
+}
+
+.featured::before{
+  content:"";
+  position:absolute;
+
+  top:0;
+  left:0;
+
+  width:4px;
+  height:100%;
+
+  background:var(--orange);
 }
 
 .featured-label{
-  color:var(--accent);
+  color:var(--orange);
+
   font-size:11px;
-  font-weight:700;
-  letter-spacing:.08em;
-  margin-bottom:8px;
+  font-weight:800;
+  letter-spacing:.1em;
+
+  margin-bottom:10px;
 }
 
 .featured h2{
-  font-size:23px;
-  margin-bottom:8px;
+  font-size:26px;
+  letter-spacing:-.8px;
+  margin-bottom:9px;
 }
 
 .featured p{
+  max-width:650px;
+
   color:var(--muted);
-  line-height:1.6;
   font-size:14px;
+  line-height:1.7;
 }
 
-.featured a{
+.featured-button{
   flex-shrink:0;
-  padding:13px 17px;
-  background:#f1f1f1;
-  color:#111;
-  border-radius:7px;
+
+  display:inline-flex;
+  align-items:center;
+
+  padding:14px 18px;
+
+  border-radius:8px;
+
+  background:var(--orange);
+  color:white;
+
   text-decoration:none;
-  font-weight:700;
   font-size:14px;
+  font-weight:800;
+
+  transition:.15s;
 }
+
+.featured-button:hover{
+  background:var(--orange-hover);
+  transform:translateY(-1px);
+}
+
+
+/* SECTIONS */
 
 .section{
-  padding-top:80px;
+  padding-top:90px;
 }
 
 .section-head{
   display:flex;
   justify-content:space-between;
   align-items:end;
-  gap:20px;
+  gap:25px;
+
   margin-bottom:28px;
 }
 
 .section-head h2{
-  font-size:28px;
+  font-size:30px;
+  letter-spacing:-1px;
 }
 
 .section-head p{
   color:var(--muted);
-  font-size:14px;
+  font-size:13px;
 }
+
+
+/* TOOLS */
 
 .tools{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  border-top:1px solid var(--border);
-  border-left:1px solid var(--border);
+  gap:12px;
 }
 
 .tool{
-  min-height:250px;
-  padding:27px;
+  min-height:265px;
+  padding:26px;
+
   display:flex;
   flex-direction:column;
+
+  color:white;
   text-decoration:none;
-  border-right:1px solid var(--border);
-  border-bottom:1px solid var(--border);
+
+  border:1px solid var(--border);
+  border-radius:10px;
+
+  background:var(--black2);
+
+  transition:.15s;
 }
 
 .tool:hover{
-  background:var(--surface);
+  border-color:#474747;
+  background:var(--black3);
+  transform:translateY(-2px);
 }
 
 .tool-number{
-  color:#66666e;
-  font-size:12px;
+  color:var(--orange);
+
+  font-size:11px;
+  font-weight:800;
+
   margin-bottom:55px;
 }
 
 .tool h3{
-  font-size:20px;
+  font-size:21px;
+  letter-spacing:-.5px;
   margin-bottom:10px;
 }
 
 .tool p{
   color:var(--muted);
   font-size:14px;
-  line-height:1.6;
+  line-height:1.65;
 }
 
 .tool-link{
   margin-top:auto;
-  padding-top:22px;
-  color:#ccc;
+  padding-top:25px;
+
+  color:var(--white);
   font-size:13px;
+  font-weight:600;
 }
+
+
+/* GUIDES */
 
 .guides{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:16px;
+  gap:14px;
 }
 
 .guide{
-  min-height:300px;
-  padding:26px;
+  min-height:315px;
+  padding:27px;
+
   display:flex;
   flex-direction:column;
+
+  color:white;
   text-decoration:none;
+
   border:1px solid var(--border);
   border-radius:10px;
-  background:var(--surface);
+
+  background:var(--black2);
+
+  transition:.15s;
 }
 
 .guide:hover{
-  background:var(--surface-hover);
-  border-color:var(--border-hover);
+  border-color:var(--orange);
+  background:var(--black3);
+  transform:translateY(-3px);
 }
 
 .tags{
   display:flex;
-  gap:7px;
   flex-wrap:wrap;
-  margin-bottom:40px;
+  gap:7px;
+
+  margin-bottom:42px;
 }
 
 .tag{
   padding:5px 8px;
-  border:1px solid var(--border);
+
+  border:1px solid #353535;
   border-radius:5px;
-  color:#aaaab2;
-  font-size:11px;
-  font-weight:600;
+
+  color:#bcbcbc;
+
+  font-size:10px;
+  font-weight:700;
+}
+
+.orange-tag{
+  color:var(--orange);
+  border-color:#633013;
 }
 
 .guide h3{
   font-size:21px;
   line-height:1.3;
+  letter-spacing:-.5px;
+
   margin-bottom:11px;
 }
 
 .guide p{
   color:var(--muted);
   font-size:14px;
-  line-height:1.6;
+  line-height:1.65;
 }
 
 .read{
   margin-top:auto;
-  padding-top:22px;
-  color:#ccc;
+  padding-top:24px;
+
+  color:var(--white);
   font-size:13px;
+  font-weight:600;
 }
 
 .all-guides{
-  margin-top:20px;
+  margin-top:23px;
 }
 
 .all-guides a{
-  color:white;
+  color:var(--orange);
+  text-decoration:none;
   font-size:14px;
-  font-weight:600;
+  font-weight:700;
 }
+
+.all-guides a:hover{
+  color:var(--orange-hover);
+}
+
+
+/* STATS */
+
+.stats{
+  margin-top:90px;
+
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+
+.stat{
+  padding:30px 5px;
+}
+
+.stat + .stat{
+  border-left:1px solid var(--border);
+  padding-left:30px;
+}
+
+.stat strong{
+  display:block;
+
+  color:var(--orange);
+
+  font-size:29px;
+  letter-spacing:-1px;
+}
+
+.stat span{
+  display:block;
+  margin-top:5px;
+
+  color:var(--muted);
+  font-size:12px;
+}
+
+
+/* FOOTER */
 
 footer{
   border-top:1px solid var(--border);
 }
 
 .footer-inner{
-  max-width:1180px;
+  max-width:1200px;
   margin:auto;
-  padding:30px 24px;
+  padding:31px 26px;
+
   display:flex;
   justify-content:space-between;
-  color:#686870;
+
+  color:#666;
   font-size:12px;
 }
 
+
+/* MOBILE */
+
 @media(max-width:900px){
-  .guides{grid-template-columns:1fr}
+
+  .guides{
+    grid-template-columns:1fr;
+  }
+
 }
 
 @media(max-width:800px){
 
-  .nav-links{display:none}
+  .nav-links{
+    display:none;
+  }
 
   .hero{
     padding-top:75px;
@@ -366,7 +615,7 @@ footer{
   }
 
   .hero h1{
-    letter-spacing:-2.5px;
+    letter-spacing:-2.7px;
   }
 
   .hero-actions{
@@ -378,9 +627,8 @@ footer{
     display:block;
   }
 
-  .featured a{
-    display:inline-block;
-    margin-top:18px;
+  .featured-button{
+    margin-top:20px;
   }
 
   .tools{
@@ -395,15 +643,33 @@ footer{
     margin-top:7px;
   }
 
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .stat + .stat{
+    border-left:none;
+    border-top:1px solid var(--border);
+    padding-left:5px;
+  }
+
   .footer-inner{
     display:block;
   }
 
+  .footer-inner span:last-child{
+    display:block;
+    margin-top:7px;
+  }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
 
 <nav>
 
@@ -412,77 +678,106 @@ GameTools<span>.</span>
 </div>
 
 <div class="nav-links">
-<a href="#tools">Tools</a>
-<a href="guides.html">Guides</a>
-<a href="about.html">About</a>
+
+<a href="#tools">
+Tools
+</a>
+
+<a href="guides.html">
+Guides
+</a>
+
+<a href="about.html">
+About
+</a>
+
 </div>
 
 </nav>
 
+
 <div class="line"></div>
+
 
 <header class="hero">
 
 <div class="eyebrow">
-PC gaming, simplified
+PC GAMING TOOLS
 </div>
 
 <h1>
-Find better settings.
-<span>Spend more time playing.</span>
+Better settings.
+<span>Less guessing.</span>
 </h1>
 
 <p>
-Search PC gaming tools and multi-GPU graphics guides for
-popular games, hardware and resolutions.
+Find practical graphics settings for your hardware,
+search multi-GPU game guides and use simple gaming tools
+without wasting time digging through forums.
 </p>
 
 <div class="hero-actions">
 
-<a href="settings.html" class="btn primary">
-Find my PC settings
+<a
+href="settings.html"
+class="btn btn-main">
+Find my PC settings →
 </a>
 
-<a href="guides.html" class="btn secondary">
-Browse all guides
+<a
+href="guides.html"
+class="btn btn-second">
+Browse game guides
 </a>
 
 </div>
 
 </header>
 
+
 <div class="line"></div>
+
 
 <main>
 
+
 <section class="search-section">
+
+<div class="search-title">
+Search GameTools
+</div>
 
 <div class="search-box">
 
 <input
 id="homeSearch"
 type="text"
-placeholder="Search — Requiem, Fortnite, download, settings..."
+placeholder="Try: Resident Evil Requiem, Cyberpunk, download..."
 oninput="searchHome()">
 
 </div>
 
-<div class="search-status" id="searchStatus">
+<div
+class="search-status"
+id="searchStatus">
 Search tools and featured guides
 </div>
 
-<div class="no-results" id="noResults">
-No matching results. Try the full Guides page or General Settings Finder.
+<div
+class="no-results"
+id="noResults">
+No matching results found. Try the full Guides page or General Settings Finder.
 </div>
+
 
 <div
 class="featured searchable"
-data-search="general pc settings finder gpu cpu graphics game resolution settings">
+data-search="general pc settings finder graphics gpu cpu game resolution main tool">
 
 <div>
 
 <div class="featured-label">
-MAIN TOOL
+★ MAIN TOOL
 </div>
 
 <h2>
@@ -490,13 +785,15 @@ General PC Settings Finder
 </h2>
 
 <p>
-Choose your GPU, CPU, game, resolution and priority to get
-a practical graphics-settings starting point.
+Choose your GPU, CPU, game, resolution and graphics priority.
+GameTools gives you a practical starting point for your PC.
 </p>
 
 </div>
 
-<a href="settings.html">
+<a
+href="settings.html"
+class="featured-button">
 Open Settings Finder →
 </a>
 
@@ -504,100 +801,142 @@ Open Settings Finder →
 
 </section>
 
-<section class="section" id="tools">
+
+
+<section
+class="section"
+id="tools">
 
 <div class="section-head">
 
-<h2>Tools</h2>
+<h2>
+Gaming tools
+</h2>
 
-<p>Free · no account required</p>
+<p>
+Free · no account required
+</p>
 
 </div>
 
+
 <div class="tools">
+
 
 <a
 href="settings.html"
 class="tool searchable"
-data-search="settings finder gpu cpu graphics game resolution">
+data-search="settings finder graphics gpu cpu games resolution">
 
-<div class="tool-number">01</div>
+<div class="tool-number">
+01 / MAIN
+</div>
 
-<h3>PC Settings Finder</h3>
+<h3>
+PC Settings Finder
+</h3>
 
 <p>
-Get a settings starting point based on your hardware,
-game and resolution.
+Choose your PC hardware and game to get a practical
+graphics settings starting point.
 </p>
 
 <div class="tool-link">
-Open tool →
+Open Settings Finder →
 </div>
 
 </a>
+
 
 <a
 href="download.html"
 class="tool searchable"
-data-search="download calculator internet speed game size mbps">
+data-search="download calculator internet speed mbps size game">
 
-<div class="tool-number">02</div>
+<div class="tool-number">
+02
+</div>
 
-<h3>Download Calculator</h3>
+<h3>
+Download Calculator
+</h3>
 
 <p>
-Estimate how long a game download should take.
+Estimate how long a game will take to download using
+its file size and your internet speed.
 </p>
 
 <div class="tool-link">
-Open tool →
+Calculate download →
 </div>
 
 </a>
+
 
 <a
 href="picker.html"
 class="tool searchable"
-data-search="random game picker choose what to play">
+data-search="random game picker choose what play">
 
-<div class="tool-number">03</div>
+<div class="tool-number">
+03
+</div>
 
-<h3>Random Game Picker</h3>
+<h3>
+Random Game Picker
+</h3>
 
 <p>
-Enter several games and let GameTools choose one.
+Can't choose what to play? Add your games and let
+GameTools decide.
 </p>
 
 <div class="tool-link">
-Open tool →
+Pick a game →
 </div>
 
 </a>
+
 
 </div>
 
 </section>
 
+
+
 <section class="section">
 
 <div class="section-head">
 
-<h2>Featured game guides</h2>
+<h2>
+Featured guides
+</h2>
 
-<p>9 dedicated guides available</p>
+<p>
+9 dedicated multi-GPU guides
+</p>
 
 </div>
 
+
 <div class="guides">
+
 
 <a
 href="resident-evil-requiem-settings.html"
 class="guide searchable"
-data-search="resident evil requiem re requiem resident evil 9 settings">
+data-search="resident evil requiem resident evil 9 re requiem settings">
 
 <div class="tags">
-<span class="tag">RESIDENT EVIL REQUIEM</span>
-<span class="tag">MULTI-GPU</span>
+
+<span class="tag orange-tag">
+NEW
+</span>
+
+<span class="tag">
+RESIDENT EVIL REQUIEM
+</span>
+
 </div>
 
 <h3>
@@ -605,7 +944,8 @@ Resident Evil Requiem Settings Finder
 </h3>
 
 <p>
-Choose your GPU and resolution for a practical starting setup.
+Choose your GPU, resolution and graphics priority for a
+practical Resident Evil Requiem starting setup.
 </p>
 
 <div class="read">
@@ -614,14 +954,22 @@ Open guide →
 
 </a>
 
+
 <a
 href="cyberpunk-settings.html"
 class="guide searchable"
-data-search="cyberpunk 2077 settings ray tracing dlss fsr">
+data-search="cyberpunk cyberpunk 2077 settings dlss fsr ray tracing">
 
 <div class="tags">
-<span class="tag">CYBERPUNK 2077</span>
-<span class="tag">MULTI-GPU</span>
+
+<span class="tag">
+CYBERPUNK 2077
+</span>
+
+<span class="tag orange-tag">
+MULTI-GPU
+</span>
+
 </div>
 
 <h3>
@@ -629,7 +977,8 @@ Cyberpunk 2077 Settings Finder
 </h3>
 
 <p>
-Tune image quality, upscaling and demanding graphics effects.
+Tune textures, upscaling, reflections, volumetrics,
+ray tracing and more.
 </p>
 
 <div class="read">
@@ -637,23 +986,32 @@ Open guide →
 </div>
 
 </a>
+
 
 <a
 href="kingdom-come-2-settings.html"
 class="guide searchable"
-data-search="kingdom come deliverance 2 ii kcd2 settings">
+data-search="kingdom come deliverance 2 kcd2 settings">
 
 <div class="tags">
-<span class="tag">KINGDOM COME II</span>
-<span class="tag">MULTI-GPU</span>
+
+<span class="tag">
+KINGDOM COME II
+</span>
+
+<span class="tag orange-tag">
+MULTI-GPU
+</span>
+
 </div>
 
 <h3>
-Kingdom Come: Deliverance II Settings Finder
+Kingdom Come: Deliverance II
 </h3>
 
 <p>
-Find a practical graphics starting point for your hardware.
+Find a practical graphics starting point based on your
+GPU and resolution.
 </p>
 
 <div class="read">
@@ -662,28 +1020,85 @@ Open guide →
 
 </a>
 
+
 </div>
 
+
 <div class="all-guides">
+
 <a href="guides.html">
-View all 9 game guides →
+Browse all 9 guides →
 </a>
+
 </div>
 
 </section>
 
+
+
+<div class="stats">
+
+<div class="stat">
+
+<strong>
+9
+</strong>
+
+<span>
+Dedicated game guides
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong>
+26
+</strong>
+
+<span>
+GPU options
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<strong>
+3
+</strong>
+
+<span>
+Free gaming tools
+</span>
+
+</div>
+
+</div>
+
+
 </main>
+
+
 
 <footer>
 
 <div class="footer-inner">
 
-<span>© 2026 GameTools</span>
-<span>PC gaming tools and multi-GPU guides</span>
+<span>
+© 2026 GameTools
+</span>
+
+<span>
+PC gaming tools & graphics guides
+</span>
 
 </div>
 
 </footer>
+
 
 <script>
 
@@ -696,12 +1111,15 @@ function searchHome(){
       .toLowerCase()
       .trim();
 
+
   const items =
     document.querySelectorAll(".searchable");
 
-  let visible=0;
 
-  items.forEach(item=>{
+  let visible = 0;
+
+
+  items.forEach(item => {
 
     const text =
       (
@@ -710,11 +1128,14 @@ function searchHome(){
         item.innerText
       ).toLowerCase();
 
+
     const match =
       text.includes(query);
 
+
     item.style.display =
       match ? "" : "none";
+
 
     if(match){
       visible++;
@@ -722,17 +1143,32 @@ function searchHome(){
 
   });
 
-  document.getElementById("searchStatus").innerText =
+
+  const status =
+    document.getElementById("searchStatus");
+
+
+  status.innerText =
     query === ""
     ? "Search tools and featured guides"
-    : visible + (visible===1 ? " result" : " results");
+    : visible +
+      (visible === 1
+        ? " result"
+        : " results");
 
-  document.getElementById("noResults").style.display =
-    visible===0 ? "block" : "none";
+
+  document
+    .getElementById("noResults")
+    .style
+    .display =
+      visible === 0
+      ? "block"
+      : "none";
 
 }
 
 </script>
+
 
 </body>
 </html>
