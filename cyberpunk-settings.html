@@ -24,10 +24,10 @@ content="Choose your GPU and get practical Cyberpunk 2077 graphics settings for 
 }
 
 body{
-  font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-family:Inter,ui-sans-serif,-apple-system,
+  BlinkMacSystemFont,"Segoe UI",sans-serif;
   background:var(--bg);
   color:var(--text);
-  min-height:100vh;
 }
 
 nav{
@@ -50,7 +50,6 @@ nav{
 nav a{
   color:var(--muted);
   text-decoration:none;
-  font-size:14px;
 }
 
 .line{
@@ -69,7 +68,6 @@ nav a{
   text-transform:uppercase;
   letter-spacing:.08em;
   font-size:12px;
-  font-weight:600;
   margin-bottom:22px;
 }
 
@@ -77,7 +75,6 @@ nav a{
   font-size:clamp(42px,7vw,70px);
   line-height:1.03;
   letter-spacing:-3px;
-  font-weight:650;
 }
 
 .hero h1 span{color:#777780}
@@ -87,7 +84,6 @@ nav a{
   margin-top:24px;
   color:var(--muted);
   line-height:1.75;
-  font-size:17px;
 }
 
 main{
@@ -108,17 +104,14 @@ main{
   border-bottom:1px solid var(--border);
 }
 
-.tool-top h2{
-  font-size:27px;
-}
-
 .tool-top p{
   color:var(--muted);
   margin-top:8px;
-  line-height:1.6;
 }
 
-.form{padding:28px}
+.form{
+  padding:28px;
+}
 
 .grid{
   display:grid;
@@ -126,7 +119,7 @@ main{
   gap:16px;
 }
 
-.field label{
+label{
   display:block;
   margin-bottom:8px;
   color:#b8b8c0;
@@ -148,8 +141,6 @@ button{
   padding:15px;
   border:none;
   border-radius:8px;
-  background:#f1f1f1;
-  color:#111;
   font-weight:700;
   cursor:pointer;
 }
@@ -164,22 +155,13 @@ button{
 .result-head{
   display:flex;
   justify-content:space-between;
-  gap:20px;
   margin-bottom:20px;
 }
 
-.level{text-align:right}
-
-.level-label{
-  color:var(--muted);
-  font-size:11px;
-}
-
 .level-value{
-  margin-top:5px;
+  color:var(--good);
   font-size:21px;
   font-weight:700;
-  color:var(--good);
 }
 
 .summary{
@@ -188,7 +170,6 @@ button{
   border-radius:8px;
   background:#0d0d0f;
   color:#b8b8c0;
-  line-height:1.6;
   margin-bottom:20px;
 }
 
@@ -201,50 +182,32 @@ button{
 .setting{
   display:flex;
   justify-content:space-between;
-  gap:20px;
   padding:13px 0;
   border-bottom:1px solid var(--border);
 }
 
-.setting span{color:var(--muted)}
-.setting strong{text-align:right}
+.setting span{
+  color:var(--muted);
+}
 
 .tip{
   margin-top:22px;
   padding:18px;
+  background:var(--surface2);
   border:1px solid var(--border);
   border-radius:8px;
-  background:var(--surface2);
   color:#b8b8c0;
-  line-height:1.7;
 }
 
 .note{
   margin-top:20px;
   color:#73737a;
   font-size:12px;
-  line-height:1.6;
-}
-
-footer{
-  border-top:1px solid var(--border);
-}
-
-.footer-inner{
-  max-width:900px;
-  margin:auto;
-  padding:30px 24px;
-  display:flex;
-  justify-content:space-between;
-  color:#686870;
-  font-size:12px;
 }
 
 @media(max-width:800px){
   .grid,.settings{grid-template-columns:1fr}
   .result-head{display:block}
-  .level{text-align:left;margin-top:15px}
-  .hero h1{letter-spacing:-2px}
 }
 </style>
 </head>
@@ -282,9 +245,10 @@ to get a practical Cyberpunk 2077 starting point.
 
 <div class="tool-top">
 <h2>Cyberpunk Settings Finder</h2>
+
 <p>
-Recommendations are starting points rather than guaranteed
-benchmark results.
+All supported GPUs now come from the shared GameTools
+hardware database.
 </p>
 </div>
 
@@ -292,24 +256,12 @@ benchmark results.
 
 <div class="grid">
 
-<div class="field">
+<div>
 <label>Graphics card</label>
-
-<select id="gpu">
-<option value="3060">RTX 3060</option>
-<option value="3070">RTX 3070</option>
-<option value="4060">RTX 4060</option>
-<option value="4070">RTX 4070</option>
-<option value="5060" selected>RTX 5060</option>
-<option value="5070">RTX 5070</option>
-<option value="6600">RX 6600</option>
-<option value="7600">RX 7600</option>
-<option value="7700xt">RX 7700 XT</option>
-<option value="7800xt">RX 7800 XT</option>
-</select>
+<select id="gpu"></select>
 </div>
 
-<div class="field">
+<div>
 <label>Resolution</label>
 
 <select id="resolution">
@@ -319,7 +271,7 @@ benchmark results.
 </select>
 </div>
 
-<div class="field">
+<div>
 <label>Priority</label>
 
 <select id="profile">
@@ -341,8 +293,10 @@ Generate Cyberpunk Settings
 
 <h3>Recommended starting point</h3>
 
-<div class="level">
-<div class="level-label">GRAPHICS HEADROOM</div>
+<div>
+<div style="color:#96969f;font-size:11px;">
+GRAPHICS HEADROOM
+</div>
 <div class="level-value" id="level"></div>
 </div>
 
@@ -358,17 +312,17 @@ Generate Cyberpunk Settings
 </div>
 
 <div class="setting">
-<span>Texture Quality</span>
+<span>Textures</span>
 <strong id="textures"></strong>
 </div>
 
 <div class="setting">
-<span>Local Shadows</span>
+<span>Shadows</span>
 <strong id="shadows"></strong>
 </div>
 
 <div class="setting">
-<span>Screen Space Reflections</span>
+<span>Reflections</span>
 <strong id="reflections"></strong>
 </div>
 
@@ -397,59 +351,31 @@ Generate Cyberpunk Settings
 <strong id="fg"></strong>
 </div>
 
-<div class="setting">
-<span>Motion Blur</span>
-<strong>Off</strong>
-</div>
-
 </div>
 
 <div class="tip" id="tip"></div>
 
 <div class="note">
-Cyberpunk performance can vary significantly between areas
-of Night City and with different CPUs, drivers and game
-versions. Test demanding areas before increasing settings.
+These recommendations use broad performance categories and
+are not guaranteed benchmark results.
 </div>
 
 </div>
 
 </div>
-
 </div>
 
 </main>
 
-<footer>
-<div class="footer-inner">
-<span>© 2026 GameTools</span>
-<span>Cyberpunk settings for multiple GPUs</span>
-</div>
-</footer>
+<script src="gpu-data.js"></script>
 
 <script>
 
-const gpuData = {
-
-"3060":{power:1.20,brand:"nvidia",fg:false},
-"3070":{power:1.55,brand:"nvidia",fg:false},
-
-"4060":{power:1.35,brand:"nvidia",fg:true},
-"4070":{power:2.10,brand:"nvidia",fg:true},
-
-"5060":{power:1.85,brand:"nvidia",fg:true},
-"5070":{power:2.65,brand:"nvidia",fg:true},
-
-"6600":{power:1.00,brand:"amd",fg:false},
-"7600":{power:1.20,brand:"amd",fg:false},
-"7700xt":{power:1.75,brand:"amd",fg:false},
-"7800xt":{power:2.20,brand:"amd",fg:false}
-
-};
+populateGpuSelect("gpu","5060");
 
 function generateSettings(){
 
-const gpu =
+const gpuId =
 document.getElementById("gpu").value;
 
 const resolution =
@@ -458,9 +384,11 @@ document.getElementById("resolution").value;
 const profile =
 document.getElementById("profile").value;
 
-const card = gpuData[gpu];
+const card =
+GPU_DATABASE[gpuId];
 
-let score = card.power / 1.5;
+let score =
+card.power / 1.5;
 
 if(resolution==="1440"){
 score*=0.78;
@@ -473,7 +401,7 @@ score*=0.52;
 let level;
 
 if(score<0.7) level="Limited";
-else if(score<1.0) level="Moderate";
+else if(score<1) level="Moderate";
 else if(score<1.4) level="Good";
 else if(score<1.9) level="Strong";
 else level="Very Strong";
@@ -485,9 +413,7 @@ let shadows;
 let reflections;
 let fog;
 let crowd;
-let upscaling;
 let rt;
-let fg;
 
 
 if(score<0.7){
@@ -501,7 +427,7 @@ crowd="Low";
 
 }
 
-else if(score<1.0){
+else if(score<1){
 
 preset="Medium";
 textures="High";
@@ -549,7 +475,9 @@ crowd="High";
 if(profile==="performance"){
 
 preset =
-score>1 ? "Medium / High" : "Low / Medium";
+score>1
+? "Medium / High"
+: "Low / Medium";
 
 shadows="Low / Medium";
 reflections="Low / Medium";
@@ -584,6 +512,8 @@ score>1.5
 
 }
 
+
+let upscaling;
 
 if(card.brand==="nvidia"){
 
@@ -636,77 +566,47 @@ score>1.4
 }
 
 
-if(profile==="performance"){
-fg="Off / Optional";
+let fg;
+
+if(card.framegen){
+fg =
+profile==="performance"
+? "Optional"
+: "On if supported";
 }
 else{
-fg =
-card.fg
-? "On if supported"
-: "Use game-supported option if available";
+fg="Use if supported";
 }
 
 
 let summary;
 
-if(level==="Limited"){
+if(level==="Limited")
+summary="This is a demanding setup. Start conservative and rely on upscaling.";
 
-summary =
-"This is a demanding combination for Cyberpunk. Start conservative and use upscaling to reduce GPU load.";
+else if(level==="Moderate")
+summary="This setup should work with sensible compromises on heavier effects.";
 
-}
+else if(level==="Good")
+summary="This is a solid Cyberpunk setup. High settings are a sensible starting point.";
 
-else if(level==="Moderate"){
+else if(level==="Strong")
+summary="You have good graphics headroom for high to ultra settings.";
 
-summary =
-"This setup should be playable with sensible compromises on heavier visual effects.";
-
-}
-
-else if(level==="Good"){
-
-summary =
-"This is a solid match for Cyberpunk. High settings with conservative ray tracing are a reasonable starting point.";
-
-}
-
-else if(level==="Strong"){
-
-summary =
-"You have good graphics headroom. High to Ultra settings are reasonable while keeping an eye on ray tracing.";
-
-}
-
-else{
-
-summary =
-"This combination has strong graphics headroom. You can prioritize image quality and experiment with heavier effects.";
-
-}
+else
+summary="This is a strong combination with room to prioritize image quality.";
 
 
 let tip;
 
-if(profile==="performance"){
+if(profile==="performance")
+tip="Performance tip: disable ray tracing first, then reduce fog, reflections and shadows.";
 
-tip =
-"Performance tip: disable ray tracing first, then reduce volumetric fog, reflections and shadows.";
+else if(profile==="quality")
+tip="Quality tip: keep textures high and increase ray tracing gradually.";
 
-}
-
-else if(profile==="quality"){
-
-tip =
-"Quality tip: keep texture quality high and increase ray tracing gradually only after checking performance in demanding areas.";
-
-}
-
-else{
-
-tip =
-"Balanced tip: keep textures high, use Quality or Balanced upscaling, and reduce ray tracing before lowering textures.";
-
-}
+else
+tip="Balanced tip: keep textures high and reduce ray tracing before texture quality.";
 
 
 document.getElementById("level").innerText=level;
@@ -724,11 +624,6 @@ document.getElementById("fg").innerText=fg;
 document.getElementById("tip").innerText=tip;
 
 document.getElementById("result").style.display="block";
-
-document.getElementById("result").scrollIntoView({
-behavior:"smooth",
-block:"nearest"
-});
 
 }
 
