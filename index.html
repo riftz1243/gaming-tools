@@ -4,8 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GameTools - Free Gaming Tools</title>
-<meta name="description" content="Free gaming tools for PC gamers: graphics settings finder, game download calculator and random game picker.">
+<title>GameTools - Free PC Gaming Tools & Settings Guides</title>
+
+<meta name="description"
+content="Free PC gaming tools and graphics settings guides. Find recommended settings, calculate game download times and pick what to play next.">
 
 <style>
 *{
@@ -17,6 +19,7 @@
 :root{
   --bg:#07080d;
   --panel:#10121a;
+  --panel2:#0c0f15;
   --border:#242837;
   --text:#ffffff;
   --muted:#969cab;
@@ -24,10 +27,14 @@
   --blue:#4f9cff;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:
-    radial-gradient(circle at top,#191530 0%,#07080d 38%);
+    radial-gradient(circle at top,#191530 0%,#07080d 34%);
   color:var(--text);
   min-height:100vh;
 }
@@ -39,7 +46,11 @@ nav{
   align-items:center;
   justify-content:space-between;
   border-bottom:1px solid var(--border);
-  background:rgba(7,8,13,.9);
+  background:rgba(7,8,13,.88);
+  backdrop-filter:blur(12px);
+  position:sticky;
+  top:0;
+  z-index:20;
 }
 
 .logo{
@@ -51,29 +62,40 @@ nav{
   color:var(--purple);
 }
 
-nav p{
-  color:var(--muted);
+.nav-links{
+  display:flex;
+  gap:24px;
+}
+
+.nav-links a{
+  color:#b8bdca;
+  text-decoration:none;
   font-size:14px;
+}
+
+.nav-links a:hover{
+  color:white;
 }
 
 .hero{
   text-align:center;
-  padding:95px 20px 65px;
+  padding:95px 20px 70px;
 }
 
 .badge{
   display:inline-block;
   padding:8px 15px;
+  margin-bottom:22px;
   border:1px solid var(--border);
   border-radius:100px;
   color:#c7cad5;
-  margin-bottom:22px;
+  background:rgba(255,255,255,.02);
 }
 
 .hero h1{
-  max-width:900px;
+  max-width:920px;
   margin:auto;
-  font-size:clamp(44px,7vw,76px);
+  font-size:clamp(46px,7vw,78px);
   line-height:1;
   letter-spacing:-3px;
 }
@@ -85,30 +107,63 @@ nav p{
 }
 
 .hero p{
-  max-width:650px;
+  max-width:680px;
   margin:24px auto 0;
   color:var(--muted);
   font-size:18px;
-  line-height:1.6;
+  line-height:1.65;
+}
+
+.hero-buttons{
+  margin-top:30px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.primary,
+.secondary{
+  display:inline-block;
+  padding:14px 20px;
+  border-radius:11px;
+  text-decoration:none;
+  font-weight:800;
+}
+
+.primary{
+  color:white;
+  background:linear-gradient(90deg,var(--purple),var(--blue));
+}
+
+.secondary{
+  color:white;
+  border:1px solid var(--border);
+  background:#0d1017;
 }
 
 main{
-  max-width:1100px;
+  max-width:1120px;
   margin:auto;
-  padding:10px 20px 100px;
+  padding:0 20px 100px;
+}
+
+.section{
+  margin-top:55px;
 }
 
 .section-title{
-  margin-bottom:25px;
+  margin-bottom:23px;
 }
 
 .section-title h2{
-  font-size:30px;
+  font-size:31px;
   margin-bottom:8px;
 }
 
 .section-title p{
   color:var(--muted);
+  line-height:1.6;
 }
 
 .tools{
@@ -123,7 +178,7 @@ main{
   color:white;
   padding:28px;
   border:1px solid var(--border);
-  border-radius:21px;
+  border-radius:20px;
   background:rgba(16,18,26,.95);
   transition:.2s;
 }
@@ -135,32 +190,80 @@ main{
 }
 
 .icon{
-  font-size:32px;
-  margin-bottom:18px;
+  font-size:31px;
+  margin-bottom:17px;
 }
 
 .card h3{
-  font-size:22px;
-  margin-bottom:10px;
+  font-size:21px;
+  margin-bottom:9px;
 }
 
 .card p{
   color:var(--muted);
   line-height:1.55;
-  min-height:65px;
+  min-height:68px;
 }
 
-.button{
-  margin-top:22px;
+.card-button{
+  margin-top:21px;
   padding:12px 14px;
-  border-radius:11px;
   text-align:center;
+  border-radius:10px;
   font-weight:800;
   background:linear-gradient(90deg,var(--purple),var(--blue));
 }
 
+.guides{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.guide-card{
+  display:block;
+  text-decoration:none;
+  color:white;
+  padding:28px;
+  border:1px solid var(--border);
+  border-radius:20px;
+  background:#0d1017;
+  transition:.2s;
+}
+
+.guide-card:hover{
+  transform:translateY(-3px);
+  border-color:#3d4358;
+}
+
+.guide-tag{
+  display:inline-block;
+  margin-bottom:16px;
+  padding:6px 10px;
+  border-radius:8px;
+  background:#191d29;
+  color:#c9ced9;
+  font-size:12px;
+  font-weight:700;
+}
+
+.guide-card h3{
+  font-size:23px;
+  margin-bottom:10px;
+}
+
+.guide-card p{
+  color:var(--muted);
+  line-height:1.6;
+}
+
+.arrow{
+  margin-top:17px;
+  font-weight:800;
+  color:#b9aaff;
+}
+
 .about{
-  margin-top:55px;
   padding:30px;
   border:1px solid var(--border);
   border-radius:20px;
@@ -178,27 +281,29 @@ main{
 
 footer{
   border-top:1px solid var(--border);
+  padding:38px 20px;
   text-align:center;
-  padding:35px;
   color:var(--muted);
   font-size:13px;
 }
 
 @media(max-width:800px){
-  .tools{
+
+  .tools,
+  .guides{
     grid-template-columns:1fr;
   }
 
+  .nav-links{
+    display:none;
+  }
+
   .hero{
-    padding-top:60px;
+    padding-top:65px;
   }
 
   .hero h1{
     letter-spacing:-2px;
-  }
-
-  nav p{
-    display:none;
   }
 
   .card p{
@@ -211,118 +316,220 @@ footer{
 <body>
 
 <nav>
-  <div class="logo">Game<span>Tools</span></div>
-  <p>Free tools for gamers</p>
+
+<div class="logo">
+Game<span>Tools</span>
+</div>
+
+<div class="nav-links">
+  <a href="#tools">Tools</a>
+  <a href="#guides">Guides</a>
+  <a href="#about">About</a>
+</div>
+
 </nav>
+
 
 <section class="hero">
 
-  <div class="badge">🎮 Free Gaming Tools</div>
+<div class="badge">
+🎮 Free PC Gaming Tools
+</div>
 
-  <h1>
-    Better tools for
-    <span class="gradient">PC gamers.</span>
-  </h1>
+<h1>
+Tools and settings
+<span class="gradient">for PC gamers.</span>
+</h1>
 
-  <p>
-    Find graphics settings, estimate game download times
-    and let GameTools choose what you should play next.
-  </p>
+<p>
+Find practical graphics settings, estimate download times
+and make gaming decisions faster with simple free tools.
+</p>
+
+<div class="hero-buttons">
+
+<a class="primary" href="settings.html">
+Open Settings Finder
+</a>
+
+<a class="secondary" href="#guides">
+Browse Guides
+</a>
+
+</div>
 
 </section>
 
+
 <main>
 
+<section class="section" id="tools">
+
 <div class="section-title">
-  <h2>Choose a tool</h2>
-  <p>Everything is free and works directly in your browser.</p>
+
+<h2>Gaming Tools</h2>
+
+<p>
+Simple utilities you can use directly in your browser.
+</p>
+
 </div>
+
 
 <div class="tools">
 
 <a class="card" href="settings.html">
-  <div class="icon">🖥️</div>
-  <h3>PC Settings Finder</h3>
-  <p>
-    Choose your GPU, CPU, game, resolution and target FPS
-    to get recommended graphics settings.
-  </p>
-  <div class="button">Open Settings Finder</div>
+
+<div class="icon">🖥️</div>
+
+<h3>PC Settings Finder</h3>
+
+<p>
+Choose your GPU, CPU, game, resolution and priority to get
+recommended graphics settings.
+</p>
+
+<div class="card-button">
+Open Settings Finder
+</div>
+
 </a>
+
 
 <a class="card" href="download.html">
-  <div class="icon">⚡</div>
-  <h3>Download Calculator</h3>
-  <p>
-    Enter a game size and internet speed to estimate how
-    long your download should take.
-  </p>
-  <div class="button">Open Calculator</div>
+
+<div class="icon">⚡</div>
+
+<h3>Download Calculator</h3>
+
+<p>
+Enter your game size and internet speed to estimate how
+long a download should take.
+</p>
+
+<div class="card-button">
+Calculate Download Time
+</div>
+
 </a>
+
 
 <a class="card" href="picker.html">
-  <div class="icon">🎲</div>
-  <h3>Random Game Picker</h3>
-  <p>
-    Add the games you're deciding between and randomly
-    choose which one to play.
-  </p>
-  <div class="button">Pick a Game</div>
+
+<div class="icon">🎲</div>
+
+<h3>Random Game Picker</h3>
+
+<p>
+Add the games you're deciding between and randomly choose
+what to play next.
+</p>
+
+<div class="card-button">
+Pick a Game
+</div>
+
 </a>
 
 </div>
-<div class="about">
 
-  <h2>Popular PC Game Settings</h2>
+</section>
 
-  <p style="margin-bottom:18px;">
-    Looking for settings for a specific GPU and game?
-    Check out our dedicated optimization guides.
-  </p>
 
-  <a href="rtx-5060-cyberpunk-settings.html"
-     style="
-       display:inline-block;
-       padding:13px 18px;
-       border-radius:11px;
-       color:white;
-       text-decoration:none;
-       font-weight:800;
-       background:linear-gradient(90deg,#765cff,#4f9cff);
-     ">
-    Best RTX 5060 Settings for Cyberpunk 2077 →
-  </a>
-<br><br>
+<section class="section" id="guides">
 
-<a href="rtx-5060-black-myth-wukong-settings.html"
-   style="
-     display:inline-block;
-     padding:13px 18px;
-     border-radius:11px;
-     color:white;
-     text-decoration:none;
-     font-weight:800;
-     background:linear-gradient(90deg,#765cff,#4f9cff);
-   ">
-  Best RTX 5060 Settings for Black Myth: Wukong →
-</a>
+<div class="section-title">
+
+<h2>Popular PC Game Settings</h2>
+
+<p>
+Dedicated optimization guides for specific GPUs and games.
+</p>
+
 </div>
+
+
+<div class="guides">
+
+<a class="guide-card"
+href="rtx-5060-cyberpunk-settings.html">
+
+<div class="guide-tag">
+RTX 5060
+</div>
+
+<h3>
+Best RTX 5060 Settings for Cyberpunk 2077
+</h3>
+
+<p>
+Recommended 1080p and 1440p settings with practical advice
+for DLSS, ray tracing and heavy graphics options.
+</p>
+
+<div class="arrow">
+Read guide →
+</div>
+
+</a>
+
+
+<a class="guide-card"
+href="rtx-5060-black-myth-wukong-settings.html">
+
+<div class="guide-tag">
+RTX 5060
+</div>
+
+<h3>
+Best RTX 5060 Settings for Black Myth: Wukong
+</h3>
+
+<p>
+A practical settings guide for balancing image quality and
+performance in one of the more demanding PC games.
+</p>
+
+<div class="arrow">
+Read guide →
+</div>
+
+</a>
+
+</div>
+
+</section>
+
+
+<section class="section" id="about">
+
 <div class="about">
 
 <h2>What is GameTools?</h2>
 
 <p>
-GameTools is a collection of simple gaming utilities built
-to help PC gamers spend less time searching and more time
-playing. More free tools will be added over time.
+GameTools is a growing collection of free tools and guides
+for PC gamers. The goal is to make common gaming decisions
+simpler, from choosing graphics settings to estimating
+download times.
+</p>
+
+<p style="margin-top:12px;">
+Settings recommendations are starting points rather than
+guaranteed benchmark results. Actual performance can vary
+depending on hardware, drivers, game updates and system
+configuration.
 </p>
 
 </div>
 
+</section>
+
 </main>
 
+
 <footer>
-© 2026 GameTools — Free gaming tools
+© 2026 GameTools — Free PC gaming tools
 </footer>
 
 </body>
