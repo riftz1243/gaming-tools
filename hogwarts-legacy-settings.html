@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Game Settings | GameTools</title>
+
+<link rel="stylesheet" href="game-guide.css">
+</head>
+
+<body>
+
+<nav>
+<div class="logo">GameTools<span>.</span></div>
+<a href="guides.html">← Guides</a>
+</nav>
+
+<div class="line"></div>
+
+<header class="hero">
+
+<div class="eyebrow">
+Multi-GPU graphics settings
+</div>
+
+<h1>
+<span id="gameName"></span>
+<span>settings by GPU.</span>
+</h1>
+
+<p>
+Choose your graphics card, resolution and graphics priority
+to get a practical starting recommendation.
+</p>
+
+</header>
+
+<main>
+
+<div class="tool">
+
+<div class="tool-top">
+
+<h2 id="gameName2"></h2>
+
+<p>
+Choose your hardware below. Recommendations are practical
+starting points rather than guaranteed benchmark results.
+</p>
+
+</div>
+
+<div class="form">
+
+<div class="grid">
+
+<div>
+<label>Graphics card</label>
+<select id="gpu"></select>
+</div>
+
+<div>
+<label>Resolution</label>
+
+<select id="resolution">
+<option value="1080">1080p</option>
+<option value="1440" selected>1440p</option>
+<option value="4k">4K</option>
+</select>
+
+</div>
+
+<div>
+<label>Priority</label>
+
+<select id="profile">
+<option value="performance">Performance</option>
+<option value="balanced" selected>Balanced</option>
+<option value="quality">Visual Quality</option>
+</select>
+
+</div>
+
+</div>
+
+<button onclick="generateGameSettings()">
+Generate Settings
+</button>
+
+<div class="result" id="result">
+
+<div class="result-head">
+
+<h3>
+Recommended <span id="gameName3"></span> setup
+</h3>
+
+<div>
+
+<div style="color:#96969f;font-size:11px;">
+GRAPHICS HEADROOM
+</div>
+
+<div class="level-value" id="level"></div>
+
+</div>
+
+</div>
+
+<div class="summary" id="summary"></div>
+
+<div class="settings">
+
+<div class="setting">
+<span>Overall Preset</span>
+<strong id="preset"></strong>
+</div>
+
+<div class="setting">
+<span>Textures</span>
+<strong id="textures"></strong>
+</div>
+
+<div class="setting">
+<span>Shadows</span>
+<strong id="shadows"></strong>
+</div>
+
+<div class="setting">
+<span>Reflections</span>
+<strong id="reflections"></strong>
+</div>
+
+<div class="setting">
+<span>Effects</span>
+<strong id="effects"></strong>
+</div>
+
+<div class="setting">
+<span>Volumetrics</span>
+<strong id="volumetrics"></strong>
+</div>
+
+<div class="setting">
+<span>Ray Tracing</span>
+<strong id="rt"></strong>
+</div>
+
+<div class="setting">
+<span>Upscaling</span>
+<strong id="upscaling"></strong>
+</div>
+
+<div class="setting">
+<span>Frame Generation</span>
+<strong id="fg"></strong>
+</div>
+
+</div>
+
+<div class="tip" id="tip"></div>
+
+<div class="note">
+Actual performance varies with CPU, RAM, drivers, game
+updates and individual scenes. Test the recommendation on
+your own system.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+<script src="gpu-data.js"></script>
+<script src="game-guide.js"></script>
+
+<script>
+startGameGuide("hogwarts");
+</script>
+
+</body>
+</html>
