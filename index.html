@@ -1,159 +1,475 @@
 <!DOCTYPE html>
-<html lang="sv">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gaming Tools</title>
+
+  <title>Gaming Tools - Free Tools for Gamers</title>
+
+  <meta name="description"
+        content="Free gaming tools including a game picker, download time calculator, playtime calculator and graphics settings helper.">
 
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+    }
+
+    :root {
+      --bg: #08090d;
+      --card: #11131a;
+      --card-hover: #151824;
+      --border: #242836;
+      --text: #ffffff;
+      --muted: #979dac;
+      --accent: #7c5cff;
+      --accent2: #5c8dff;
     }
 
     body {
-      background: #0b0b0f;
-      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, #151328 0%, #08090d 35%);
+      color: var(--text);
       min-height: 100vh;
     }
 
-    header {
-      padding: 30px 20px;
+    nav {
+      height: 70px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 6%;
+      background: rgba(8, 9, 13, 0.8);
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .nav-text {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hero {
       text-align: center;
-      border-bottom: 1px solid #222;
+      padding: 90px 20px 55px;
     }
 
-    header h1 {
-      font-size: 38px;
-      margin-bottom: 8px;
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      padding: 8px 14px;
+      border-radius: 100px;
+      color: #c2c6d2;
+      font-size: 13px;
+      margin-bottom: 22px;
     }
 
-    header p {
-      color: #aaa;
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 1;
+      max-width: 850px;
+      margin: auto;
+      letter-spacing: -3px;
+    }
+
+    .gradient {
+      background: linear-gradient(
+        90deg,
+        var(--accent),
+        var(--accent2)
+      );
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 620px;
+      margin: 24px auto 0;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
     }
 
     main {
-      max-width: 1000px;
+      max-width: 1180px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 20px 20px 90px;
+    }
+
+    .section-title {
+      margin-bottom: 25px;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+      margin-bottom: 7px;
+    }
+
+    .section-title p {
+      color: var(--muted);
     }
 
     .tools {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
 
     .card {
-      background: #15151c;
-      border: 1px solid #25252f;
-      border-radius: 18px;
-      padding: 25px;
+      background: rgba(17, 19, 26, 0.92);
+      border: 1px solid var(--border);
+      padding: 28px;
+      border-radius: 22px;
+      transition: 0.2s;
     }
 
-    .card h2 {
-      margin-bottom: 10px;
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: #393f55;
+      background: var(--card-hover);
     }
 
-    .card p {
-      color: #aaa;
+    .icon {
+      font-size: 28px;
       margin-bottom: 18px;
     }
 
-    input, textarea {
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .card-description {
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 22px;
+    }
+
+    label {
+      display: block;
+      color: #c7cad4;
+      font-size: 13px;
+      margin-bottom: 7px;
+    }
+
+    input,
+    textarea,
+    select {
       width: 100%;
-      background: #0e0e13;
+      border: 1px solid #303544;
+      background: #090b10;
       color: white;
-      border: 1px solid #333;
-      border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 10px;
+      padding: 13px;
+      border-radius: 11px;
+      margin-bottom: 13px;
+      outline: none;
+      font-size: 14px;
     }
 
     textarea {
+      min-height: 115px;
       resize: vertical;
-      min-height: 100px;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--accent);
     }
 
     button {
       width: 100%;
-      background: white;
-      color: black;
+      padding: 13px;
       border: none;
-      border-radius: 10px;
-      padding: 12px;
-      font-weight: bold;
+      border-radius: 11px;
       cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
+      color: white;
+      background:
+        linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: 0.2s;
     }
 
     button:hover {
-      opacity: 0.85;
+      transform: scale(1.01);
+      opacity: 0.92;
     }
 
     .result {
-      margin-top: 15px;
-      font-size: 20px;
-      font-weight: bold;
+      display: none;
+      margin-top: 17px;
+      padding: 16px;
+      background: #090b10;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      line-height: 1.6;
+    }
+
+    .result strong {
+      color: #b8aaff;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 10px;
     }
 
     footer {
+      border-top: 1px solid var(--border);
       text-align: center;
-      color: #666;
-      padding: 40px;
+      padding: 35px 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media(max-width: 750px) {
+      .tools {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .hero h1 {
+        letter-spacing: -2px;
+      }
+
+      .nav-text {
+        display: none;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>🎮 Gaming Tools</h1>
-  <p>Små gratis verktyg för gamers.</p>
-</header>
+<nav>
+  <div class="logo">Game<span>Tools</span></div>
+  <div class="nav-text">Free tools for gamers</div>
+</nav>
+
+<section class="hero">
+
+  <div class="hero-badge">
+    🎮 100% Free Gaming Tools
+  </div>
+
+  <h1>
+    Useful tools made
+    <span class="gradient">for gamers.</span>
+  </h1>
+
+  <p>
+    Simple tools for choosing what to play, estimating
+    download times, tracking gaming time and finding
+    graphics settings.
+  </p>
+
+</section>
 
 <main>
 
+  <div class="section-title">
+    <h2>Gaming Tools</h2>
+    <p>Choose a tool and start using it instantly.</p>
+  </div>
+
   <div class="tools">
 
-    <!-- Procent -->
+
+    <!-- RANDOM GAME PICKER -->
+
     <div class="card">
-      <h2>🧮 Procenträknare</h2>
-      <p>Räkna ut hur många procent ett tal är av ett annat.</p>
 
-      <input id="number1" type="number" placeholder="Till exempel 25">
-      <input id="number2" type="number" placeholder="Av till exempel 100">
+      <div class="icon">🎲</div>
 
-      <button onclick="calculatePercent()">Räkna ut</button>
+      <h3>Random Game Picker</h3>
 
-      <div class="result" id="percentResult"></div>
-    </div>
+      <p class="card-description">
+        Can't decide what to play? Add your games and
+        let us choose one for you.
+      </p>
 
+      <label>Your games</label>
 
-    <!-- Random Game -->
-    <div class="card">
-      <h2>🎲 Vilket spel ska jag spela?</h2>
-      <p>Skriv dina spel, ett per rad.</p>
+      <textarea
+        id="games"
+        placeholder="Cyberpunk 2077&#10;Elden Ring&#10;Minecraft&#10;Fortnite"
+      ></textarea>
 
-      <textarea id="games" placeholder="Cyberpunk 2077&#10;Minecraft&#10;Elden Ring&#10;Fortnite"></textarea>
-
-      <button onclick="pickGame()">Välj ett spel</button>
+      <button onclick="pickGame()">
+        Pick My Game
+      </button>
 
       <div class="result" id="gameResult"></div>
+
     </div>
 
 
-    <!-- Gaming Time -->
+    <!-- DOWNLOAD CALCULATOR -->
+
     <div class="card">
-      <h2>⏱️ Speltidskalkylator</h2>
-      <p>Se hur mycket du spelar på en vecka.</p>
 
-      <input id="hours" type="number" placeholder="Timmar per dag">
+      <div class="icon">⚡</div>
 
-      <button onclick="calculateGaming()">Räkna ut</button>
+      <h3>Game Download Calculator</h3>
 
-      <div class="result" id="gamingResult"></div>
+      <p class="card-description">
+        Estimate how long your game will take to download.
+      </p>
+
+      <label>Game size (GB)</label>
+
+      <input
+        id="gameSize"
+        type="number"
+        placeholder="Example: 100"
+      >
+
+      <label>Internet speed (Mbps)</label>
+
+      <input
+        id="internetSpeed"
+        type="number"
+        placeholder="Example: 250"
+      >
+
+      <button onclick="calculateDownload()">
+        Calculate Download Time
+      </button>
+
+      <div class="result" id="downloadResult"></div>
+
+    </div>
+
+
+    <!-- PLAYTIME -->
+
+    <div class="card">
+
+      <div class="icon">⏱️</div>
+
+      <h3>Gaming Time Calculator</h3>
+
+      <p class="card-description">
+        See how many hours you spend gaming every week,
+        month and year.
+      </p>
+
+      <label>Average gaming hours per day</label>
+
+      <input
+        id="hoursPerDay"
+        type="number"
+        step="0.1"
+        placeholder="Example: 2.5"
+      >
+
+      <button onclick="calculateGamingTime()">
+        Calculate My Gaming Time
+      </button>
+
+      <div class="result" id="gamingTimeResult"></div>
+
+    </div>
+
+
+    <!-- GRAPHICS SETTINGS -->
+
+    <div class="card">
+
+      <div class="icon">🖥️</div>
+
+      <h3>Graphics Settings Helper</h3>
+
+      <p class="card-description">
+        Get a quick graphics preset recommendation based
+        on your GPU level and resolution.
+      </p>
+
+      <label>GPU performance level</label>
+
+      <select id="gpuLevel">
+
+        <option value="entry">
+          Entry-level GPU
+        </option>
+
+        <option value="mid" selected>
+          Mid-range GPU
+        </option>
+
+        <option value="high">
+          High-end GPU
+        </option>
+
+        <option value="enthusiast">
+          Enthusiast GPU
+        </option>
+
+      </select>
+
+      <label>Resolution</label>
+
+      <select id="resolution">
+
+        <option value="1080">
+          1080p
+        </option>
+
+        <option value="1440">
+          1440p
+        </option>
+
+        <option value="4k">
+          4K
+        </option>
+
+      </select>
+
+      <label>Your goal</label>
+
+      <select id="goal">
+
+        <option value="fps">
+          Maximum FPS
+        </option>
+
+        <option value="balanced" selected>
+          Balanced
+        </option>
+
+        <option value="quality">
+          Best Visual Quality
+        </option>
+
+      </select>
+
+      <button onclick="recommendSettings()">
+        Recommend Settings
+      </button>
+
+      <div class="result" id="settingsResult"></div>
+
+      <p class="small">
+        This is a general recommendation. Performance
+        varies between games and hardware.
+      </p>
+
     </div>
 
   </div>
@@ -161,67 +477,267 @@
 </main>
 
 <footer>
-  Gaming Tools • 2026
+  © 2026 GameTools • Free tools for gamers
 </footer>
 
 
 <script>
 
-  function calculatePercent() {
-    const a = Number(document.getElementById("number1").value);
-    const b = Number(document.getElementById("number2").value);
-
-    if (!a || !b) {
-      document.getElementById("percentResult").innerText =
-        "Fyll i båda talen.";
-      return;
-    }
-
-    const result = (a / b) * 100;
-
-    document.getElementById("percentResult").innerText =
-      result.toFixed(1) + "%";
-  }
-
+  // RANDOM GAME PICKER
 
   function pickGame() {
-    const text = document.getElementById("games").value;
 
-    const games = text
+    const text =
+      document.getElementById("games").value;
+
+    const games =
+      text
       .split("\n")
       .map(game => game.trim())
       .filter(game => game !== "");
 
+    const result =
+      document.getElementById("gameResult");
+
     if (games.length === 0) {
-      document.getElementById("gameResult").innerText =
-        "Skriv minst ett spel.";
+
+      result.style.display = "block";
+
+      result.innerHTML =
+        "Add at least one game first.";
+
       return;
     }
 
     const randomGame =
-      games[Math.floor(Math.random() * games.length)];
+      games[
+        Math.floor(
+          Math.random() * games.length
+        )
+      ];
 
-    document.getElementById("gameResult").innerText =
-      "🎮 Spela: " + randomGame;
+    result.style.display = "block";
+
+    result.innerHTML =
+      "🎮 You should play:<br><strong>" +
+      randomGame +
+      "</strong>";
   }
 
 
-  function calculateGaming() {
-    const hours =
-      Number(document.getElementById("hours").value);
 
-    if (!hours) {
-      document.getElementById("gamingResult").innerText =
-        "Skriv antal timmar.";
+  // DOWNLOAD CALCULATOR
+
+  function calculateDownload() {
+
+    const size =
+      Number(
+        document.getElementById("gameSize").value
+      );
+
+    const speed =
+      Number(
+        document.getElementById("internetSpeed").value
+      );
+
+    const result =
+      document.getElementById("downloadResult");
+
+    if (size <= 0 || speed <= 0) {
+
+      result.style.display = "block";
+
+      result.innerHTML =
+        "Enter a valid game size and internet speed.";
+
       return;
     }
 
-    const weekly = hours * 7;
-    const monthly = hours * 30;
+    const seconds =
+      (size * 8000) / speed;
 
-    document.getElementById("gamingResult").innerHTML =
-      weekly + " timmar / vecka<br>" +
-      monthly + " timmar / månad";
+    const hours =
+      Math.floor(seconds / 3600);
+
+    const minutes =
+      Math.ceil(
+        (seconds % 3600) / 60
+      );
+
+    result.style.display = "block";
+
+    if (hours > 0) {
+
+      result.innerHTML =
+        "⚡ Estimated download time:<br>" +
+        "<strong>" +
+        hours +
+        " hr " +
+        minutes +
+        " min</strong>";
+
+    } else {
+
+      result.innerHTML =
+        "⚡ Estimated download time:<br>" +
+        "<strong>" +
+        minutes +
+        " minutes</strong>";
+    }
+  }
+
+
+
+  // GAMING TIME
+
+  function calculateGamingTime() {
+
+    const hours =
+      Number(
+        document.getElementById(
+          "hoursPerDay"
+        ).value
+      );
+
+    const result =
+      document.getElementById(
+        "gamingTimeResult"
+      );
+
+    if (hours <= 0) {
+
+      result.style.display = "block";
+
+      result.innerHTML =
+        "Enter your average gaming hours per day.";
+
+      return;
+    }
+
+    const week =
+      hours * 7;
+
+    const month =
+      hours * 30;
+
+    const year =
+      hours * 365;
+
+    result.style.display = "block";
+
+    result.innerHTML =
+      "🎮 <strong>" +
+      week.toFixed(1) +
+      " hours</strong> per week<br>" +
+
+      "📅 <strong>" +
+      month.toFixed(1) +
+      " hours</strong> per month<br>" +
+
+      "🗓️ <strong>" +
+      year.toFixed(0) +
+      " hours</strong> per year";
+  }
+
+
+
+  // SETTINGS HELPER
+
+  function recommendSettings() {
+
+    const gpu =
+      document.getElementById(
+        "gpuLevel"
+      ).value;
+
+    const resolution =
+      document.getElementById(
+        "resolution"
+      ).value;
+
+    const goal =
+      document.getElementById(
+        "goal"
+      ).value;
+
+    let score = 0;
+
+    if (gpu === "entry") score = 1;
+    if (gpu === "mid") score = 2;
+    if (gpu === "high") score = 3;
+    if (gpu === "enthusiast") score = 4;
+
+    if (resolution === "1440") {
+      score -= 0.5;
+    }
+
+    if (resolution === "4k") {
+      score -= 1;
+    }
+
+    if (goal === "fps") {
+      score -= 0.5;
+    }
+
+    if (goal === "quality") {
+      score += 0.5;
+    }
+
+    let preset;
+
+    if (score <= 1) {
+
+      preset = "Low";
+
+    } else if (score <= 2) {
+
+      preset = "Medium";
+
+    } else if (score <= 3) {
+
+      preset = "High";
+
+    } else {
+
+      preset = "Ultra";
+    }
+
+    let extra;
+
+    if (goal === "fps") {
+
+      extra =
+        "Use upscaling such as DLSS/FSR if available, reduce shadows and disable heavy ray tracing.";
+
+    }
+
+    else if (goal === "quality") {
+
+      extra =
+        "Prioritize textures, lighting and effects. Enable ray tracing only if performance remains smooth.";
+
+    }
+
+    else {
+
+      extra =
+        "Start with this preset, use high textures and lower shadows or ray tracing first if FPS is too low.";
+
+    }
+
+    const result =
+      document.getElementById(
+        "settingsResult"
+      );
+
+    result.style.display = "block";
+
+    result.innerHTML =
+      "Recommended starting preset:<br>" +
+      "<strong>" +
+      preset +
+      "</strong><br><br>" +
+      extra;
   }
 
 </script>
