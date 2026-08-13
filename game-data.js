@@ -1,9 +1,15 @@
 /*
   GameTools shared game database
+
   demand = internal relative demand category.
+  This is NOT a benchmark score or guaranteed FPS value.
 */
 
 const GAME_DATABASE = {
+
+  /* =========================
+     DEDICATED GUIDES
+  ========================= */
 
   "fortnite": {
     name: "Fortnite",
@@ -59,11 +65,51 @@ const GAME_DATABASE = {
     guide: "resident-evil-requiem-settings.html"
   },
 
+
+  /* =========================
+     NEW GAMES
+  ========================= */
+
+  "gta5enhanced": {
+    name: "Grand Theft Auto V Enhanced",
+    demand: 1.05,
+    guide: null
+  },
+
+  "marvelrivals": {
+    name: "Marvel Rivals",
+    demand: 1.05,
+    guide: null
+  },
+
+  "cs2": {
+    name: "Counter-Strike 2",
+    demand: 0.60,
+    guide: null
+  },
+
+  "valorant": {
+    name: "VALORANT",
+    demand: 0.45,
+    guide: null
+  },
+
   "elden": {
     name: "Elden Ring",
     demand: 1.00,
     guide: null
   },
+
+  "battlefield6": {
+    name: "Battlefield 6",
+    demand: 1.35,
+    guide: null
+  },
+
+
+  /* =========================
+     MORE SUPPORTED GAMES
+  ========================= */
 
   "warzone": {
     name: "Call of Duty: Warzone",
@@ -86,12 +132,6 @@ const GAME_DATABASE = {
   "minecraft": {
     name: "Minecraft",
     demand: 0.60,
-    guide: null
-  },
-
-  "gta5": {
-    name: "GTA V",
-    demand: 0.65,
     guide: null
   },
 
@@ -118,9 +158,25 @@ function populateGameSelect(
   const select =
     document.getElementById(selectId);
 
-  if(!select) return;
+  if(!select){
+    return;
+  }
 
   select.innerHTML = "";
+
+
+  const guideGroup =
+    document.createElement("optgroup");
+
+  guideGroup.label =
+    "Dedicated GameTools Guides";
+
+
+  const otherGroup =
+    document.createElement("optgroup");
+
+  otherGroup.label =
+    "General Settings Finder";
 
 
   Object.entries(GAME_DATABASE)
@@ -130,14 +186,35 @@ function populateGameSelect(
         document.createElement("option");
 
       option.value = id;
-      option.textContent = game.name;
+
+      option.textContent =
+        game.name;
+
 
       if(id === defaultGame){
+
         option.selected = true;
+
       }
 
-      select.appendChild(option);
+
+      if(game.guide){
+
+        guideGroup.appendChild(option);
+
+      }
+
+      else{
+
+        otherGroup.appendChild(option);
+
+      }
 
     });
+
+
+  select.appendChild(guideGroup);
+
+  select.appendChild(otherGroup);
 
 }
