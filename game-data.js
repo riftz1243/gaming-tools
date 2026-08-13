@@ -1,8 +1,6 @@
 /*
   GameTools shared game database
-
   demand = internal relative demand category.
-  It is NOT a benchmark score or exact FPS measurement.
 */
 
 const GAME_DATABASE = {
@@ -25,6 +23,42 @@ const GAME_DATABASE = {
     guide: "black-myth-wukong-settings.html"
   },
 
+  "kingdomcome": {
+    name: "Kingdom Come: Deliverance II",
+    demand: 1.55,
+    guide: "kingdom-come-2-settings.html"
+  },
+
+  "alanwake": {
+    name: "Alan Wake 2",
+    demand: 1.75,
+    guide: "alan-wake-2-settings.html"
+  },
+
+  "helldivers": {
+    name: "Helldivers 2",
+    demand: 1.25,
+    guide: "helldivers-2-settings.html"
+  },
+
+  "rdr2": {
+    name: "Red Dead Redemption 2",
+    demand: 1.15,
+    guide: "red-dead-redemption-2-settings.html"
+  },
+
+  "hogwarts": {
+    name: "Hogwarts Legacy",
+    demand: 1.30,
+    guide: "hogwarts-legacy-settings.html"
+  },
+
+  "requiem": {
+    name: "Resident Evil Requiem",
+    demand: 1.45,
+    guide: "resident-evil-requiem-settings.html"
+  },
+
   "elden": {
     name: "Elden Ring",
     demand: 1.00,
@@ -37,21 +71,9 @@ const GAME_DATABASE = {
     guide: null
   },
 
-  "rdr2": {
-    name: "Red Dead Redemption 2",
-    demand: 1.15,
-    guide: null
-  },
-
   "witcher3": {
     name: "The Witcher 3",
     demand: 1.10,
-    guide: null
-  },
-
-  "hogwarts": {
-    name: "Hogwarts Legacy",
-    demand: 1.30,
     guide: null
   },
 
@@ -73,12 +95,6 @@ const GAME_DATABASE = {
     guide: null
   },
 
-  "helldivers": {
-    name: "Helldivers 2",
-    demand: 1.25,
-    guide: null
-  },
-
   "forza": {
     name: "Forza Horizon 5",
     demand: 0.90,
@@ -89,29 +105,20 @@ const GAME_DATABASE = {
     name: "Baldur's Gate 3",
     demand: 0.90,
     guide: null
-  },
-
-  "alanwake": {
-    name: "Alan Wake 2",
-    demand: 1.75,
-    guide: null
-  },
-
-  "kingdomcome": {
-    name: "Kingdom Come: Deliverance II",
-    demand: 1.55,
-    guide: null
   }
 
 };
 
 
-function populateGameSelect(selectId, defaultGame = "cyberpunk") {
+function populateGameSelect(
+  selectId,
+  defaultGame = "cyberpunk"
+){
 
   const select =
     document.getElementById(selectId);
 
-  if (!select) return;
+  if(!select) return;
 
   select.innerHTML = "";
 
@@ -125,7 +132,7 @@ function populateGameSelect(selectId, defaultGame = "cyberpunk") {
       option.value = id;
       option.textContent = game.name;
 
-      if (id === defaultGame) {
+      if(id === defaultGame){
         option.selected = true;
       }
 
