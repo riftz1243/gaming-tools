@@ -1,8 +1,7 @@
 /*
-  GameTools shared dedicated game guide engine
-
-  demand values are internal relative categories.
-  They are NOT benchmark scores or guaranteed FPS.
+==========================================================
+ GAMETOOLS — SHARED GAME GUIDE ENGINE + SEO
+==========================================================
 */
 
 const DEDICATED_GAME_SETTINGS = {
@@ -10,113 +9,405 @@ const DEDICATED_GAME_SETTINGS = {
   kingdomcome: {
     title: "Kingdom Come: Deliverance II",
     demand: 1.55,
-    tip: "Reduce shadows, vegetation and volumetric effects first if performance drops."
+
+    description:
+      "Find the best Kingdom Come: Deliverance II PC settings for your GPU and resolution. Get practical graphics recommendations for NVIDIA and AMD cards.",
+
+    tip:
+      "Reduce shadows, vegetation and volumetric effects first if performance drops."
   },
+
 
   alanwake: {
     title: "Alan Wake 2",
     demand: 1.75,
-    tip: "Ray tracing is extremely demanding. Disable it first, then reduce lighting, reflections and volumetrics."
+
+    description:
+      "Find the best Alan Wake 2 PC settings for your GPU and resolution, including graphics quality, upscaling and ray tracing recommendations.",
+
+    tip:
+      "Ray tracing is extremely demanding. Disable it first, then reduce lighting, reflections and volumetrics."
   },
+
 
   helldivers: {
     title: "Helldivers 2",
     demand: 1.25,
-    tip: "Lower shadows, volumetrics and reflections first while keeping textures as high as your VRAM comfortably allows."
+
+    description:
+      "Find recommended Helldivers 2 PC settings for your GPU and resolution with practical performance and graphics quality recommendations.",
+
+    tip:
+      "Lower shadows, volumetrics and reflections first while keeping textures as high as your VRAM comfortably allows."
   },
+
 
   rdr2: {
     title: "Red Dead Redemption 2",
     demand: 1.15,
-    tip: "Avoid maxing every advanced option. Reflections, water-related settings and volumetrics are sensible settings to reduce first."
+
+    description:
+      "Find the best Red Dead Redemption 2 PC settings for your GPU and resolution without unnecessarily maxing demanding graphics options.",
+
+    tip:
+      "Avoid maxing every advanced option. Reflections, water settings and volumetrics are sensible settings to reduce first."
   },
+
 
   hogwarts: {
     title: "Hogwarts Legacy",
     demand: 1.30,
-    tip: "Ray tracing, shadows and effects can be expensive. Keep textures high when VRAM allows it."
+
+    description:
+      "Find recommended Hogwarts Legacy PC settings for your GPU and resolution, including textures, effects and ray tracing guidance.",
+
+    tip:
+      "Ray tracing, shadows and effects can be expensive. Keep textures high when VRAM allows it."
   },
+
 
   requiem: {
     title: "Resident Evil Requiem",
     demand: 1.45,
-    tip: "Start balanced and reduce ray tracing, shadows and volumetric effects first if you need more performance."
+
+    description:
+      "Find the best Resident Evil Requiem PC settings for your NVIDIA or AMD GPU, resolution and preferred graphics quality.",
+
+    tip:
+      "Start balanced and reduce ray tracing, shadows and volumetric effects first if you need more performance."
   },
+
 
   gta5enhanced: {
     title: "Grand Theft Auto V Enhanced",
     demand: 1.05,
-    tip: "For more performance, reduce ray tracing, reflections, shadows and extended distance-related settings before lowering textures."
+
+    description:
+      "Find the best GTA V Enhanced PC settings for your GPU and resolution, with practical recommendations for graphics quality and performance.",
+
+    tip:
+      "For more performance, reduce ray tracing, reflections, shadows and distance-related settings before lowering textures."
   },
+
 
   marvelrivals: {
     title: "Marvel Rivals",
     demand: 1.05,
-    tip: "For competitive play, prioritize lower shadows, effects and heavy lighting options while keeping image clarity high."
+
+    description:
+      "Find competitive Marvel Rivals PC settings for your GPU and resolution with recommendations focused on performance, clarity and responsiveness.",
+
+    tip:
+      "For competitive play, prioritize lower shadows, effects and heavy lighting options while keeping image clarity high."
   },
+
 
   cs2: {
     title: "Counter-Strike 2",
     demand: 0.60,
-    tip: "For competitive play, prioritize visibility and latency. Keep demanding effects low and avoid unnecessary visual options."
+
+    description:
+      "Find competitive Counter-Strike 2 PC settings for your GPU and resolution with recommendations focused on high FPS, visibility and responsiveness.",
+
+    tip:
+      "For competitive play, prioritize visibility and latency. Keep demanding effects low and avoid unnecessary visual options."
   },
+
 
   valorant: {
     title: "VALORANT",
     demand: 0.45,
-    tip: "VALORANT is often CPU-limited at very high frame rates. Keep distracting visual effects low and prioritize responsiveness."
+
+    description:
+      "Find competitive VALORANT PC graphics settings for your hardware with recommendations focused on high FPS, clarity and low latency.",
+
+    tip:
+      "VALORANT is often CPU-sensitive at very high frame rates. Keep distracting visual effects low and prioritize responsiveness."
   },
+
 
   elden: {
     title: "Elden Ring",
     demand: 1.00,
-    tip: "Keep textures high when possible and reduce shadows, effects and demanding lighting options first if performance drops."
+
+    description:
+      "Find recommended Elden Ring PC settings for your GPU and resolution with practical graphics quality and performance recommendations.",
+
+    tip:
+      "Keep textures high when possible and reduce shadows, effects and demanding lighting options first if performance drops."
   },
+
 
   battlefield6: {
     title: "Battlefield 6",
     demand: 1.35,
-    tip: "For multiplayer, prioritize stable responsiveness. Reduce shadows, effects, volumetrics and ray-traced features before textures."
+
+    description:
+      "Find the best Battlefield 6 PC settings for your GPU and resolution with multiplayer-focused performance and graphics recommendations.",
+
+    tip:
+      "For multiplayer, prioritize stable responsiveness. Reduce shadows, effects and volumetrics before textures."
   }
 
 };
 
+
+/*
+==========================================================
+ SEO
+==========================================================
+*/
+
+function applyGameSeo(game){
+
+  /*
+    PAGE TITLE
+  */
+
+  document.title =
+    `Best ${game.title} PC Settings by GPU | GameTools`;
+
+
+  /*
+    META DESCRIPTION
+  */
+
+  let description =
+    document.querySelector(
+      'meta[name="description"]'
+    );
+
+
+  if(!description){
+
+    description =
+      document.createElement("meta");
+
+    description.setAttribute(
+      "name",
+      "description"
+    );
+
+    document.head.appendChild(
+      description
+    );
+
+  }
+
+
+  description.setAttribute(
+    "content",
+    game.description
+  );
+
+
+  /*
+    CANONICAL URL
+  */
+
+  let canonical =
+    document.querySelector(
+      'link[rel="canonical"]'
+    );
+
+
+  if(!canonical){
+
+    canonical =
+      document.createElement("link");
+
+    canonical.setAttribute(
+      "rel",
+      "canonical"
+    );
+
+    document.head.appendChild(
+      canonical
+    );
+
+  }
+
+
+  const cleanUrl =
+    window.location.origin +
+    window.location.pathname;
+
+
+  canonical.setAttribute(
+    "href",
+    cleanUrl
+  );
+
+
+  /*
+    OPEN GRAPH TITLE
+  */
+
+  let ogTitle =
+    document.querySelector(
+      'meta[property="og:title"]'
+    );
+
+
+  if(!ogTitle){
+
+    ogTitle =
+      document.createElement("meta");
+
+    ogTitle.setAttribute(
+      "property",
+      "og:title"
+    );
+
+    document.head.appendChild(
+      ogTitle
+    );
+
+  }
+
+
+  ogTitle.setAttribute(
+    "content",
+    `Best ${game.title} PC Settings by GPU | GameTools`
+  );
+
+
+  /*
+    OPEN GRAPH DESCRIPTION
+  */
+
+  let ogDescription =
+    document.querySelector(
+      'meta[property="og:description"]'
+    );
+
+
+  if(!ogDescription){
+
+    ogDescription =
+      document.createElement("meta");
+
+    ogDescription.setAttribute(
+      "property",
+      "og:description"
+    );
+
+    document.head.appendChild(
+      ogDescription
+    );
+
+  }
+
+
+  ogDescription.setAttribute(
+    "content",
+    game.description
+  );
+
+
+  /*
+    OPEN GRAPH TYPE
+  */
+
+  let ogType =
+    document.querySelector(
+      'meta[property="og:type"]'
+    );
+
+
+  if(!ogType){
+
+    ogType =
+      document.createElement("meta");
+
+    ogType.setAttribute(
+      "property",
+      "og:type"
+    );
+
+    document.head.appendChild(
+      ogType
+    );
+
+  }
+
+
+  ogType.setAttribute(
+    "content",
+    "website"
+  );
+
+}
+
+
+/*
+==========================================================
+ GUIDE ENGINE
+==========================================================
+*/
 
 function startGameGuide(gameId){
 
   const game =
     DEDICATED_GAME_SETTINGS[gameId];
 
+
   if(!game){
-    console.error("Unknown GameTools game ID:", gameId);
+
+    console.error(
+      "Unknown GameTools game ID:",
+      gameId
+    );
+
     return;
+
   }
 
 
-  document.title =
-    `${game.title} Settings by GPU | GameTools`;
+  /*
+    SEO
+  */
 
+  applyGameSeo(game);
+
+
+  /*
+    PAGE CONTENT
+  */
 
   const name1 =
-    document.getElementById("gameName");
+    document.getElementById(
+      "gameName"
+    );
+
 
   const name2 =
-    document.getElementById("gameName2");
+    document.getElementById(
+      "gameName2"
+    );
+
 
   const name3 =
-    document.getElementById("gameName3");
+    document.getElementById(
+      "gameName3"
+    );
 
 
   if(name1){
-    name1.innerText = game.title;
+    name1.innerText =
+      game.title;
   }
+
 
   if(name2){
-    name2.innerText = game.title;
+    name2.innerText =
+      game.title;
   }
 
+
   if(name3){
-    name3.innerText = game.title;
+    name3.innerText =
+      game.title;
   }
 
 
@@ -125,6 +416,12 @@ function startGameGuide(gameId){
     "5060"
   );
 
+
+  /*
+==========================================================
+ SETTINGS GENERATOR
+==========================================================
+  */
 
   window.generateGameSettings =
   function(){
@@ -138,13 +435,17 @@ function startGameGuide(gameId){
 
     const resolution =
       document
-        .getElementById("resolution")
+        .getElementById(
+          "resolution"
+        )
         .value;
 
 
     const profile =
       document
-        .getElementById("profile")
+        .getElementById(
+          "profile"
+        )
         .value;
 
 
@@ -157,15 +458,25 @@ function startGameGuide(gameId){
       game.demand;
 
 
-    /* RESOLUTION LOAD */
+    /*
+      RESOLUTION
+    */
 
-    if(resolution === "1440"){
+    if(
+      resolution === "1440"
+    ){
+
       score *= 0.78;
+
     }
 
 
-    if(resolution === "4k"){
+    if(
+      resolution === "4k"
+    ){
+
       score *= 0.54;
+
     }
 
 
@@ -186,7 +497,11 @@ function startGameGuide(gameId){
     let rt;
 
 
-    /* BASE RECOMMENDATIONS */
+    /*
+==========================================================
+ BASE GRAPHICS LEVEL
+==========================================================
+    */
 
     if(score < 0.70){
 
@@ -333,26 +648,40 @@ function startGameGuide(gameId){
     }
 
 
-    /* PERFORMANCE PROFILE */
+    /*
+==========================================================
+ PERFORMANCE PROFILE
+==========================================================
+    */
 
-    if(profile === "performance"){
+    if(
+      profile ===
+      "performance"
+    ){
 
       preset =
         score > 1
+
         ? "Medium / High"
+
         : "Low / Medium";
+
 
       shadows =
         "Low / Medium";
 
+
       reflections =
         "Low / Medium";
+
 
       effects =
         "Low / Medium";
 
+
       volumetrics =
         "Low / Medium";
+
 
       rt =
         "Off";
@@ -360,9 +689,15 @@ function startGameGuide(gameId){
     }
 
 
-    /* QUALITY PROFILE */
+    /*
+==========================================================
+ QUALITY PROFILE
+==========================================================
+    */
 
-    if(profile === "quality"){
+    if(
+      profile === "quality"
+    ){
 
       textures =
         "Ultra";
@@ -393,12 +728,17 @@ function startGameGuide(gameId){
 
 
     /*
-      Competitive games get more conservative
-      recommendations when Performance is selected.
+==========================================================
+ COMPETITIVE GAMES
+==========================================================
     */
 
     if(
-      profile === "performance" &&
+      profile ===
+      "performance"
+
+      &&
+
       (
         gameId === "cs2" ||
         gameId === "valorant" ||
@@ -410,14 +750,18 @@ function startGameGuide(gameId){
       shadows =
         "Low";
 
+
       reflections =
         "Low";
+
 
       effects =
         "Low";
 
+
       volumetrics =
         "Low";
+
 
       rt =
         "Off";
@@ -425,36 +769,88 @@ function startGameGuide(gameId){
     }
 
 
-    /* UPSCALING */
+    /*
+==========================================================
+ VRAM
+==========================================================
+    */
+
+    const gpuVram =
+      card.vram || 8;
+
+
+    if(
+      gpuVram <= 6
+    ){
+
+      textures =
+        "Medium";
+
+    }
+
+
+    else if(
+      gpuVram === 8 &&
+      score < 1.2
+    ){
+
+      textures =
+        "High";
+
+    }
+
+
+    /*
+==========================================================
+ UPSCALING
+==========================================================
+    */
 
     let upscaling;
 
 
-    if(card.brand === "nvidia"){
+    if(
+      card.brand ===
+      "nvidia"
+    ){
 
-      if(resolution === "1080"){
+      if(
+        resolution ===
+        "1080"
+      ){
 
         upscaling =
           score > 1.15
+
           ? "Native / DLSS Quality"
+
           : "DLSS Quality";
 
       }
 
-      else if(resolution === "1440"){
+
+      else if(
+        resolution ===
+        "1440"
+      ){
 
         upscaling =
           score > 1.25
+
           ? "DLSS Quality"
+
           : "DLSS Balanced";
 
       }
+
 
       else{
 
         upscaling =
           score > 1.40
+
           ? "DLSS Quality"
+
           : "DLSS Balanced / Performance";
 
       }
@@ -464,29 +860,43 @@ function startGameGuide(gameId){
 
     else{
 
-      if(resolution === "1080"){
+      if(
+        resolution ===
+        "1080"
+      ){
 
         upscaling =
           score > 1.15
+
           ? "Native / FSR Quality"
+
           : "FSR Quality";
 
       }
 
-      else if(resolution === "1440"){
+
+      else if(
+        resolution ===
+        "1440"
+      ){
 
         upscaling =
           score > 1.25
+
           ? "FSR Quality"
+
           : "FSR Balanced";
 
       }
+
 
       else{
 
         upscaling =
           score > 1.40
+
           ? "FSR Quality"
+
           : "FSR Balanced / Performance";
 
       }
@@ -494,7 +904,11 @@ function startGameGuide(gameId){
     }
 
 
-    /* FRAME GENERATION */
+    /*
+==========================================================
+ FRAME GENERATION
+==========================================================
+    */
 
     let fg;
 
@@ -509,14 +923,21 @@ function startGameGuide(gameId){
 
     }
 
-    else if(card.framegen){
+
+    else if(
+      card.framegen
+    ){
 
       fg =
-        profile === "performance"
+        profile ===
+        "performance"
+
         ? "Optional"
+
         : "On if supported";
 
     }
+
 
     else{
 
@@ -526,12 +947,19 @@ function startGameGuide(gameId){
     }
 
 
-    /* SUMMARY */
+    /*
+==========================================================
+ SUMMARY
+==========================================================
+    */
 
     let summary;
 
 
-    if(level === "Limited"){
+    if(
+      level ===
+      "Limited"
+    ){
 
       summary =
         `${card.name} is a demanding match for ${game.title} at this resolution. Start conservatively and use upscaling where appropriate.`;
@@ -539,7 +967,10 @@ function startGameGuide(gameId){
     }
 
 
-    else if(level === "Moderate"){
+    else if(
+      level ===
+      "Moderate"
+    ){
 
       summary =
         `${card.name} should handle ${game.title} with compromises on heavier graphics options.`;
@@ -547,7 +978,10 @@ function startGameGuide(gameId){
     }
 
 
-    else if(level === "Good"){
+    else if(
+      level ===
+      "Good"
+    ){
 
       summary =
         `${card.name} is a solid match for ${game.title}. High settings are a sensible starting point.`;
@@ -555,7 +989,10 @@ function startGameGuide(gameId){
     }
 
 
-    else if(level === "Strong"){
+    else if(
+      level ===
+      "Strong"
+    ){
 
       summary =
         `${card.name} has good graphics headroom for ${game.title} at this resolution.`;
@@ -571,94 +1008,128 @@ function startGameGuide(gameId){
     }
 
 
-    /* OUTPUT */
+    /*
+==========================================================
+ OUTPUT
+==========================================================
+    */
 
     document
-      .getElementById("level")
+      .getElementById(
+        "level"
+      )
       .innerText =
         level;
 
 
     document
-      .getElementById("summary")
+      .getElementById(
+        "summary"
+      )
       .innerText =
         summary;
 
 
     document
-      .getElementById("preset")
+      .getElementById(
+        "preset"
+      )
       .innerText =
         preset;
 
 
     document
-      .getElementById("textures")
+      .getElementById(
+        "textures"
+      )
       .innerText =
         textures;
 
 
     document
-      .getElementById("shadows")
+      .getElementById(
+        "shadows"
+      )
       .innerText =
         shadows;
 
 
     document
-      .getElementById("reflections")
+      .getElementById(
+        "reflections"
+      )
       .innerText =
         reflections;
 
 
     document
-      .getElementById("effects")
+      .getElementById(
+        "effects"
+      )
       .innerText =
         effects;
 
 
     document
-      .getElementById("volumetrics")
+      .getElementById(
+        "volumetrics"
+      )
       .innerText =
         volumetrics;
 
 
     document
-      .getElementById("rt")
+      .getElementById(
+        "rt"
+      )
       .innerText =
         rt;
 
 
     document
-      .getElementById("upscaling")
+      .getElementById(
+        "upscaling"
+      )
       .innerText =
         upscaling;
 
 
     document
-      .getElementById("fg")
+      .getElementById(
+        "fg"
+      )
       .innerText =
         fg;
 
 
     document
-      .getElementById("tip")
+      .getElementById(
+        "tip"
+      )
       .innerText =
         game.tip;
 
 
     document
-      .getElementById("result")
+      .getElementById(
+        "result"
+      )
       .style
       .display =
         "block";
 
 
     document
-      .getElementById("result")
+      .getElementById(
+        "result"
+      )
       .scrollIntoView({
 
-        behavior:"smooth",
+        behavior:
+          "smooth",
 
-        block:"nearest"
+        block:
+          "nearest"
 
       });
 
